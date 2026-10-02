@@ -4,7 +4,7 @@
         <span class="pf-eyebrow">@Section.Eyebrow</span>
     }
 
-    <h2 class="pf-section__title">@Section.Title</h2>
+    <h2 class="pf-section__title" id="@($"{Section.Id}-title")">@Section.Title</h2>
 
     @if (!string.IsNullOrWhiteSpace(Section.Subtitle))
     {
