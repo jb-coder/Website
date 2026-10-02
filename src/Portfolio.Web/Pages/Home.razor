@@ -1,0 +1,71 @@
+@page "/"
+
+<PageTitle>@pageTitle</PageTitle>
+
+<HeadContent>
+    <script type="application/ld+json">@((MarkupString)structuredData)</script>
+</HeadContent>
+
+<HeroSection Options="portfolio" Stats="statistics" Technologies="technologies" />
+
+<section class="pf-section" id="featured-work" aria-labelledby="featured-work-title">
+    <div class="pf-container">
+        <SectionHeader Section="featuredSection" />
+
+        <div class="pf-grid pf-grid--projects">
+            @foreach (var project in featuredProjects)
+            {
+                <ProjectCard Project="project" />
+            }
+        </div>
+
+        <div class="pf-section__actions">
+            <a class="pf-button pf-button--ghost" href="projects">
+                <span>View all projects</span>
+                <Icon Name="arrow-right" Size="18" />
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="pf-section pf-section--alt" id="how-i-work" aria-labelledby="how-i-work-title">
+    <div class="pf-container">
+        <SectionHeader Section="principlesSection" Align="center" />
+
+        <div class="pf-grid pf-grid--three">
+            @foreach (var principle in principles)
+            {
+                <article class="pf-card pf-principle">
+                    <span class="pf-principle__icon" aria-hidden="true">
+                        <Icon Name="@principle.Icon" Size="22" />
+                    </span>
+                    <h3 class="pf-principle__title">@principle.Title</h3>
+                    <p class="pf-principle__text">@principle.Text</p>
+                </article>
+            }
+        </div>
+    </div>
+</section>
+
+<section class="pf-section" id="cta" aria-labelledby="cta-title">
+    <div class="pf-container">
+        <div class="pf-cta">
+            <div class="pf-cta__content">
+                <h2 class="pf-cta__title" id="cta-title">Let's build something solid</h2>
+                <p class="pf-cta__text">
+                    I'm available for senior .NET roles and architecture-focused work.
+                    Tell me about your product and the problems you want to leave behind.
+                </p>
+            </div>
+            <div class="pf-cta__actions">
+                <a class="pf-button pf-button--primary" href="contact">
+                    <span>Start a conversation</span>
+                    <Icon Name="arrow-right" Size="18" />
+                </a>
+                <a class="pf-button pf-button--ghost" href="projects">
+                    <span>See the work</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

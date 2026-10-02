@@ -1,0 +1,54 @@
+@page "/contact"
+
+<PageTitle>@pageTitle</PageTitle>
+
+<section class="pf-page-hero">
+    <div class="pf-container">
+        <span class="pf-eyebrow">Contact</span>
+        <h1 class="pf-page-hero__title">Let's talk about your next system</h1>
+        <p class="pf-page-hero__lead">@portfolio.Availability</p>
+    </div>
+</section>
+
+<section class="pf-section" aria-labelledby="contact-title">
+    <div class="pf-container">
+        <SectionHeader Section="contactSection" />
+
+        <div class="pf-grid pf-grid--contact">
+            <ContactCard Label="Email"
+                         Value="@portfolio.Email"
+                         Href="@($"mailto:{portfolio.Email}?subject=Opportunity%20for%20{portfolio.Name}")"
+                         Icon="mail"
+                         Accent="#58A6FF" />
+            <ContactCard Label="LinkedIn"
+                         Value="Professional profile"
+                         Href="@portfolio.LinkedInUrl"
+                         Icon="linkedin"
+                         Accent="#79C0FF" />
+            <ContactCard Label="GitHub"
+                         Value="Code and experiments"
+                         Href="@portfolio.GitHubUrl"
+                         Icon="github"
+                         Accent="#A5D6FF" />
+            <ContactCard Label="Location"
+                         Value="@portfolio.Location"
+                         Href="@BuildMapUrl()"
+                         Icon="map-pin"
+                         Accent="#6CB6FF" />
+        </div>
+
+        <div class="pf-card pf-contact-note">
+            <span class="pf-contact-note__icon" aria-hidden="true">
+                <Icon Name="zap" Size="22" />
+            </span>
+            <div>
+                <h2 class="pf-contact-note__title" id="contact-title">What happens next</h2>
+                <p class="pf-contact-note__text">
+                    Email is the fastest channel: I usually reply within one business day with
+                    availability and a few questions about the problem. Prefer a call? Send a
+                    time window and I'll confirm.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

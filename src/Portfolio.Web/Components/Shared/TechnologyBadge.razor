@@ -1,0 +1,12 @@
+<span class="pf-badge @Badge.CssClass"
+      style="--badge-accent: @Badge.Accent"
+      aria-label="@Badge.AriaLabel"
+      title="@Badge.CategoryLabel">
+    <Icon Name="@Badge.Icon" Size="14" />
+    <span class="pf-badge__text">@Badge.Name</span>
+</span>
+
+@code {
+    [Parameter, EditorRequired]
+    public TechnologyBadgeViewModel Badge { get; set; } = default!;
+}

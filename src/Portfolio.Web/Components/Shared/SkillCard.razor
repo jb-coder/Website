@@ -1,0 +1,36 @@
+<article class="pf-card pf-skill" id="@Group.Id" style="--skill-accent: @Group.Accent">
+    <header class="pf-skill__header">
+        <span class="pf-skill__icon" aria-hidden="true">
+            <Icon Name="@Group.Icon" Size="22" />
+        </span>
+        <div>
+            <h3 class="pf-skill__title">@Group.Title</h3>
+            <p class="pf-skill__description">@Group.Description</p>
+        </div>
+    </header>
+
+    <ul class="pf-skill__list">
+        @foreach (var skill in Group.Skills)
+        {
+            <li class="pf-skill__item">
+                <div class="pf-skill__row">
+                    <span class="pf-skill__name">
+                        <Icon Name="@skill.Icon" Size="15" />
+                        @skill.Name
+                    </span>
+                    <span class="pf-skill__level @skill.LevelCssClass">@skill.LevelLabel</span>
+                </div>
+                <div class="pf-skill__bar"
+                     role="img"
+                     aria-label="@($"{skill.Name}: {skill.LevelLabel}")">
+                    <span class="pf-skill__fill" style="width: @(skill.LevelPercentage)%"></span>
+                </div>
+            </li>
+        }
+    </ul>
+</article>
+
+@code {
+    [Parameter, EditorRequired]
+    public SkillGroupViewModel Group { get; set; } = default!;
+}

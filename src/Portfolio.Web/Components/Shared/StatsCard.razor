@@ -1,0 +1,13 @@
+<div class="pf-stats" style="--stats-accent: @Stats.Accent">
+    <span class="pf-stats__icon">
+        <Icon Name="@Stats.Icon" Size="18" />
+    </span>
+    <span class="pf-stats__value">@Stats.Value</span>
+    <span class="pf-stats__label">@Stats.Label</span>
+    <span class="pf-stats__description">@Stats.Description</span>
+</div>
+
+@code {
+    [Parameter, EditorRequired]
+    public StatsCardViewModel Stats { get; set; } = default!;
+}

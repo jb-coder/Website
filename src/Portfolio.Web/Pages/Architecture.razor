@@ -1,0 +1,121 @@
+@page "/architecture"
+
+<PageTitle>@pageTitle</PageTitle>
+
+<HeadContent>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@@11/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'dark', securityLevel: 'strict' });
+    </script>
+</HeadContent>
+
+<section class="pf-page-hero">
+    <div class="pf-container">
+        <span class="pf-eyebrow">Architecture</span>
+        <h1 class="pf-page-hero__title">This site is the portfolio piece</h1>
+        <p class="pf-page-hero__lead">
+            Every pattern applied here is documented, tested by the build and visible in the
+            navigation you are using right now.
+        </p>
+    </div>
+</section>
+
+<section class="pf-section" aria-labelledby="layers-title">
+    <div class="pf-container">
+        <SectionHeader Section="layersSection" />
+
+        <ol class="pf-layers" aria-label="Request flow through the layers">
+            @foreach (var layer in layers)
+            {
+                <li class="pf-layers__item">
+                    <span class="pf-layers__icon" aria-hidden="true">
+                        <Icon Name="@layer.Icon" Size="20" />
+                    </span>
+                    <div class="pf-layers__body">
+                        <h3 class="pf-layers__title">@layer.Title</h3>
+                        <p class="pf-layers__text">@layer.Text</p>
+                        <ul class="pf-layers__examples">
+                            @foreach (var example in layer.Examples)
+                            {
+                                <li class="pf-tag">@example</li>
+                            }
+                        </ul>
+                    </div>
+                </li>
+            }
+        </ol>
+    </div>
+</section>
+
+<section class="pf-section pf-section--alt" aria-labelledby="diagram-title">
+    <div class="pf-container">
+        <SectionHeader Section="diagramSection" />
+
+        <div class="pf-diagram pf-card">
+            <pre class="mermaid">
+flowchart LR
+    A[Pages and Components] --> B[Mediator]
+    B --> C[Query Handlers]
+    C --> D[Repositories]
+    C --> E[Strategies]
+    C --> F[Factories and Builders]
+    D --> G[Static Data]
+    E --> G
+    F --> G
+            </pre>
+        </div>
+
+        <p class="pf-diagram__note">
+            Rendered with Mermaid. The layered diagram above contains the same
+            information when JavaScript is unavailable.
+        </p>
+    </div>
+</section>
+
+<section class="pf-section" aria-labelledby="patterns-title">
+    <div class="pf-container">
+        <SectionHeader Section="patternsSection" />
+
+        <div class="pf-grid pf-grid--patterns">
+            @foreach (var pattern in patterns)
+            {
+                <PatternCard Pattern="pattern" DocumentationUrl="@BuildDocumentationUrl(pattern)" />
+            }
+        </div>
+    </div>
+</section>
+
+<section class="pf-section pf-section--alt" aria-labelledby="solid-title">
+    <div class="pf-container">
+        <SectionHeader Section="solidSection" />
+
+        <div class="pf-grid pf-grid--three">
+            @foreach (var principle in solidPrinciples)
+            {
+                <article class="pf-card pf-principle">
+                    <span class="pf-principle__icon" aria-hidden="true">
+                        <Icon Name="check" Size="20" />
+                    </span>
+                    <h3 class="pf-principle__title">@principle.Letter — @principle.Name</h3>
+                    <p class="pf-principle__text">@principle.Text</p>
+                </article>
+            }
+        </div>
+    </div>
+</section>
+
+<section class="pf-section" aria-labelledby="quality-title">
+    <div class="pf-container">
+        <SectionHeader Section="qualitySection" />
+
+        <ul class="pf-quality" aria-label="Quality gates in this repository">
+            @foreach (var gate in qualityGates)
+            {
+                <li class="pf-quality__item">
+                    <Icon Name="shield" Size="18" />
+                    <span>@gate</span>
+                </li>
+            }
+        </ul>
+    </div>
+</section>

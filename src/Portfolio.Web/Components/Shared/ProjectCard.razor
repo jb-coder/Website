@@ -1,0 +1,78 @@
+<article class="pf-card pf-project" id="@Project.Id" style="--project-accent: @Project.Accent">
+    <div class="pf-project__visual" aria-hidden="true">
+        <Icon Name="@Project.Icon" Size="34" />
+    </div>
+
+    <div class="pf-project__body">
+        <div class="pf-project__meta">
+            <span class="pf-project__category">@Project.CategoryLabel</span>
+            <span class="pf-project__year">@Project.Year</span>
+            @if (Project.IsFeatured)
+            {
+                <span class="pf-project__featured">Featured</span>
+            }
+        </div>
+
+        <h3 class="pf-project__title">@Project.Title</h3>
+        <p class="pf-project__summary">@Project.Summary</p>
+        <p class="pf-project__description">@Project.Description</p>
+
+        @if (Project.Highlights.Count > 0)
+        {
+            <ul class="pf-project__highlights">
+                @foreach (var highlight in Project.Highlights)
+                {
+                    <li>
+                        <Icon Name="check" Size="14" />
+                        <span>@highlight</span>
+                    </li>
+                }
+            </ul>
+        }
+
+        <div class="pf-project__badges">
+            @foreach (var badge in Project.Badges)
+            {
+                <TechnologyBadge Badge="badge" />
+            }
+        </div>
+    </div>
+
+    <footer class="pf-project__footer">
+        <span class="pf-status @Project.StatusCssClass">
+            <span class="pf-status__dot" aria-hidden="true"></span>
+            @Project.StatusLabel
+        </span>
+
+        @if (HasLinks)
+        {
+            <span class="pf-project__links">
+                @if (!string.IsNullOrWhiteSpace(Project.RepositoryUrl))
+                {
+                    <a class="pf-link" href="@Project.RepositoryUrl" target="_blank" rel="noopener noreferrer">
+                        Code
+                        <Icon Name="github" Size="14" />
+                        <span class="pf-visually-hidden">(opens in a new tab)</span>
+                    </a>
+                }
+                @if (!string.IsNullOrWhiteSpace(Project.LiveUrl))
+                {
+                    <a class="pf-link" href="@Project.LiveUrl" target="_blank" rel="noopener noreferrer">
+                        Live
+                        <Icon Name="external-link" Size="14" />
+                        <span class="pf-visually-hidden">(opens in a new tab)</span>
+                    </a>
+                }
+            </span>
+        }
+    </footer>
+</article>
+
+@code {
+    [Parameter, EditorRequired]
+    public ProjectCardViewModel Project { get; set; } = default!;
+
+    private bool HasLinks =>
+        !string.IsNullOrWhiteSpace(Project.RepositoryUrl) ||
+        !string.IsNullOrWhiteSpace(Project.LiveUrl);
+}

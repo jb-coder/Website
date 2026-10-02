@@ -1,0 +1,21 @@
+<div class="pf-marquee" role="list" aria-label="Core technologies">
+    <div class="pf-marquee__track">
+        @foreach (var badge in Badges)
+        {
+            <span role="listitem">
+                <TechnologyBadge Badge="badge" />
+            </span>
+        }
+        @foreach (var badge in Badges)
+        {
+            <span role="listitem" aria-hidden="true">
+                <TechnologyBadge Badge="badge" />
+            </span>
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter, EditorRequired]
+    public IReadOnlyList<TechnologyBadgeViewModel> Badges { get; set; } = [];
+}

@@ -1,0 +1,45 @@
+@inject IOptions<PortfolioOptions> PortfolioOptions
+
+@{
+    var portfolio = PortfolioOptions.Value;
+}
+
+<footer class="pf-footer">
+    <div class="pf-container pf-footer__inner">
+        <div class="pf-footer__about">
+            <p class="pf-footer__name">@portfolio.Name</p>
+            <p class="pf-footer__note">
+                Built with .NET 10, Blazor static rendering and zero JavaScript.
+                Pre-rendered and hosted on GitHub Pages.
+            </p>
+        </div>
+
+        <nav class="pf-footer__nav" aria-label="Footer">
+            <ul>
+                @foreach (var item in NavigationCatalog.Items)
+                {
+                    <li>
+                        <a href="@item.Path">@item.Label</a>
+                    </li>
+                }
+            </ul>
+        </nav>
+
+        <div class="pf-footer__social">
+            <a class="pf-social" href="@portfolio.GitHubUrl" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile (opens in a new tab)">
+                <Icon Name="github" Size="18" />
+            </a>
+            <a class="pf-social" href="@portfolio.LinkedInUrl" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in a new tab)">
+                <Icon Name="linkedin" Size="18" />
+            </a>
+            <a class="pf-social" href="@($"mailto:{portfolio.Email}")" aria-label="@($"Send an email to {portfolio.Name}")">
+                <Icon Name="mail" Size="18" />
+            </a>
+        </div>
+    </div>
+
+    <div class="pf-container pf-footer__legal">
+        <p>© @DateTime.UtcNow.Year @portfolio.Name. All rights reserved.</p>
+        <p>@portfolio.Location</p>
+    </div>
+</footer>

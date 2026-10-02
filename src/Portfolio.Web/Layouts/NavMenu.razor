@@ -1,0 +1,15 @@
+<nav class="pf-nav" aria-label="Primary">
+    <ul class="pf-nav__list">
+        @foreach (var item in NavigationCatalog.Items)
+        {
+            <li>
+                <NavLink class="pf-nav__link"
+                         href="@item.Path"
+                         Match="@(string.IsNullOrEmpty(item.Path) ? NavLinkMatch.All : NavLinkMatch.Prefix)">
+                    <Icon Name="@item.Icon" Size="16" />
+                    <span>@item.Label</span>
+                </NavLink>
+            </li>
+        }
+    </ul>
+</nav>
