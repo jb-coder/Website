@@ -36,8 +36,8 @@ public partial class About : ComponentBase
         timelineSection = SectionBuilder
             .WithId("timeline-list")
             .WithEyebrow("Career")
-            .WithTitle("Experience, education and certifications")
-            .WithSubtitle("The short version of a path that started with algorithms and ended up in distributed systems.")
+            .WithTitle("Experience and milestones")
+            .WithSubtitle("From electronics repair to leading development teams: the path that shaped how I build software.")
             .Build();
 
         timeline = await Mediator.SendAsync(new GetCareerTimelineQuery());
