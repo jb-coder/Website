@@ -66,7 +66,7 @@ mediador consume handlers, los handlers consumen repositorios y estrategias.
 | `Icon` | Todos los componentes y páginas | Muy alta |
 | `TechnologyBadge` | `ProjectCard`, `TechnologyMarquee` | Alta |
 | `SectionHeader` | Home, About, Skills, Projects, Architecture, Contact | Muy alta |
-| `ProjectCard` | Home (3), Projects (6) | Alta |
+| `ProjectCard` | Home (2), Projects (2) | Alta |
 | `SkillCard` | Skills (5 grupos) | Media |
 | `TimelineItem` | About (5 entradas) | Media |
 | `ContactCard` | Contact (4) | Media |
@@ -139,7 +139,7 @@ en esta revisión: se recomienda añadirlo como paso de CI (ver sección 12).
   y componente.
 - Sin comentarios redundantes en el código de producción.
 
-**Observación menor**: `ProjectRepository` concentra 6 proyectos de seed en un
+**Observación menor**: `ProjectRepository` concentra los proyectos de seed en un
 solo archivo; si el catálogo crece, conviene extraer los datos a un archivo de
 seed o a JSON embebido, manteniendo el repositorio como única puerta.
 

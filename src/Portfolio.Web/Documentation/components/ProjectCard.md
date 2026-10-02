@@ -30,7 +30,7 @@ El view model incluye: `Id`, `Title`, `Summary`, `Description`,
 
 ## Casos de uso
 
-- Home: tres proyectos destacados (`GetFeaturedProjectsQuery`).
+- Home: proyectos destacados (`GetFeaturedProjectsQuery`).
 - `/projects`: catálogo completo o filtrado por categoría.
 - Futuras vistas: búsqueda, favoritos o página de detalle.
 
