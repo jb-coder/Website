@@ -59,6 +59,7 @@ jobs:
           ASPNETCORE_URLS: http://localhost:5199
           ASPNETCORE_ENVIRONMENT: Production
           Portfolio__BasePath: ${{ steps.base.outputs.base_path }}
+          Portfolio__PublicBaseUrl: https://${{ github.repository_owner }}.github.io/
         run: |
           nohup dotnet publish/Portfolio.Web.dll > server.log 2>&1 &
           base="$Portfolio__BasePath"
