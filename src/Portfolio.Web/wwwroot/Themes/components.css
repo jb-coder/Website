@@ -10,7 +10,7 @@
     justify-content: center;
     gap: 0.55rem;
     padding: 0.8rem 1.4rem;
-    border: 1px solid transparent;
+    border: 0;
     border-radius: var(--pf-radius-pill);
     font-size: 0.95rem;
     font-weight: 700;
@@ -24,7 +24,10 @@
 }
 
 .pf-button--primary {
-    background: var(--pf-gradient-primary);
+    /* Solid fallback plus a gradient that does not reach the darkest stop
+       inside the button, so the rounded right edge never shows a hard cut. */
+    background-color: #58A6FF;
+    background-image: linear-gradient(120deg, #79C0FF 0%, #58A6FF 45%, #1F6FEB 120%);
     color: #06121f;
     box-shadow: var(--pf-glow);
 }
@@ -37,7 +40,8 @@
 
 .pf-button--ghost {
     background: rgba(255, 255, 255, 0.03);
-    border-color: var(--pf-border);
+    border: 1px solid var(--pf-border);
+    padding: calc(0.8rem - 1px) calc(1.4rem - 1px);
     color: var(--pf-text-body);
 }
 
