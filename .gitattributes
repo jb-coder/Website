@@ -1,0 +1,20 @@
+# Normalize all text files to LF in the repository.
+* text=auto eol=lf
+
+*.slnx text eol=lf
+*.cs text eol=lf
+*.razor text eol=lf
+*.css text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.svg text eol=lf
+
+# Binary assets
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
