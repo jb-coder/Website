@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Nav.PrimaryAria" xml:space="preserve">
+    <value>Primary</value>
+  </data>
+  <data name="Nav.FooterAria" xml:space="preserve">
+    <value>Footer</value>
+  </data>
+  <data name="Nav.Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="Nav.About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="Nav.Skills" xml:space="preserve">
+    <value>Skills</value>
+  </data>
+  <data name="Nav.Projects" xml:space="preserve">
+    <value>Projects</value>
+  </data>
+  <data name="Nav.Architecture" xml:space="preserve">
+    <value>Architecture</value>
+  </data>
+  <data name="Nav.Contact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="Common.SkipToContent" xml:space="preserve">
+    <value>Skip to content</value>
+  </data>
+  <data name="Common.OpensInNewTab" xml:space="preserve">
+    <value>(opens in a new tab)</value>
+  </data>
+  <data name="Common.EmailAria" xml:space="preserve">
+    <value>Send an email to {0}</value>
+  </data>
+  <data name="Common.GithubAria" xml:space="preserve">
+    <value>GitHub profile (opens in a new tab)</value>
+  </data>
+  <data name="Common.LinkedInAria" xml:space="preserve">
+    <value>LinkedIn profile (opens in a new tab)</value>
+  </data>
+  <data name="Common.AllRightsReserved" xml:space="preserve">
+    <value>All rights reserved.</value>
+  </data>
+  <data name="Common.Technologies" xml:space="preserve">
+    <value>Technologies</value>
+  </data>
+  <data name="Language.ViewInEnglish" xml:space="preserve">
+    <value>View this page in English</value>
+  </data>
+  <data name="Language.ViewInSpanish" xml:space="preserve">
+    <value>View this page in Spanish</value>
+  </data>
+  <data name="Hero.ProfileAria" xml:space="preserve">
+    <value>Developer profile</value>
+  </data>
+  <data name="Hero.FocusAria" xml:space="preserve">
+    <value>Focus areas</value>
+  </data>
+  <data name="Hero.CtaExplore" xml:space="preserve">
+    <value>Explore my work</value>
+  </data>
+  <data name="Hero.CtaContact" xml:space="preserve">
+    <value>Get in touch</value>
+  </data>
+  <data name="Home.Featured.Eyebrow" xml:space="preserve">
+    <value>Selected work</value>
+  </data>
+  <data name="Home.Featured.Title" xml:space="preserve">
+    <value>Projects that go from concept to production</value>
+  </data>
+  <data name="Home.Featured.Subtitle" xml:space="preserve">
+    <value>A sample of the platforms and applications I design and build.</value>
+  </data>
+  <data name="Home.Featured.ViewAll" xml:space="preserve">
+    <value>View all projects</value>
+  </data>
+  <data name="Home.Principles.Eyebrow" xml:space="preserve">
+    <value>How I work</value>
+  </data>
+  <data name="Home.Principles.Title" xml:space="preserve">
+    <value>Engineering principles I do not negotiate</value>
+  </data>
+  <data name="Home.Principles.Subtitle" xml:space="preserve">
+    <value>The habits behind every repository, pipeline and pull request.</value>
+  </data>
+  <data name="Home.Principle.Architecture.Title" xml:space="preserve">
+    <value>Architecture first</value>
+  </data>
+  <data name="Home.Principle.Architecture.Text" xml:space="preserve">
+    <value>I design boundaries before writing code: clean layering, explicit contracts and a domain that is easy to test.</value>
+  </data>
+  <data name="Home.Principle.Automation.Title" xml:space="preserve">
+    <value>Automate everything</value>
+  </data>
+  <data name="Home.Principle.Automation.Text" xml:space="preserve">
+    <value>Pipelines build, test and deploy every change. If a step is manual, it will eventually be forgotten.</value>
+  </data>
+  <data name="Home.Principle.Performance.Title" xml:space="preserve">
+    <value>Performance is a feature</value>
+  </data>
+  <data name="Home.Principle.Performance.Text" xml:space="preserve">
+    <value>Fast APIs and pre-rendered UIs. This site ships zero JavaScript on purpose.</value>
+  </data>
+  <data name="Home.Cta.Title" xml:space="preserve">
+    <value>Let's build something solid</value>
+  </data>
+  <data name="Home.Cta.Text" xml:space="preserve">
+    <value>I'm available for senior .NET roles and architecture-focused work. Tell me about your product and the problems you want to leave behind.</value>
+  </data>
+  <data name="Home.Cta.Primary" xml:space="preserve">
+    <value>Start a conversation</value>
+  </data>
+  <data name="Home.Cta.Secondary" xml:space="preserve">
+    <value>See the work</value>
+  </data>
+  <data name="About.Eyebrow" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>The engineer behind the code</value>
+  </data>
+  <data name="About.Lead" xml:space="preserve">
+    <value>Backend platforms, APIs, Blazor front-ends and MAUI apps — always with maintainability as the acceptance criterion.</value>
+  </data>
+  <data name="About.ProfileAria" xml:space="preserve">
+    <value>Professional profile</value>
+  </data>
+  <data name="About.Bio.Heading" xml:space="preserve">
+    <value>I build software that survives its authors</value>
+  </data>
+  <data name="About.Bio.P1" xml:space="preserve">
+    <value>I'm a senior .NET developer with more than {0} years shipping systems that companies run their day on: backend platforms, internal and public APIs, Blazor front-ends and cross-platform mobile apps.</value>
+  </data>
+  <data name="About.Bio.P2" xml:space="preserve">
+    <value>My sweet spot is the space between architecture and delivery. Clean Architecture, CQRS and Domain-Driven Design are tools I use because they make change cheap — never as ceremony. I favour a small number of clear boundaries, explicit contracts and tests that document intent.</value>
+  </data>
+  <data name="About.Bio.P3" xml:space="preserve">
+    <value>On the cloud side I work mainly with Azure: App Service, Functions, Service Bus, Azure SQL and pipelines in Azure DevOps. I treat observability, accessibility and performance as features from day one, not as a hardening phase.</value>
+  </data>
+  <data name="About.Fact.Years" xml:space="preserve">
+    <value>{0}+ years building .NET systems</value>
+  </data>
+  <data name="About.Timeline.Eyebrow" xml:space="preserve">
+    <value>Career</value>
+  </data>
+  <data name="About.Timeline.Title" xml:space="preserve">
+    <value>Experience and milestones</value>
+  </data>
+  <data name="About.Timeline.Subtitle" xml:space="preserve">
+    <value>From electronics repair to leading development teams: the path that shaped how I build software.</value>
+  </data>
+  <data name="Skills.Eyebrow" xml:space="preserve">
+    <value>Skills</value>
+  </data>
+  <data name="Skills.Title" xml:space="preserve">
+    <value>A stack chosen for longevity</value>
+  </data>
+  <data name="Skills.Lead" xml:space="preserve">
+    <value>Grouped by discipline. Levels reflect production experience, not tutorials completed.</value>
+  </data>
+  <data name="Skills.Section.Eyebrow" xml:space="preserve">
+    <value>Capabilities</value>
+  </data>
+  <data name="Skills.Section.Title" xml:space="preserve">
+    <value>Five disciplines, one coherent toolbox</value>
+  </data>
+  <data name="Skills.Section.Subtitle" xml:space="preserve">
+    <value>Backend, frontend, mobile, cloud and architecture — each with real delivery behind it.</value>
+  </data>
+  <data name="Skills.Legend.ExpertHint" xml:space="preserve">
+    <value>designs and leads</value>
+  </data>
+  <data name="Skills.Legend.AdvancedHint" xml:space="preserve">
+    <value>ships independently</value>
+  </data>
+  <data name="Skills.Legend.IntermediateHint" xml:space="preserve">
+    <value>working knowledge</value>
+  </data>
+  <data name="Skills.Note.Title" xml:space="preserve">
+    <value>Always one technology away from the next project</value>
+  </data>
+  <data name="Skills.Note.Text" xml:space="preserve">
+    <value>The stack grows on demand: I learn what the problem needs, document the decision and add it here when it reaches production quality.</value>
+  </data>
+  <data name="SkillCard.SkillsSingular" xml:space="preserve">
+    <value>skill</value>
+  </data>
+  <data name="SkillCard.SkillsPlural" xml:space="preserve">
+    <value>skills</value>
+  </data>
+  <data name="SkillLevel.Expert" xml:space="preserve">
+    <value>Expert</value>
+  </data>
+  <data name="SkillLevel.Advanced" xml:space="preserve">
+    <value>Advanced</value>
+  </data>
+  <data name="SkillLevel.Intermediate" xml:space="preserve">
+    <value>Intermediate</value>
+  </data>
+  <data name="SkillGroup.Backend.Title" xml:space="preserve">
+    <value>Backend</value>
+  </data>
+  <data name="SkillGroup.Backend.Description" xml:space="preserve">
+    <value>Services, APIs and data access built for throughput and maintainability.</value>
+  </data>
+  <data name="SkillGroup.Frontend.Title" xml:space="preserve">
+    <value>Frontend</value>
+  </data>
+  <data name="SkillGroup.Frontend.Description" xml:space="preserve">
+    <value>Server-rendered UI, component design and accessible experiences.</value>
+  </data>
+  <data name="SkillGroup.Mobile.Title" xml:space="preserve">
+    <value>Mobile</value>
+  </data>
+  <data name="SkillGroup.Mobile.Description" xml:space="preserve">
+    <value>Cross-platform apps that keep working when the network does not.</value>
+  </data>
+  <data name="SkillGroup.Cloud.Title" xml:space="preserve">
+    <value>Cloud &amp; DevOps</value>
+  </data>
+  <data name="SkillGroup.Cloud.Description" xml:space="preserve">
+    <value>Automated delivery and resilient hosting on Azure and AWS.</value>
+  </data>
+  <data name="SkillGroup.Architecture.Title" xml:space="preserve">
+    <value>Architecture</value>
+  </data>
+  <data name="SkillGroup.Architecture.Description" xml:space="preserve">
+    <value>The principles and patterns that keep systems changeable.</value>
+  </data>
+  <data name="Stats.Years.Label" xml:space="preserve">
+    <value>Years of experience</value>
+  </data>
+  <data name="Stats.Years.Description" xml:space="preserve">
+    <value>Building production .NET systems</value>
+  </data>
+  <data name="Stats.Projects.Label" xml:space="preserve">
+    <value>Projects delivered</value>
+  </data>
+  <data name="Stats.Projects.Description" xml:space="preserve">
+    <value>APIs, platforms and mobile apps</value>
+  </data>
+  <data name="Stats.Technologies.Label" xml:space="preserve">
+    <value>Technologies in use</value>
+  </data>
+  <data name="Stats.Technologies.Description" xml:space="preserve">
+    <value>Across backend, frontend, mobile and cloud</value>
+  </data>
+  <data name="Stats.Patterns.Label" xml:space="preserve">
+    <value>Patterns documented</value>
+  </data>
+  <data name="Stats.Patterns.Description" xml:space="preserve">
+    <value>Applied and explained in this very site</value>
+  </data>
+  <data name="Projects.Eyebrow" xml:space="preserve">
+    <value>Projects</value>
+  </data>
+  <data name="Projects.Title" xml:space="preserve">
+    <value>Real systems, not mockups</value>
+  </data>
+  <data name="Projects.Lead" xml:space="preserve">
+    <value>Platforms and applications in progress and in production. Filter by discipline.</value>
+  </data>
+  <data name="Projects.Section.Eyebrow" xml:space="preserve">
+    <value>Portfolio</value>
+  </data>
+  <data name="Projects.Section.Title" xml:space="preserve">
+    <value>Selected projects</value>
+  </data>
+  <data name="Projects.Section.Subtitle" xml:space="preserve">
+    <value>Each card summarizes the problem, the solution and the outcome.</value>
+  </data>
+  <data name="Projects.Filter.All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="Projects.Filter.Api" xml:space="preserve">
+    <value>APIs &amp; Services</value>
+  </data>
+  <data name="Projects.Filter.WebApp" xml:space="preserve">
+    <value>Web Platforms</value>
+  </data>
+  <data name="Projects.Filter.Mobile" xml:space="preserve">
+    <value>Mobile</value>
+  </data>
+  <data name="Projects.Filter.Cloud" xml:space="preserve">
+    <value>Cloud &amp; DevOps</value>
+  </data>
+  <data name="Projects.Showing" xml:space="preserve">
+    <value>Showing</value>
+  </data>
+  <data name="Projects.CountSingular" xml:space="preserve">
+    <value>project</value>
+  </data>
+  <data name="Projects.CountPlural" xml:space="preserve">
+    <value>projects</value>
+  </data>
+  <data name="Projects.InCategory" xml:space="preserve">
+    <value>in {0}</value>
+  </data>
+  <data name="Projects.Empty" xml:space="preserve">
+    <value>No projects match this filter yet.</value>
+  </data>
+  <data name="Projects.ShowAll" xml:space="preserve">
+    <value>Show all projects</value>
+  </data>
+  <data name="ProjectCategory.Api" xml:space="preserve">
+    <value>APIs &amp; Services</value>
+  </data>
+  <data name="ProjectCategory.WebApp" xml:space="preserve">
+    <value>Web Platform</value>
+  </data>
+  <data name="ProjectCategory.Mobile" xml:space="preserve">
+    <value>Mobile</value>
+  </data>
+  <data name="ProjectCategory.Cloud" xml:space="preserve">
+    <value>Cloud &amp; DevOps</value>
+  </data>
+  <data name="ProjectStatus.Delivered" xml:space="preserve">
+    <value>Delivered</value>
+  </data>
+  <data name="ProjectStatus.InProduction" xml:space="preserve">
+    <value>In production</value>
+  </data>
+  <data name="ProjectStatus.InProgress" xml:space="preserve">
+    <value>In progress</value>
+  </data>
+  <data name="ProjectCard.Featured" xml:space="preserve">
+    <value>Featured</value>
+  </data>
+  <data name="ProjectCard.Code" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="ProjectCard.Live" xml:space="preserve">
+    <value>Live</value>
+  </data>
+  <data name="TechnologyCategory.Backend" xml:space="preserve">
+    <value>Backend</value>
+  </data>
+  <data name="TechnologyCategory.Frontend" xml:space="preserve">
+    <value>Frontend</value>
+  </data>
+  <data name="TechnologyCategory.Mobile" xml:space="preserve">
+    <value>Mobile</value>
+  </data>
+  <data name="TechnologyCategory.Cloud" xml:space="preserve">
+    <value>Cloud</value>
+  </data>
+  <data name="TechnologyCategory.Architecture" xml:space="preserve">
+    <value>Architecture</value>
+  </data>
+  <data name="TechnologyMarquee.Aria" xml:space="preserve">
+    <value>Core technologies</value>
+  </data>
+  <data name="Architecture.Eyebrow" xml:space="preserve">
+    <value>Architecture</value>
+  </data>
+  <data name="Architecture.Title" xml:space="preserve">
+    <value>This site is the portfolio piece</value>
+  </data>
+  <data name="Architecture.Lead" xml:space="preserve">
+    <value>Every pattern applied here is documented, verified by the build and visible in the navigation you are using right now.</value>
+  </data>
+  <data name="Architecture.Layers.Eyebrow" xml:space="preserve">
+    <value>Layers</value>
+  </data>
+  <data name="Architecture.Layers.Title" xml:space="preserve">
+    <value>From a click to the data and back</value>
+  </data>
+  <data name="Architecture.Layers.Subtitle" xml:space="preserve">
+    <value>A request flows through four layers, each one replaceable.</value>
+  </data>
+  <data name="Architecture.Diagram.Eyebrow" xml:space="preserve">
+    <value>Diagram</value>
+  </data>
+  <data name="Architecture.Diagram.Title" xml:space="preserve">
+    <value>Dependencies point inward</value>
+  </data>
+  <data name="Architecture.Diagram.Subtitle" xml:space="preserve">
+    <value>The mediator keeps pages away from infrastructure details.</value>
+  </data>
+  <data name="Architecture.Diagram.Note" xml:space="preserve">
+    <value>Rendered with Mermaid. The layered diagram above contains the same information when JavaScript is unavailable.</value>
+  </data>
+  <data name="Architecture.Patterns.Eyebrow" xml:space="preserve">
+    <value>Patterns</value>
+  </data>
+  <data name="Architecture.Patterns.Title" xml:space="preserve">
+    <value>Design patterns applied in production code</value>
+  </data>
+  <data name="Architecture.Patterns.Subtitle" xml:space="preserve">
+    <value>Not a checklist: each pattern solves a concrete problem in this repository.</value>
+  </data>
+  <data name="Architecture.Solid.Eyebrow" xml:space="preserve">
+    <value>SOLID</value>
+  </data>
+  <data name="Architecture.Solid.Title" xml:space="preserve">
+    <value>Five principles, verified in the code</value>
+  </data>
+  <data name="Architecture.Solid.Subtitle" xml:space="preserve">
+    <value>Concrete evidence from this codebase for every letter.</value>
+  </data>
+  <data name="Architecture.Quality.Eyebrow" xml:space="preserve">
+    <value>Quality</value>
+  </data>
+  <data name="Architecture.Quality.Title" xml:space="preserve">
+    <value>Gates enforced by the build</value>
+  </data>
+  <data name="Architecture.Quality.Subtitle" xml:space="preserve">
+    <value>If a rule matters, it fails the build instead of living in a wiki.</value>
+  </data>
+  <data name="Architecture.Layer.Presentation.Title" xml:space="preserve">
+    <value>Presentation</value>
+  </data>
+  <data name="Architecture.Layer.Presentation.Text" xml:space="preserve">
+    <value>Razor components and pages render HTML only. They own no business decisions.</value>
+  </data>
+  <data name="Architecture.Layer.Application.Title" xml:space="preserve">
+    <value>Application</value>
+  </data>
+  <data name="Architecture.Layer.Application.Text" xml:space="preserve">
+    <value>Pages send queries through the mediator; handlers orchestrate the use case.</value>
+  </data>
+  <data name="Architecture.Layer.Domain.Title" xml:space="preserve">
+    <value>Domain services</value>
+  </data>
+  <data name="Architecture.Layer.Domain.Text" xml:space="preserve">
+    <value>Strategies, factories and builders turn domain data into presentation models.</value>
+  </data>
+  <data name="Architecture.Layer.Infrastructure.Title" xml:space="preserve">
+    <value>Infrastructure</value>
+  </data>
+  <data name="Architecture.Layer.Infrastructure.Text" xml:space="preserve">
+    <value>Repositories provide the data behind interfaces, today from static catalogues.</value>
+  </data>
+  <data name="Architecture.Solid.S.Name" xml:space="preserve">
+    <value>Single responsibility</value>
+  </data>
+  <data name="Architecture.Solid.S.Text" xml:space="preserve">
+    <value>One reason to change per class: strategies render, factories map, repositories supply data.</value>
+  </data>
+  <data name="Architecture.Solid.O.Name" xml:space="preserve">
+    <value>Open/Closed</value>
+  </data>
+  <data name="Architecture.Solid.O.Text" xml:space="preserve">
+    <value>New technology categories only require a new strategy; no existing class is modified.</value>
+  </data>
+  <data name="Architecture.Solid.L.Name" xml:space="preserve">
+    <value>Liskov substitution</value>
+  </data>
+  <data name="Architecture.Solid.L.Text" xml:space="preserve">
+    <value>Every repository and strategy implementation honours its interface contract.</value>
+  </data>
+  <data name="Architecture.Solid.I.Name" xml:space="preserve">
+    <value>Interface segregation</value>
+  </data>
+  <data name="Architecture.Solid.I.Text" xml:space="preserve">
+    <value>Small, purpose-specific interfaces such as IProjectRepository or ISkillRepository.</value>
+  </data>
+  <data name="Architecture.Solid.D.Name" xml:space="preserve">
+    <value>Dependency inversion</value>
+  </data>
+  <data name="Architecture.Solid.D.Text" xml:space="preserve">
+    <value>Pages depend on IMediator and services depend on abstractions, never on concretions.</value>
+  </data>
+  <data name="Architecture.Quality.Nullable" xml:space="preserve">
+    <value>Nullable reference types enabled</value>
+  </data>
+  <data name="Architecture.Quality.Warnings" xml:space="preserve">
+    <value>TreatWarningsAsErrors = true</value>
+  </data>
+  <data name="Architecture.Quality.EditorConfig" xml:space="preserve">
+    <value>EditorConfig style enforced at build time</value>
+  </data>
+  <data name="Architecture.Quality.Options" xml:space="preserve">
+    <value>Options validated on startup (fail fast)</value>
+  </data>
+  <data name="Architecture.Quality.StaticExport" xml:space="preserve">
+    <value>Static export verified route by route</value>
+  </data>
+  <data name="Architecture.Quality.NoJs" xml:space="preserve">
+    <value>No JavaScript required to navigate</value>
+  </data>
+  <data name="PatternCard.Intent" xml:space="preserve">
+    <value>Intent</value>
+  </data>
+  <data name="PatternCard.InProject" xml:space="preserve">
+    <value>In this project</value>
+  </data>
+  <data name="PatternCard.Benefit" xml:space="preserve">
+    <value>Why it pays off</value>
+  </data>
+  <data name="PatternCard.ReadDocs" xml:space="preserve">
+    <value>Read the documentation</value>
+  </data>
+  <data name="Timeline.Present" xml:space="preserve">
+    <value>Present</value>
+  </data>
+  <data name="Timeline.Type.Work" xml:space="preserve">
+    <value>Experience</value>
+  </data>
+  <data name="Timeline.Type.Education" xml:space="preserve">
+    <value>Education</value>
+  </data>
+  <data name="Timeline.Type.Certification" xml:space="preserve">
+    <value>Certification</value>
+  </data>
+  <data name="Contact.Eyebrow" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="Contact.Title" xml:space="preserve">
+    <value>Let's talk about your next system</value>
+  </data>
+  <data name="Contact.Section.Eyebrow" xml:space="preserve">
+    <value>Channels</value>
+  </data>
+  <data name="Contact.Section.Title" xml:space="preserve">
+    <value>Pick the channel that suits you</value>
+  </data>
+  <data name="Contact.Section.Subtitle" xml:space="preserve">
+    <value>All links are driven by configuration, so they can never go stale in the markup.</value>
+  </data>
+  <data name="Contact.LinkedIn.Label" xml:space="preserve">
+    <value>LinkedIn</value>
+  </data>
+  <data name="Contact.GitHub.Label" xml:space="preserve">
+    <value>GitHub</value>
+  </data>
+  <data name="Contact.Location.Label" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="Contact.LinkedIn.Value" xml:space="preserve">
+    <value>Professional profile</value>
+  </data>
+  <data name="Contact.GitHub.Value" xml:space="preserve">
+    <value>Code and experiments</value>
+  </data>
+  <data name="Contact.Note.Title" xml:space="preserve">
+    <value>What happens next</value>
+  </data>
+  <data name="Contact.Note.Text" xml:space="preserve">
+    <value>Email is the fastest channel: I usually reply within one business day with availability and a few questions about the problem. Prefer a call? Send a time window and I'll confirm.</value>
+  </data>
+  <data name="NotFound.Eyebrow" xml:space="preserve">
+    <value>Error 404</value>
+  </data>
+  <data name="NotFound.Title" xml:space="preserve">
+    <value>This page went to production without telling anyone</value>
+  </data>
+  <data name="NotFound.Lead" xml:space="preserve">
+    <value>The address does not exist or the content moved. The navigation is your friend.</value>
+  </data>
+  <data name="NotFound.Home" xml:space="preserve">
+    <value>Back to home</value>
+  </data>
+  <data name="NotFound.Projects" xml:space="preserve">
+    <value>Browse projects</value>
+  </data>
+  <data name="Error.Eyebrow" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Error.Title" xml:space="preserve">
+    <value>Something failed while rendering this page</value>
+  </data>
+  <data name="Error.Lead" xml:space="preserve">
+    <value>The error has been logged. Please try again or go back to the home page.</value>
+  </data>
+  <data name="Error.Home" xml:space="preserve">
+    <value>Back to home</value>
+  </data>
+  <data name="Footer.BuiltWith" xml:space="preserve">
+    <value>Built with .NET 10, Blazor static rendering and zero JavaScript. Pre-rendered and hosted on GitHub Pages.</value>
+  </data>
+</root>

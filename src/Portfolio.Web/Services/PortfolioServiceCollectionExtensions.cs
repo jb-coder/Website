@@ -9,6 +9,7 @@ using Portfolio.Web.Models.ViewModels;
 using Portfolio.Web.Services.Abstractions;
 using Portfolio.Web.Services.Builders;
 using Portfolio.Web.Services.Factories;
+using Portfolio.Web.Services.Localization;
 using Portfolio.Web.Services.Mediator;
 using Portfolio.Web.Services.Options;
 using Portfolio.Web.Services.Repositories;
@@ -32,12 +33,20 @@ public static class PortfolioServiceCollectionExtensions
             .ValidateDataAnnotations()
             .ValidateOnStart();
 
+        AddLocalization(services);
         AddRepositories(services);
         AddStrategies(services);
         AddApplicationServices(services);
         AddMediator(services);
 
         return services;
+    }
+
+    private static void AddLocalization(IServiceCollection services)
+    {
+        services.AddScoped<ILanguageContext, LanguageContext>();
+        services.AddScoped<LocalizedProfile>();
+        services.AddScoped<ITranslator, Translator>();
     }
 
     private static void AddRepositories(IServiceCollection services)
@@ -51,11 +60,12 @@ public static class PortfolioServiceCollectionExtensions
 
     private static void AddStrategies(IServiceCollection services)
     {
-        services.AddSingleton<ITechnologyBadgeStrategy, BackendTechnologyBadgeStrategy>();
-        services.AddSingleton<ITechnologyBadgeStrategy, FrontendTechnologyBadgeStrategy>();
-        services.AddSingleton<ITechnologyBadgeStrategy, MobileTechnologyBadgeStrategy>();
-        services.AddSingleton<ITechnologyBadgeStrategy, CloudTechnologyBadgeStrategy>();
-        services.AddSingleton<ITechnologyBadgeStrategy, ArchitectureTechnologyBadgeStrategy>();
+        // The badge strategies resolve the request language, so they are scoped.
+        services.AddScoped<ITechnologyBadgeStrategy, BackendTechnologyBadgeStrategy>();
+        services.AddScoped<ITechnologyBadgeStrategy, FrontendTechnologyBadgeStrategy>();
+        services.AddScoped<ITechnologyBadgeStrategy, MobileTechnologyBadgeStrategy>();
+        services.AddScoped<ITechnologyBadgeStrategy, CloudTechnologyBadgeStrategy>();
+        services.AddScoped<ITechnologyBadgeStrategy, ArchitectureTechnologyBadgeStrategy>();
 
         services.AddSingleton<IProjectFilterStrategy, AllProjectsFilterStrategy>();
         services.AddSingleton<IProjectFilterStrategy, ApiProjectsFilterStrategy>();
@@ -66,7 +76,7 @@ public static class PortfolioServiceCollectionExtensions
 
     private static void AddApplicationServices(IServiceCollection services)
     {
-        services.AddSingleton<IProjectCardFactory, ProjectCardFactory>();
+        services.AddScoped<IProjectCardFactory, ProjectCardFactory>();
         services.AddTransient<IPortfolioSectionBuilder, PortfolioSectionBuilder>();
     }
 
