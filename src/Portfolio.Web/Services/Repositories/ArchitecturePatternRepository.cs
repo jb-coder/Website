@@ -21,7 +21,7 @@ public sealed class ArchitecturePatternRepository : IArchitecturePatternReposito
                 "Cada servicio se registra en el contenedor mediante la extensión AddPortfolio; páginas y componentes reciben sus colaboradores por inyección.",
                 "Every service is registered in the container through the AddPortfolio extension; components and pages receive their collaborators through constructor or @inject."),
             Benefit: new(
-                "Testabilidad, infraestructura sustituible y un único lugar donde razonar sobre los ciclos de vida.",
+                "Testabilidad, infraestructura sustituible y un único lugar donde decidir los ciclos de vida.",
                 "Testability, replaceable infrastructure and a single place to reason about object lifetimes."),
             Icon: "git-branch",
             DocumentPath: "dependency-injection.md"),
@@ -29,13 +29,13 @@ public sealed class ArchitecturePatternRepository : IArchitecturePatternReposito
             Id: "options",
             Name: "Options Pattern",
             Intent: new(
-                "Enlazar secciones de configuración a objetos fuertemente tipados y validados.",
+                "Asociar secciones de configuración a objetos fuertemente tipados y validados.",
                 "Bind configuration sections to strongly typed, validated objects."),
             Implementation: new(
-                "PortfolioOptions se enlaza a la sección Portfolio, con anotaciones de datos y validación al arranque (ValidateOnStart).",
+                "PortfolioOptions se asocia a la sección Portfolio, con anotaciones de datos y validación al arranque (ValidateOnStart).",
                 "PortfolioOptions is bound to the Portfolio section, annotated with data annotations and validated on startup (ValidateOnStart)."),
             Benefit: new(
-                "Configuración tipada y fail-fast, sin cadenas mágicas en los puntos de uso.",
+                "Configuración tipada y de fallo temprano, sin cadenas mágicas en los puntos de uso.",
                 "Typed, fail-fast configuration with IntelliSense and no magic strings at call sites."),
             Icon: "settings",
             DocumentPath: "options.md"),
@@ -43,7 +43,7 @@ public sealed class ArchitecturePatternRepository : IArchitecturePatternReposito
             Id: "repository",
             Name: "Repository Pattern",
             Intent: new(
-                "Aislar el acceso a datos tras una abstracción propiedad del núcleo de la aplicación.",
+                "Aislar el acceso a datos detrás de una abstracción que pertenece al núcleo de la aplicación.",
                 "Isolate data access behind an abstraction owned by the application core."),
             Implementation: new(
                 "IProjectRepository, ISkillRepository, IExperienceRepository e IArchitecturePatternRepository exponen modelos de dominio; hoy se inyectan implementaciones en memoria.",
@@ -113,7 +113,7 @@ public sealed class ArchitecturePatternRepository : IArchitecturePatternReposito
             Id: "static-rendering",
             Name: "Static Rendering",
             Intent: new(
-                "Publicar HTML totalmente pre-renderizado que pueda alojarse en cualquier sitio.",
+                "Publicar HTML ya renderizado que pueda alojarse en cualquier sitio.",
                 "Ship fully pre-rendered HTML that can be hosted anywhere."),
             Implementation: new(
                 "Blazor Web App con static SSR, sin modo interactivo ni JavaScript del framework; un exportador de consola captura cada ruta para GitHub Pages.",

@@ -27,16 +27,16 @@ public sealed class SkillRepository : ISkillRepository
         new(SkillName("CSS moderno", "Modern CSS"), TechnologyCategory.Frontend, SkillLevel.Advanced, "droplet"),
         new(SkillName("TypeScript", "TypeScript"), TechnologyCategory.Frontend, SkillLevel.Intermediate, "terminal"),
         new(SkillName("Accesibilidad (WCAG)", "Accessibility (WCAG)"), TechnologyCategory.Frontend, SkillLevel.Advanced, "eye"),
-        new(SkillName("Diseño responsive", "Responsive Design"), TechnologyCategory.Frontend, SkillLevel.Advanced, "monitor"),
+        new(SkillName("Diseño adaptable", "Responsive Design"), TechnologyCategory.Frontend, SkillLevel.Advanced, "monitor"),
 
         // Mobile
         new(SkillName(".NET MAUI", ".NET MAUI"), TechnologyCategory.Mobile, SkillLevel.Expert, "smartphone"),
         new(SkillName("Xamarin.Forms", "Xamarin.Forms"), TechnologyCategory.Mobile, SkillLevel.Expert, "smartphone"),
         new(SkillName("MVVM", "MVVM"), TechnologyCategory.Mobile, SkillLevel.Advanced, "grid"),
-        new(SkillName("Sincronización offline-first", "Offline-first Sync"), TechnologyCategory.Mobile, SkillLevel.Advanced, "refresh-cw"),
+        new(SkillName("Sincronización sin conexión", "Offline-first Sync"), TechnologyCategory.Mobile, SkillLevel.Advanced, "refresh-cw"),
         new(SkillName("SQLite", "SQLite"), TechnologyCategory.Mobile, SkillLevel.Advanced, "database"),
-        new(SkillName("Escaneo de códigos", "Barcode Scanning"), TechnologyCategory.Mobile, SkillLevel.Advanced, "camera"),
-        new(SkillName("Publicación en stores", "Store Publishing"), TechnologyCategory.Mobile, SkillLevel.Intermediate, "upload-cloud"),
+        new(SkillName("Lectura de códigos de barras", "Barcode Scanning"), TechnologyCategory.Mobile, SkillLevel.Advanced, "camera"),
+        new(SkillName("Publicación en tiendas", "Store Publishing"), TechnologyCategory.Mobile, SkillLevel.Intermediate, "upload-cloud"),
 
         // Cloud
         new(SkillName("Azure Functions", "Azure Functions"), TechnologyCategory.Cloud, SkillLevel.Advanced, "zap"),
@@ -52,7 +52,7 @@ public sealed class SkillRepository : ISkillRepository
         new(SkillName("Principios SOLID", "SOLID Principles"), TechnologyCategory.Architecture, SkillLevel.Expert, "check"),
         new(SkillName("Patrones de diseño", "Design Patterns"), TechnologyCategory.Architecture, SkillLevel.Expert, "grid"),
         new(SkillName("Monolito modular", "Modular Monolith"), TechnologyCategory.Architecture, SkillLevel.Advanced, "box"),
-        new(SkillName("Estrategia de testing", "Testing Strategy"), TechnologyCategory.Architecture, SkillLevel.Advanced, "shield"),
+        new(SkillName("Estrategia de pruebas", "Testing Strategy"), TechnologyCategory.Architecture, SkillLevel.Advanced, "shield"),
     ];
 
     public Task<IReadOnlyList<Skill>> GetAllAsync(CancellationToken cancellationToken = default)

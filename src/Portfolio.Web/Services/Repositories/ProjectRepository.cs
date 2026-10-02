@@ -19,7 +19,7 @@ public sealed class ProjectRepository : IProjectRepository
                 "ERP modular en construcción para unificar operaciones, logística y finanzas.",
                 "Modular ERP under construction to unify operations, logistics and finance."),
             Description: new(
-                "ERP greenfield que centraliza la operación diaria de varias áreas. Construido como plataforma modular para que cada área de negocio evolucione por separado, con foco en integridad de datos, acceso por roles y automatización de procesos.",
+                "ERP construido desde cero que centraliza la operación diaria de varias áreas. Es una plataforma modular para que cada área de negocio evolucione por separado, con foco en la integridad de los datos, el acceso por roles y la automatización de procesos.",
                 "Greenfield ERP that centralizes day-to-day operations across departments. Built as a modular platform so each business area can evolve independently, with a strong focus on data integrity, role-based access and process automation."),
             Category: ProjectCategory.WebApp,
             Status: ProjectStatus.InProgress,
@@ -56,7 +56,7 @@ public sealed class ProjectRepository : IProjectRepository
                 "Aplicación MAUI para que los técnicos de campo gestionen órdenes e inspecciones.",
                 "MAUI application for field technicians to manage work orders and inspections."),
             Description: new(
-                "App multiplataforma que pone en manos de los equipos de campo sus órdenes diarias, checklists digitales y captura de evidencias. Construida con .NET MAUI y una capa de datos tolerante a fallos de conexión que sincroniza con el backend en cuanto hay red.",
+                "App multiplataforma que da a los equipos de campo sus órdenes diarias, listas de comprobación digitales y captura de evidencias. Está construida con .NET MAUI y una capa de datos que tolera cortes de conexión y sincroniza con el backend en cuanto vuelve la red.",
                 "Cross-platform app that puts daily work orders, digital checklists and evidence capture in the hands of field teams. Built with .NET MAUI and an offline-tolerant data layer that synchronizes with the backend as soon as connectivity is available."),
             Category: ProjectCategory.Mobile,
             Status: ProjectStatus.InProgress,
@@ -67,7 +67,7 @@ public sealed class ProjectRepository : IProjectRepository
             Highlights:
             [
                 new(
-                    "Checklists digitales que sustituyen al papel",
+                    "Listas de comprobación digitales que sustituyen al papel",
                     "Digital checklists replace paper-based processes"),
                 new(
                     "Evidencias con foto y firma en cada orden",
