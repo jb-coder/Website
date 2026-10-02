@@ -28,7 +28,7 @@ flowchart LR
     A[Código fuente] --> B[dotnet publish]
     B --> C[App escuchando en localhost]
     C --> D[Portfolio.StaticExporter]
-    D -->|sitemap.xml| E[6 rutas descubiertas]
+    D -->|sitemap.xml| E[12 rutas descubiertas: 6 ES + 6 EN]
     E --> F[GET /about, /skills, ...]
     F --> G[dist/**/index.html + assets]
     G --> H[GitHub Pages]
@@ -40,7 +40,8 @@ flowchart LR
    la navegación resuelva correctamente en cualquier sub-path.
 3. El exportador lee `sitemap.xml`, visita cada ruta, copia `wwwroot` (sin
    `_framework` ni precomprimidos) y genera `404.html`, `robots.txt`,
-   `sitemap.xml` y `.nojekyll`.
+   `sitemap.xml` y `.nojekyll`. Las rutas inglesas producen el árbol `en/` y las
+   españolas la raíz, ambas con su HTML ya traducido.
 
 ## Detalles que marcan la diferencia
 
@@ -48,8 +49,12 @@ flowchart LR
   eliminó a propósito. La navegación es HTML puro y funciona en cualquier host.
 - **Errores 404**: GitHub Pages sirve `404.html`, generado desde la propia
   página `NotFound` de Blazor.
-- **Rutas filtradas**: `/projects?category=Mobile` es una URL real y
-  pre-renderizable porque el filtro vive en la query string.
+- **Rutas por idioma**: la raíz se exporta en español y `/en/**` en inglés con
+  el mismo exportador; el idioma no depende del navegador.
+- **Filtros con query**: `?category=Mobile` se resuelve en el servidor, pero
+  GitHub Pages sirve siempre el mismo archivo estático para esa ruta. Convertir
+  los filtros en rutas (`/projects/mobile`) es la evolución pendiente para que
+  funcionen también en el sitio publicado.
 
 ## Limitaciones asumidas
 

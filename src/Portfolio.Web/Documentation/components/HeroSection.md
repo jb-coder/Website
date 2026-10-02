@@ -10,7 +10,7 @@ tecnologías.
 
 | Parámetro | Tipo | Requerido | Descripción |
 | --- | --- | --- | --- |
-| `Options` | `PortfolioOptions` | Sí | Datos del perfil validados. |
+| `Profile` | `LocalizedProfile` | Sí | Datos del perfil validados y ya traducidos al idioma de la petición. |
 | `Stats` | `IReadOnlyList<StatsCardViewModel>` | Sí | Métricas calculadas por el handler. |
 | `Technologies` | `IReadOnlyList<TechnologyBadgeViewModel>` | Sí | Stack destacado (puede ir vacío). |
 
@@ -24,7 +24,8 @@ tecnologías.
 ## Dependencias
 
 - `StatsCard`, `TechnologyMarquee`, `Icon`.
-- `PortfolioOptions` (Options Pattern).
+- `PortfolioOptions` (Options Pattern) resuelto por `LocalizedProfile`.
+- `ITranslator` para los textos fijos y `ILanguageContext` para los enlaces.
 - Sin servicios: los datos llegan resueltos desde `Home.razor.cs`.
 
 ## Casos de uso

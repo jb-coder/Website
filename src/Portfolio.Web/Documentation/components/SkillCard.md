@@ -24,6 +24,7 @@ Architecture) con su descripción, icono y lista de skills con nivel visual.
 ## Dependencias
 
 - `Icon`.
+- `ITranslator` para el recuento del pie (`8 skills` / `8 habilidades`).
 - Variable CSS `--skill-accent` para el tinte por disciplina.
 
 ## Adaptación a grupos desiguales

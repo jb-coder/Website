@@ -41,6 +41,7 @@ src/Portfolio.Web/
 ├── Features/            # Queries + handlers por caso de uso
 ├── Models/              # Dominio + ViewModels
 ├── Services/            # Abstracciones, repositorios, patrones, opciones
+├── Resources/           # Catálogos de traducción resx (ES neutral, EN)
 ├── Shared/              # Catálogo de navegación
 ├── Documentation/       # Esta documentación
 └── wwwroot/             # Themes (CSS), Assets (SVG), favicon
@@ -57,6 +58,9 @@ tools/Portfolio.StaticExporter/   # Exportador a HTML estático
    API sin tocar la UI. Ver `repository.md`.
 4. **Configuración validada**: `PortfolioOptions` falla al arrancar si falta
    cualquier dato. Ver `options.md`.
+5. **Idioma en la URL**: español en la raíz e inglés en `/en`, resuelto por
+   `ILanguageContext` e `ITranslator`, sin cookies ni JavaScript. Ver
+   `localization.md`.
 5. **Documentación como código**: cada patrón tiene su archivo y la página
    `/architecture` enlaza directamente a estos documentos.
 

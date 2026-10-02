@@ -26,7 +26,11 @@ El view model incluye: `Id`, `Title`, `Summary`, `Description`,
 
 - `TechnologyBadge` para cada badge.
 - `Icon` para iconografía.
+- `ITranslator` para "Destacado", "Código", "Demo" y el aviso de pestaña nueva.
 - Variables CSS `--project-accent` para el tinte por proyecto.
+
+La categoría y el estado del proyecto llegan ya traducidos en el view model,
+cortesía de `ProjectCardFactory`.
 
 ## Casos de uso
 
