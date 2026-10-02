@@ -1,3 +1,4 @@
+using Portfolio.Web.Services.Localization;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Options;
 using Portfolio.Web.Features.Architecture;
@@ -15,49 +16,6 @@ namespace Portfolio.Web.Pages;
 /// </summary>
 public partial class Architecture : ComponentBase
 {
-    private static readonly (string Icon, string Title, string Text, string[] Examples)[] Layers =
-    [
-        (
-            "layout",
-            "Presentation",
-            "Razor components and pages render HTML only. They own no business decisions.",
-            ["Layouts", "Pages", "Shared components"]),
-        (
-            "send",
-            "Application",
-            "Pages send queries through the mediator; handlers orchestrate the use case.",
-            ["IMediator", "Queries", "Handlers"]),
-        (
-            "grid",
-            "Domain services",
-            "Strategies, factories and builders turn domain data into presentation models.",
-            ["Strategies", "ProjectCardFactory", "SectionBuilder"]),
-        (
-            "database",
-            "Infrastructure",
-            "Repositories provide the data behind interfaces, today from static catalogues.",
-            ["Repositories", "Options", "Configuration"]),
-    ];
-
-    private static readonly (string Letter, string Name, string Text)[] SolidPrinciples =
-    [
-        ("S", "Single responsibility", "One reason to change per class: strategies render, factories map, repositories supply data."),
-        ("O", "Open/Closed", "New technology categories only require a new strategy; no existing class is modified."),
-        ("L", "Liskov substitution", "Every repository and strategy implementation honours its interface contract."),
-        ("I", "Interface segregation", "Small, purpose-specific interfaces such as IProjectRepository or ISkillRepository."),
-        ("D", "Dependency inversion", "Pages depend on IMediator and services depend on abstractions, never on concretions."),
-    ];
-
-    private static readonly string[] QualityGates =
-    [
-        "Nullable reference types enabled",
-        "TreatWarningsAsErrors = true",
-        "EditorConfig style enforced at build time",
-        "Options validated on startup (fail fast)",
-        "Static export verified route by route",
-        "No JavaScript required to navigate",
-    ];
-
     private string pageTitle = string.Empty;
     private IReadOnlyList<ArchitecturePattern> patterns = [];
     private PortfolioSection layersSection = default!;
@@ -65,6 +23,9 @@ public partial class Architecture : ComponentBase
     private PortfolioSection patternsSection = default!;
     private PortfolioSection solidSection = default!;
     private PortfolioSection qualitySection = default!;
+    private IReadOnlyList<(string Icon, string Title, string Text, string[] Examples)> layers = [];
+    private IReadOnlyList<(string Letter, string Name, string Text)> solidPrinciples = [];
+    private IReadOnlyList<string> qualityGates = [];
 
     [Inject]
     private IMediator Mediator { get; set; } = default!;
@@ -75,48 +36,90 @@ public partial class Architecture : ComponentBase
     [Inject]
     private IPortfolioSectionBuilder SectionBuilder { get; set; } = default!;
 
-    private IReadOnlyList<(string Icon, string Title, string Text, string[] Examples)> layers = Layers;
-    private IReadOnlyList<(string Letter, string Name, string Text)> solidPrinciples = SolidPrinciples;
-    private IReadOnlyList<string> qualityGates = QualityGates;
+    [Inject]
+    private ITranslator Localizer { get; set; } = default!;
 
     protected override async Task OnInitializedAsync()
     {
-        pageTitle = "Architecture — Patterns and decisions behind this site";
+        pageTitle = $"{Localizer["Architecture.Eyebrow"]} — {Localizer["Architecture.Title"]}";
 
         layersSection = SectionBuilder
             .WithId("request-flow")
-            .WithEyebrow("Layers")
-            .WithTitle("From a click to the data and back")
-            .WithSubtitle("A request flows downward through four layers, each one replaceable.")
+            .WithEyebrow(Localizer["Architecture.Layers.Eyebrow"])
+            .WithTitle(Localizer["Architecture.Layers.Title"])
+            .WithSubtitle(Localizer["Architecture.Layers.Subtitle"])
             .Build();
 
         diagramSection = SectionBuilder
             .WithId("dependency-diagram")
-            .WithEyebrow("Diagram")
-            .WithTitle("Dependencies point inward")
-            .WithSubtitle("The mediator keeps pages away from infrastructure details.")
+            .WithEyebrow(Localizer["Architecture.Diagram.Eyebrow"])
+            .WithTitle(Localizer["Architecture.Diagram.Title"])
+            .WithSubtitle(Localizer["Architecture.Diagram.Subtitle"])
             .Build();
 
         patternsSection = SectionBuilder
             .WithId("patterns")
-            .WithEyebrow("Patterns")
-            .WithTitle("Design patterns applied in production code")
-            .WithSubtitle("Not a checklist: each pattern solves a concrete problem in this repository.")
+            .WithEyebrow(Localizer["Architecture.Patterns.Eyebrow"])
+            .WithTitle(Localizer["Architecture.Patterns.Title"])
+            .WithSubtitle(Localizer["Architecture.Patterns.Subtitle"])
             .Build();
 
         solidSection = SectionBuilder
             .WithId("solid")
-            .WithEyebrow("SOLID")
-            .WithTitle("Five principles, verified in the code")
-            .WithSubtitle("Concrete evidence from this codebase for every letter.")
+            .WithEyebrow(Localizer["Architecture.Solid.Eyebrow"])
+            .WithTitle(Localizer["Architecture.Solid.Title"])
+            .WithSubtitle(Localizer["Architecture.Solid.Subtitle"])
             .Build();
 
         qualitySection = SectionBuilder
             .WithId("quality")
-            .WithEyebrow("Quality")
-            .WithTitle("Gates enforced by the build")
-            .WithSubtitle("If a rule matters, it fails the build instead of living in a wiki.")
+            .WithEyebrow(Localizer["Architecture.Quality.Eyebrow"])
+            .WithTitle(Localizer["Architecture.Quality.Title"])
+            .WithSubtitle(Localizer["Architecture.Quality.Subtitle"])
             .Build();
+
+        layers =
+        [
+            (
+                "layout",
+                Localizer["Architecture.Layer.Presentation.Title"],
+                Localizer["Architecture.Layer.Presentation.Text"],
+                ["Layouts", "Pages", "Shared components"]),
+            (
+                "send",
+                Localizer["Architecture.Layer.Application.Title"],
+                Localizer["Architecture.Layer.Application.Text"],
+                ["IMediator", "Queries", "Handlers"]),
+            (
+                "grid",
+                Localizer["Architecture.Layer.Domain.Title"],
+                Localizer["Architecture.Layer.Domain.Text"],
+                ["Strategies", "ProjectCardFactory", "SectionBuilder"]),
+            (
+                "database",
+                Localizer["Architecture.Layer.Infrastructure.Title"],
+                Localizer["Architecture.Layer.Infrastructure.Text"],
+                ["Repositories", "Options", "Configuration"]),
+        ];
+
+        solidPrinciples =
+        [
+            ("S", Localizer["Architecture.Solid.S.Name"], Localizer["Architecture.Solid.S.Text"]),
+            ("O", Localizer["Architecture.Solid.O.Name"], Localizer["Architecture.Solid.O.Text"]),
+            ("L", Localizer["Architecture.Solid.L.Name"], Localizer["Architecture.Solid.L.Text"]),
+            ("I", Localizer["Architecture.Solid.I.Name"], Localizer["Architecture.Solid.I.Text"]),
+            ("D", Localizer["Architecture.Solid.D.Name"], Localizer["Architecture.Solid.D.Text"]),
+        ];
+
+        qualityGates =
+        [
+            Localizer["Architecture.Quality.Nullable"],
+            Localizer["Architecture.Quality.Warnings"],
+            Localizer["Architecture.Quality.EditorConfig"],
+            Localizer["Architecture.Quality.Options"],
+            Localizer["Architecture.Quality.StaticExport"],
+            Localizer["Architecture.Quality.NoJs"],
+        ];
 
         patterns = await Mediator.SendAsync(new GetArchitecturePatternsQuery());
 

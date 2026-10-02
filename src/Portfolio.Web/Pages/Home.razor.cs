@@ -1,14 +1,13 @@
 using System.Text.Json;
 using Microsoft.AspNetCore.Components;
-using Microsoft.Extensions.Options;
 using Portfolio.Web.Features.Home;
 using Portfolio.Web.Features.Projects;
 using Portfolio.Web.Features.Telemetry;
 using Portfolio.Web.Models;
 using Portfolio.Web.Models.ViewModels;
 using Portfolio.Web.Services.Abstractions;
+using Portfolio.Web.Services.Localization;
 using Portfolio.Web.Services.Mediator;
-using Portfolio.Web.Services.Options;
 
 namespace Portfolio.Web.Pages;
 
@@ -18,23 +17,7 @@ namespace Portfolio.Web.Pages;
 /// </summary>
 public partial class Home : ComponentBase
 {
-    private static readonly (string Icon, string Title, string Text)[] Principles =
-    [
-        (
-            "layers",
-            "Architecture first",
-            "I design boundaries before writing code: clean layering, explicit contracts and a domain that is easy to test."),
-        (
-            "refresh-cw",
-            "Automate everything",
-            "Pipelines build, test and deploy every change. If a step is manual, it will eventually be forgotten."),
-        (
-            "zap",
-            "Performance is a feature",
-            "Fast APIs and pre-rendered UIs. This site ships zero JavaScript on purpose."),
-    ];
-
-    private PortfolioOptions portfolio = default!;
+    private LocalizedProfile profile = default!;
     private string pageTitle = string.Empty;
     private string structuredData = string.Empty;
     private IReadOnlyList<StatsCardViewModel> statistics = [];
@@ -42,37 +25,58 @@ public partial class Home : ComponentBase
     private IReadOnlyList<TechnologyBadgeViewModel> technologies = [];
     private PortfolioSection featuredSection = default!;
     private PortfolioSection principlesSection = default!;
-
-    private IReadOnlyList<(string Icon, string Title, string Text)> principles = Principles;
+    private IReadOnlyList<(string Icon, string Title, string Text)> principles = [];
 
     [Inject]
     private IMediator Mediator { get; set; } = default!;
 
     [Inject]
-    private IOptions<PortfolioOptions> PortfolioOptions { get; set; } = default!;
+    private LocalizedProfile Profile { get; set; } = default!;
+
+    [Inject]
+    private ILanguageContext LanguageContext { get; set; } = default!;
 
     [Inject]
     private IPortfolioSectionBuilder SectionBuilder { get; set; } = default!;
 
+    [Inject]
+    private ITranslator Localizer { get; set; } = default!;
+
     protected override async Task OnInitializedAsync()
     {
-        portfolio = PortfolioOptions.Value;
-        pageTitle = $"{portfolio.Name} — {portfolio.Role}";
+        profile = Profile;
+        pageTitle = $"{profile.Name} — {profile.Role}";
         structuredData = BuildStructuredData();
 
         featuredSection = SectionBuilder
             .WithId("featured-work")
-            .WithEyebrow("Selected work")
-            .WithTitle("Projects that shipped and stayed in production")
-            .WithSubtitle("A sample of the platforms, APIs and apps I have designed and delivered.")
+            .WithEyebrow(Localizer["Home.Featured.Eyebrow"])
+            .WithTitle(Localizer["Home.Featured.Title"])
+            .WithSubtitle(Localizer["Home.Featured.Subtitle"])
             .Build();
 
         principlesSection = SectionBuilder
             .WithId("how-i-work")
-            .WithEyebrow("How I work")
-            .WithTitle("Engineering principles I do not negotiate")
-            .WithSubtitle("The habits behind every repository, pipeline and pull request.")
+            .WithEyebrow(Localizer["Home.Principles.Eyebrow"])
+            .WithTitle(Localizer["Home.Principles.Title"])
+            .WithSubtitle(Localizer["Home.Principles.Subtitle"])
             .Build();
+
+        principles =
+        [
+            (
+                "layers",
+                Localizer["Home.Principle.Architecture.Title"],
+                Localizer["Home.Principle.Architecture.Text"]),
+            (
+                "refresh-cw",
+                Localizer["Home.Principle.Automation.Title"],
+                Localizer["Home.Principle.Automation.Text"]),
+            (
+                "zap",
+                Localizer["Home.Principle.Performance.Title"],
+                Localizer["Home.Principle.Performance.Text"]),
+        ];
 
         statistics = await Mediator.SendAsync(new GetPortfolioStatisticsQuery());
         featuredProjects = await Mediator.SendAsync(new GetFeaturedProjectsQuery(3));
@@ -87,18 +91,19 @@ public partial class Home : ComponentBase
         {
             ["@context"] = "https://schema.org",
             ["@type"] = "Person",
-            ["name"] = portfolio.Name,
-            ["jobTitle"] = portfolio.Role,
-            ["description"] = portfolio.Tagline,
-            ["email"] = $"mailto:{portfolio.Email}",
-            ["url"] = portfolio.PublicBaseUrl,
-            ["sameAs"] = new[] { portfolio.LinkedInUrl, portfolio.GitHubUrl },
+            ["name"] = profile.Name,
+            ["jobTitle"] = profile.Role,
+            ["description"] = profile.Tagline,
+            ["email"] = $"mailto:{profile.Email}",
+            ["url"] = profile.PublicBaseUrl,
+            ["inLanguage"] = LanguageContext.Language.Code(),
+            ["sameAs"] = new[] { profile.LinkedInUrl, profile.GitHubUrl },
             ["address"] = new Dictionary<string, object?>
             {
                 ["@type"] = "PostalAddress",
-                ["addressLocality"] = portfolio.Location,
+                ["addressLocality"] = profile.Location,
             },
-            ["knowsAbout"] = portfolio.FocusAreas,
+            ["knowsAbout"] = profile.FocusAreas,
         };
 
         return JsonSerializer.Serialize(person);

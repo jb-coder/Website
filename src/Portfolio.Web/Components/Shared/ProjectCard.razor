@@ -1,3 +1,5 @@
+@inject ITranslator Localizer
+
 <article class="pf-card pf-project" id="@Project.Id" style="--project-accent: @Project.Accent">
     <div class="pf-project__visual" aria-hidden="true">
         <Icon Name="@Project.Icon" Size="34" />
@@ -9,7 +11,7 @@
             <span class="pf-project__year">@Project.Year</span>
             @if (Project.IsFeatured)
             {
-                <span class="pf-project__featured">Featured</span>
+                <span class="pf-project__featured">@Localizer["ProjectCard.Featured"]</span>
             }
         </div>
 
@@ -50,17 +52,17 @@
                 @if (!string.IsNullOrWhiteSpace(Project.RepositoryUrl))
                 {
                     <a class="pf-link" href="@Project.RepositoryUrl" target="_blank" rel="noopener noreferrer">
-                        Code
+                        @Localizer["ProjectCard.Code"]
                         <Icon Name="github" Size="14" />
-                        <span class="pf-visually-hidden">(opens in a new tab)</span>
+                        <span class="pf-visually-hidden">@Localizer["Common.OpensInNewTab"]</span>
                     </a>
                 }
                 @if (!string.IsNullOrWhiteSpace(Project.LiveUrl))
                 {
                     <a class="pf-link" href="@Project.LiveUrl" target="_blank" rel="noopener noreferrer">
-                        Live
+                        @Localizer["ProjectCard.Live"]
                         <Icon Name="external-link" Size="14" />
-                        <span class="pf-visually-hidden">(opens in a new tab)</span>
+                        <span class="pf-visually-hidden">@Localizer["Common.OpensInNewTab"]</span>
                     </a>
                 }
             </span>

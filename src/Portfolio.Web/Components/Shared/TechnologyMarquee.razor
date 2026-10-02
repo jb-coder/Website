@@ -1,4 +1,6 @@
-<div class="pf-marquee" role="list" aria-label="Core technologies">
+@inject ITranslator Localizer
+
+<div class="pf-marquee" role="list" aria-label="@Localizer["TechnologyMarquee.Aria"]">
     <div class="pf-marquee__track">
         @foreach (var badge in Badges)
         {

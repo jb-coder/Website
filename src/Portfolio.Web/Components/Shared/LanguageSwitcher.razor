@@ -1,0 +1,23 @@
+@inject ILanguageContext LanguageContext
+@inject ITranslator Localizer
+
+@{
+    var isEnglish = LanguageContext.Language == Language.En;
+    var switchHref = LanguageContext.SwitchHref();
+    var ariaLabel = isEnglish
+        ? Localizer["Language.ViewInSpanish"]
+        : Localizer["Language.ViewInEnglish"];
+    var esClass = isEnglish ? "pf-lang__code" : "pf-lang__code pf-lang__code--active";
+    var enClass = isEnglish ? "pf-lang__code pf-lang__code--active" : "pf-lang__code";
+}
+
+<a class="pf-lang"
+   href="@switchHref"
+   hreflang="@LanguageContext.OtherLanguage.Code()"
+   aria-label="@ariaLabel"
+   title="@ariaLabel">
+    <Icon Name="globe" Size="15" />
+    <span class="@esClass">ES</span>
+    <span class="pf-lang__sep" aria-hidden="true">/</span>
+    <span class="@enClass">EN</span>
+</a>

@@ -1,3 +1,5 @@
+@inject ITranslator Localizer
+
 <a class="pf-card pf-contact"
    href="@Href"
    style="--contact-accent: @Accent"
@@ -13,7 +15,7 @@
     <Icon Name="arrow-up-right" Size="16" CssClass="pf-contact__arrow" />
     @if (External)
     {
-        <span class="pf-visually-hidden">(opens in a new tab)</span>
+        <span class="pf-visually-hidden">@Localizer["Common.OpensInNewTab"]</span>
     }
 </a>
 

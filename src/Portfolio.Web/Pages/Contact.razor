@@ -1,12 +1,13 @@
 @page "/contact"
+@page "/en/contact"
 
 <PageTitle>@pageTitle</PageTitle>
 
 <section class="pf-page-hero">
     <div class="pf-container">
-        <span class="pf-eyebrow">Contact</span>
-        <h1 class="pf-page-hero__title">Let's talk about your next system</h1>
-        <p class="pf-page-hero__lead">@portfolio.Availability</p>
+        <span class="pf-eyebrow">@Localizer["Contact.Eyebrow"]</span>
+        <h1 class="pf-page-hero__title">@Localizer["Contact.Title"]</h1>
+        <p class="pf-page-hero__lead">@Profile.Availability</p>
     </div>
 </section>
 
@@ -16,22 +17,22 @@
 
         <div class="pf-grid pf-grid--contact">
             <ContactCard Label="Email"
-                         Value="@portfolio.Email"
-                         Href="@($"mailto:{portfolio.Email}?subject=Opportunity%20for%20{portfolio.Name}")"
+                         Value="@Profile.Email"
+                         Href="@($"mailto:{Profile.Email}?subject=Opportunity%20for%20{Profile.Name}")"
                          Icon="mail"
                          Accent="#58A6FF" />
-            <ContactCard Label="LinkedIn"
-                         Value="Professional profile"
-                         Href="@portfolio.LinkedInUrl"
+            <ContactCard Label="@Localizer["Contact.LinkedIn.Label"]"
+                         Value="@Localizer["Contact.LinkedIn.Value"]"
+                         Href="@Profile.LinkedInUrl"
                          Icon="linkedin"
                          Accent="#79C0FF" />
-            <ContactCard Label="GitHub"
-                         Value="Code and experiments"
-                         Href="@portfolio.GitHubUrl"
+            <ContactCard Label="@Localizer["Contact.GitHub.Label"]"
+                         Value="@Localizer["Contact.GitHub.Value"]"
+                         Href="@Profile.GitHubUrl"
                          Icon="github"
                          Accent="#A5D6FF" />
-            <ContactCard Label="Location"
-                         Value="@portfolio.Location"
+            <ContactCard Label="@Localizer["Contact.Location.Label"]"
+                         Value="@Profile.Location"
                          Href="@BuildMapUrl()"
                          Icon="map-pin"
                          Accent="#6CB6FF" />
@@ -42,12 +43,8 @@
                 <Icon Name="zap" Size="22" />
             </span>
             <div>
-                <h2 class="pf-contact-note__title" id="contact-title">What happens next</h2>
-                <p class="pf-contact-note__text">
-                    Email is the fastest channel: I usually reply within one business day with
-                    availability and a few questions about the problem. Prefer a call? Send a
-                    time window and I'll confirm.
-                </p>
+                <h2 class="pf-contact-note__title" id="contact-title">@Localizer["Contact.Note.Title"]</h2>
+                <p class="pf-contact-note__text">@Localizer["Contact.Note.Text"]</p>
             </div>
         </div>
     </div>

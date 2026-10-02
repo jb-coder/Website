@@ -1,3 +1,4 @@
+using Portfolio.Web.Services.Localization;
 using Microsoft.AspNetCore.Components;
 using Portfolio.Web.Features.Skills;
 using Portfolio.Web.Features.Telemetry;
@@ -23,15 +24,18 @@ public partial class Skills : ComponentBase
     [Inject]
     private IPortfolioSectionBuilder SectionBuilder { get; set; } = default!;
 
+    [Inject]
+    private ITranslator Localizer { get; set; } = default!;
+
     protected override async Task OnInitializedAsync()
     {
-        pageTitle = "Skills — .NET, Blazor, Azure and Architecture";
+        pageTitle = $"{Localizer["Skills.Eyebrow"]} — {Localizer["Skills.Title"]}";
 
         skillsSection = SectionBuilder
             .WithId("skills-matrix")
-            .WithEyebrow("Capabilities")
-            .WithTitle("Five disciplines, one coherent toolbox")
-            .WithSubtitle("Backend, frontend, mobile, cloud and architecture — each with real delivery behind it.")
+            .WithEyebrow(Localizer["Skills.Section.Eyebrow"])
+            .WithTitle(Localizer["Skills.Section.Title"])
+            .WithSubtitle(Localizer["Skills.Section.Subtitle"])
             .Build();
 
         groups = await Mediator.SendAsync(new GetSkillGroupsQuery());

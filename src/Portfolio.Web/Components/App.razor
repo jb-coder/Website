@@ -1,40 +1,48 @@
-﻿@inject IOptions<PortfolioOptions> PortfolioOptions
-@inject NavigationManager Navigation
+﻿@inject ILanguageContext LanguageContext
+@inject LocalizedProfile Profile
 
 @{
-    var portfolio = PortfolioOptions.Value;
-    var basePath = portfolio.NormalizedBasePath;
-    var publicBase = portfolio.PublicBaseUrl.TrimEnd('/');
-    var relativePath = Navigation.ToBaseRelativePath(Navigation.Uri);
-    var canonical = string.IsNullOrEmpty(relativePath)
-        ? publicBase + basePath.TrimEnd('/')
-        : publicBase + basePath + relativePath;
-    var socialImage = $"{publicBase}{basePath}Assets/og-image.svg";
+    var language = LanguageContext.Language;
+    var root = $"{Profile.PublicBaseUrl.TrimEnd('/')}{Profile.NormalizedBasePath}";
+    var neutralPath = LanguageContext.NeutralPath;
+
+    var currentRelative = language == Language.En
+        ? (neutralPath.Length == 0 ? "en" : $"en/{neutralPath}")
+        : neutralPath;
+
+    var canonical = (root + currentRelative).TrimEnd('/');
+    var spanishUrl = neutralPath.Length == 0 ? root.TrimEnd('/') : root + neutralPath;
+    var englishUrl = neutralPath.Length == 0 ? root + "en" : root + "en/" + neutralPath;
+    var socialImage = $"{root}Assets/og-image.svg";
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="@language.Code()">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <base href="@basePath" />
-    <meta name="description" content="@portfolio.Tagline" />
-    <meta name="author" content="@portfolio.Name" />
+    <base href="@Profile.NormalizedBasePath" />
+    <meta name="description" content="@Profile.Tagline" />
+    <meta name="author" content="@Profile.Name" />
     <meta name="theme-color" content="#0D1117" />
     <meta name="color-scheme" content="dark" />
     <link rel="canonical" href="@canonical" />
+    <link rel="alternate" hreflang="es" href="@spanishUrl" />
+    <link rel="alternate" hreflang="en" href="@englishUrl" />
+    <link rel="alternate" hreflang="x-default" href="@spanishUrl" />
     <link rel="icon" type="image/svg+xml" href="Assets/favicon.svg" />
     <link rel="apple-touch-icon" href="Assets/favicon.svg" />
 
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="@($"{portfolio.Name} — {portfolio.Role}")" />
-    <meta property="og:description" content="@portfolio.Tagline" />
+    <meta property="og:locale" content="@language.Code()" />
+    <meta property="og:title" content="@($"{Profile.Name} — {Profile.Role}")" />
+    <meta property="og:description" content="@Profile.Tagline" />
     <meta property="og:url" content="@canonical" />
     <meta property="og:image" content="@socialImage" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="@($"{portfolio.Name} — {portfolio.Role}")" />
-    <meta name="twitter:description" content="@portfolio.Tagline" />
+    <meta name="twitter:title" content="@($"{Profile.Name} — {Profile.Role}")" />
+    <meta name="twitter:description" content="@Profile.Tagline" />
     <meta name="twitter:image" content="@socialImage" />
 
     <link rel="stylesheet" href="Themes/theme.css" />

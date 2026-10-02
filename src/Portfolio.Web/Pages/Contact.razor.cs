@@ -1,10 +1,9 @@
 using Microsoft.AspNetCore.Components;
-using Microsoft.Extensions.Options;
 using Portfolio.Web.Features.Telemetry;
 using Portfolio.Web.Models;
 using Portfolio.Web.Services.Abstractions;
+using Portfolio.Web.Services.Localization;
 using Portfolio.Web.Services.Mediator;
-using Portfolio.Web.Services.Options;
 
 namespace Portfolio.Web.Pages;
 
@@ -13,7 +12,6 @@ namespace Portfolio.Web.Pages;
 /// </summary>
 public partial class Contact : ComponentBase
 {
-    private PortfolioOptions portfolio = default!;
     private string pageTitle = string.Empty;
     private PortfolioSection contactSection = default!;
 
@@ -21,26 +19,28 @@ public partial class Contact : ComponentBase
     private IMediator Mediator { get; set; } = default!;
 
     [Inject]
-    private IOptions<PortfolioOptions> PortfolioOptions { get; set; } = default!;
+    private LocalizedProfile Profile { get; set; } = default!;
 
     [Inject]
     private IPortfolioSectionBuilder SectionBuilder { get; set; } = default!;
 
+    [Inject]
+    private ITranslator Localizer { get; set; } = default!;
+
     protected override async Task OnInitializedAsync()
     {
-        portfolio = PortfolioOptions.Value;
-        pageTitle = $"Contact — {portfolio.Name}";
+        pageTitle = $"{Localizer["Contact.Eyebrow"]} — {Profile.Name}";
 
         contactSection = SectionBuilder
             .WithId("contact-channels")
-            .WithEyebrow("Channels")
-            .WithTitle("Pick the channel that suits you")
-            .WithSubtitle("All links are driven by configuration, so they can never go stale in the markup.")
+            .WithEyebrow(Localizer["Contact.Section.Eyebrow"])
+            .WithTitle(Localizer["Contact.Section.Title"])
+            .WithSubtitle(Localizer["Contact.Section.Subtitle"])
             .Build();
 
         await Mediator.PublishAsync(new PageVisitedNotification("Contact"));
     }
 
     private string BuildMapUrl() =>
-        $"https://www.google.com/maps/search/?api=1&query={Uri.EscapeDataString(portfolio.Location)}";
+        $"https://www.google.com/maps/search/?api=1&query={Uri.EscapeDataString(Profile.Location)}";
 }

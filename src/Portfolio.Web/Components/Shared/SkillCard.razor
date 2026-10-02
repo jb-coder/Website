@@ -1,3 +1,5 @@
+@inject ITranslator Localizer
+
 <article class="pf-card pf-skill" id="@Group.Id" style="--skill-accent: @Group.Accent">
     <header class="pf-skill__header">
         <span class="pf-skill__icon" aria-hidden="true">
@@ -39,5 +41,7 @@
     [Parameter, EditorRequired]
     public SkillGroupViewModel Group { get; set; } = default!;
 
-    private string SkillCountLabel => Group.Skills.Count == 1 ? "skill" : "skills";
+    private string SkillCountLabel => Group.Skills.Count == 1
+        ? Localizer["SkillCard.SkillsSingular"]
+        : Localizer["SkillCard.SkillsPlural"];
 }

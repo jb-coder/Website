@@ -1,6 +1,7 @@
 using System.Text;
 using System.Xml.Linq;
 using Microsoft.Extensions.Options;
+using Portfolio.Web.Models;
 using Portfolio.Web.Services.Options;
 using Portfolio.Web.Shared;
 
@@ -30,14 +31,20 @@ public static class PortfolioEndpoints
     {
         var root = BuildPublicRoot(options);
 
+        var urls = NavigationCatalog.Items
+            .SelectMany(item => new[]
+            {
+                BuildPageUrl(root, Language.Es, item.Path),
+                BuildPageUrl(root, Language.En, item.Path),
+            });
+
         var document = new XDocument(
             new XDeclaration("1.0", "utf-8", null),
             new XElement(
                 SitemapNamespace + "urlset",
-                NavigationCatalog.Items.Select(item =>
-                    new XElement(
-                        SitemapNamespace + "url",
-                        new XElement(SitemapNamespace + "loc", BuildPageUrl(root, item.Path))))));
+                urls.Select(url => new XElement(
+                    SitemapNamespace + "url",
+                    new XElement(SitemapNamespace + "loc", url)))));
 
         return document.ToString();
     }
@@ -54,6 +61,12 @@ public static class PortfolioEndpoints
         return publicBase + options.NormalizedBasePath;
     }
 
-    private static string BuildPageUrl(string root, string path) =>
-        string.IsNullOrEmpty(path) ? root.TrimEnd('/') : root + path;
+    private static string BuildPageUrl(string root, Language language, string path)
+    {
+        var prefix = language == Language.En ? "en" : null;
+        var segments = new[] { prefix, path }.Where(segment => !string.IsNullOrEmpty(segment));
+        var relative = string.Join('/', segments);
+
+        return relative.Length == 0 ? root.TrimEnd('/') : root + relative;
+    }
 }

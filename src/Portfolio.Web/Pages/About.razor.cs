@@ -1,11 +1,10 @@
 using Microsoft.AspNetCore.Components;
-using Microsoft.Extensions.Options;
 using Portfolio.Web.Features.Career;
 using Portfolio.Web.Features.Telemetry;
 using Portfolio.Web.Models;
 using Portfolio.Web.Services.Abstractions;
+using Portfolio.Web.Services.Localization;
 using Portfolio.Web.Services.Mediator;
-using Portfolio.Web.Services.Options;
 
 namespace Portfolio.Web.Pages;
 
@@ -14,7 +13,6 @@ namespace Portfolio.Web.Pages;
 /// </summary>
 public partial class About : ComponentBase
 {
-    private PortfolioOptions portfolio = default!;
     private string pageTitle = string.Empty;
     private IReadOnlyList<Experience> timeline = [];
     private PortfolioSection timelineSection = default!;
@@ -23,21 +21,23 @@ public partial class About : ComponentBase
     private IMediator Mediator { get; set; } = default!;
 
     [Inject]
-    private IOptions<PortfolioOptions> PortfolioOptions { get; set; } = default!;
+    private LocalizedProfile Profile { get; set; } = default!;
 
     [Inject]
     private IPortfolioSectionBuilder SectionBuilder { get; set; } = default!;
 
+    [Inject]
+    private ITranslator Localizer { get; set; } = default!;
+
     protected override async Task OnInitializedAsync()
     {
-        portfolio = PortfolioOptions.Value;
-        pageTitle = $"About — {portfolio.Name}";
+        pageTitle = $"{Localizer["Nav.About"]} — {Profile.Name}";
 
         timelineSection = SectionBuilder
             .WithId("timeline-list")
-            .WithEyebrow("Career")
-            .WithTitle("Experience and milestones")
-            .WithSubtitle("From electronics repair to leading development teams: the path that shaped how I build software.")
+            .WithEyebrow(Localizer["About.Timeline.Eyebrow"])
+            .WithTitle(Localizer["About.Timeline.Title"])
+            .WithSubtitle(Localizer["About.Timeline.Subtitle"])
             .Build();
 
         timeline = await Mediator.SendAsync(new GetCareerTimelineQuery());

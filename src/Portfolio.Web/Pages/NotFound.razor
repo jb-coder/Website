@@ -1,28 +1,26 @@
 @page "/not-found"
+@page "/en/not-found"
 @layout MainLayout
 
-<PageTitle>Page not found — @PortfolioOptions.Value.Name</PageTitle>
+@inject ITranslator Localizer
+@inject LocalizedProfile Profile
+@inject ILanguageContext LanguageContext
+
+<PageTitle>@Localizer["NotFound.Eyebrow"] — @Profile.Name</PageTitle>
 
 <section class="pf-page-hero pf-page-hero--center">
     <div class="pf-container">
-        <span class="pf-eyebrow">Error 404</span>
-        <h1 class="pf-page-hero__title">This page went to production without telling anyone</h1>
-        <p class="pf-page-hero__lead">
-            The address does not exist or the content moved. The navigation is your friend.
-        </p>
+        <span class="pf-eyebrow">@Localizer["NotFound.Eyebrow"]</span>
+        <h1 class="pf-page-hero__title">@Localizer["NotFound.Title"]</h1>
+        <p class="pf-page-hero__lead">@Localizer["NotFound.Lead"]</p>
         <div class="pf-hero__actions">
-            <a class="pf-button pf-button--primary" href="">
-                <span>Back to home</span>
+            <a class="pf-button pf-button--primary" href="@LanguageContext.BuildHref("")">
+                <span>@Localizer["NotFound.Home"]</span>
                 <Icon Name="arrow-right" Size="18" />
             </a>
-            <a class="pf-button pf-button--ghost" href="projects">
-                <span>Browse projects</span>
+            <a class="pf-button pf-button--ghost" href="@LanguageContext.BuildHref("projects")">
+                <span>@Localizer["NotFound.Projects"]</span>
             </a>
         </div>
     </div>
 </section>
-
-@code {
-    [Inject]
-    private IOptions<PortfolioOptions> PortfolioOptions { get; set; } = default!;
-}
