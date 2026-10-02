@@ -28,9 +28,16 @@
             </li>
         }
     </ul>
+
+    <footer class="pf-skill__footer">
+        <span>@Group.Skills.Count @SkillCountLabel</span>
+        <span class="pf-skill__footer-line" aria-hidden="true"></span>
+    </footer>
 </article>
 
 @code {
     [Parameter, EditorRequired]
     public SkillGroupViewModel Group { get; set; } = default!;
+
+    private string SkillCountLabel => Group.Skills.Count == 1 ? "skill" : "skills";
 }
