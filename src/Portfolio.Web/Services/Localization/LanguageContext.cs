@@ -53,7 +53,8 @@ public sealed class LanguageContext(NavigationManager navigation) : ILanguageCon
 
         if (OtherLanguage == Language.Es)
         {
-            return neutral + QueryString;
+            // "." resolves to the site root through the <base href>.
+            return (string.IsNullOrEmpty(neutral) ? "." : neutral) + QueryString;
         }
 
         return (string.IsNullOrEmpty(neutral) ? EnglishSegment : $"{EnglishSegment}/{neutral}") + QueryString;
