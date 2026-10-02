@@ -1,3 +1,4 @@
+using Portfolio.Web.Services.Localization;
 using Microsoft.Extensions.Options;
 using Portfolio.Web.Models.ViewModels;
 using Portfolio.Web.Services.Abstractions;
@@ -8,12 +9,14 @@ namespace Portfolio.Web.Features.Home;
 
 /// <summary>
 /// Composes the metrics from the validated options and the repositories, so the
-/// numbers never drift from the actual content.
+/// numbers never drift from the actual content. Labels are localized through
+/// the shared resources.
 /// </summary>
 public sealed class GetPortfolioStatisticsQueryHandler(
     IOptions<PortfolioOptions> options,
     ISkillRepository skillRepository,
-    IArchitecturePatternRepository patternRepository)
+    IArchitecturePatternRepository patternRepository,
+    ITranslator localizer)
     : IRequestHandler<GetPortfolioStatisticsQuery, IReadOnlyList<StatsCardViewModel>>
 {
     public async Task<IReadOnlyList<StatsCardViewModel>> HandleAsync(
@@ -30,26 +33,26 @@ public sealed class GetPortfolioStatisticsQueryHandler(
         [
             new StatsCardViewModel(
                 $"{portfolio.YearsOfExperience}+",
-                "Years of experience",
-                "Building production .NET systems",
+                localizer["Stats.Years.Label"],
+                localizer["Stats.Years.Description"],
                 "briefcase",
                 "#58A6FF"),
             new StatsCardViewModel(
                 $"{portfolio.CompletedProjects}+",
-                "Projects delivered",
-                "APIs, platforms and mobile apps",
+                localizer["Stats.Projects.Label"],
+                localizer["Stats.Projects.Description"],
                 "box",
                 "#79C0FF"),
             new StatsCardViewModel(
                 $"{skills.Count}",
-                "Technologies in use",
-                "Across backend, frontend, mobile and cloud",
+                localizer["Stats.Technologies.Label"],
+                localizer["Stats.Technologies.Description"],
                 "cpu",
                 "#A5D6FF"),
             new StatsCardViewModel(
                 $"{patterns.Count}",
-                "Patterns documented",
-                "Applied and explained in this very site",
+                localizer["Stats.Patterns.Label"],
+                localizer["Stats.Patterns.Description"],
                 "layers",
                 "#6CB6FF"),
         ];

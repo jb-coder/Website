@@ -13,153 +13,76 @@ public sealed class ProjectRepository : IProjectRepository
     private static readonly IReadOnlyList<Project> Projects =
     [
         new Project(
-            Id: "manufacturing-master-data",
-            Title: "Manufacturing Master Data Platform",
-            Summary: "Centralized master data platform for a multi-plant manufacturing group.",
-            Description: "Event-driven platform that governs materials, bills of materials and production recipes across plants, replacing spreadsheet-driven processes. Built with Clean Architecture, CQRS and DDD tactical patterns on top of Azure SQL, with a Blazor back-office for data stewards.",
+            Id: "erp-platform",
+            Title: new("Plataforma ERP", "ERP Platform"),
+            Summary: new(
+                "ERP modular en construcción para unificar operaciones, logística y finanzas.",
+                "Modular ERP under construction to unify operations, logistics and finance."),
+            Description: new(
+                "ERP construido desde cero que centraliza la operación diaria de varias áreas. Es una plataforma modular para que cada área de negocio evolucione por separado, con foco en la integridad de los datos, el acceso por roles y la automatización de procesos.",
+                "Greenfield ERP that centralizes day-to-day operations across departments. Built as a modular platform so each business area can evolve independently, with a strong focus on data integrity, role-based access and process automation."),
             Category: ProjectCategory.WebApp,
-            Status: ProjectStatus.InProduction,
-            Year: 2024,
+            Status: ProjectStatus.InProgress,
+            Year: 2025,
             Accent: "#58A6FF",
             Icon: "layers",
             IsFeatured: true,
             Highlights:
             [
-                "Master data governance for 4 plants",
-                "Reduced data quality incidents by 62%",
-                "Near real-time sync with the ERP",
+                new(
+                    "En construcción activa, módulo a módulo",
+                    "Under active construction, module by module"),
+                new(
+                    "Arquitectura modular lista para crecer por área de negocio",
+                    "Modular architecture ready to grow per business area"),
+                new(
+                    "Automatización de los procesos operativos clave",
+                    "Automation of core operational processes"),
             ],
             Technologies:
             [
                 Tech(".NET", TechnologyCategory.Backend, "cpu", "#58A6FF"),
                 Tech("ASP.NET Core", TechnologyCategory.Backend, "server", "#79C0FF"),
-                Tech("Blazor", TechnologyCategory.Frontend, "layout", "#A5D6FF"),
-                Tech("EF Core", TechnologyCategory.Backend, "database", "#58A6FF"),
-                Tech("Azure SQL", TechnologyCategory.Cloud, "hard-drive", "#79C0FF"),
+                Tech("EF Core", TechnologyCategory.Backend, "database", "#A5D6FF"),
+                Tech("SQL Server", TechnologyCategory.Backend, "hard-drive", "#58A6FF"),
+                Tech("Angular", TechnologyCategory.Frontend, "code", "#79C0FF"),
                 Tech("Clean Architecture", TechnologyCategory.Architecture, "layers", "#A5D6FF"),
+                Tech("AWS", TechnologyCategory.Cloud, "cloud", "#58A6FF"),
             ]),
         new Project(
-            Id: "airline-operations-api",
-            Title: "Airline Operations API",
-            Summary: "Flight and crew operations API consumed by ground and cabin teams.",
-            Description: "Domain-driven Minimal API that orchestrates flight schedules, crew rosters and irregular operations. Contract-first OpenAPI, idempotent command endpoints, rate limiting, and integration events published over Azure Service Bus.",
-            Category: ProjectCategory.Api,
-            Status: ProjectStatus.InProduction,
-            Year: 2023,
-            Accent: "#79C0FF",
-            Icon: "send",
-            IsFeatured: true,
-            Highlights:
-            [
-                "99.98% measured availability",
-                "p95 latency under 120 ms",
-                "Contract-first OpenAPI consumed by 6 clients",
-            ],
-            Technologies:
-            [
-                Tech(".NET", TechnologyCategory.Backend, "cpu", "#58A6FF"),
-                Tech("Minimal APIs", TechnologyCategory.Backend, "zap", "#79C0FF"),
-                Tech("DDD", TechnologyCategory.Architecture, "hexagon", "#A5D6FF"),
-                Tech("Azure Service Bus", TechnologyCategory.Cloud, "share-2", "#58A6FF"),
-                Tech("Redis", TechnologyCategory.Backend, "layers", "#79C0FF"),
-                Tech("OpenTelemetry", TechnologyCategory.Cloud, "activity", "#A5D6FF"),
-            ]),
-        new Project(
-            Id: "inventory-management",
-            Title: "Inventory Management Platform",
-            Summary: "Real-time inventory control for industrial warehouses.",
-            Description: "Platform for stock, movements and cycle counting with role-based access, audit trail and operational reporting. Implemented as a modular monolith with vertical slices over ASP.NET Core and SQL Server.",
-            Category: ProjectCategory.WebApp,
-            Status: ProjectStatus.InProduction,
-            Year: 2022,
-            Accent: "#A5D6FF",
-            Icon: "box",
-            IsFeatured: false,
-            Highlights:
-            [
-                "Keeps 18,000+ SKUs in sync",
-                "Cycle counting time cut by 40%",
-                "Full audit trail for every movement",
-            ],
-            Technologies:
-            [
-                Tech(".NET", TechnologyCategory.Backend, "cpu", "#58A6FF"),
-                Tech("ASP.NET Core", TechnologyCategory.Backend, "server", "#79C0FF"),
-                Tech("Blazor", TechnologyCategory.Frontend, "layout", "#A5D6FF"),
-                Tech("SQL Server", TechnologyCategory.Backend, "database", "#58A6FF"),
-                Tech("Docker", TechnologyCategory.Cloud, "box", "#79C0FF"),
-            ]),
-        new Project(
-            Id: "mobile-workforce",
-            Title: "Mobile Workforce App",
-            Summary: "Offline-first companion app for shop-floor operators.",
-            Description: "MAUI application that guides operators through production orders with barcode scanning and offline data capture, synchronizing through a resilient API as soon as connectivity returns.",
+            Id: "field-operations-app",
+            Title: new("App de Operaciones de Campo", "Field Operations App"),
+            Summary: new(
+                "Aplicación MAUI para que los técnicos de campo gestionen órdenes e inspecciones.",
+                "MAUI application for field technicians to manage work orders and inspections."),
+            Description: new(
+                "App multiplataforma que da a los equipos de campo sus órdenes diarias, listas de comprobación digitales y captura de evidencias. Está construida con .NET MAUI y una capa de datos que tolera cortes de conexión y sincroniza con el backend en cuanto vuelve la red.",
+                "Cross-platform app that puts daily work orders, digital checklists and evidence capture in the hands of field teams. Built with .NET MAUI and an offline-tolerant data layer that synchronizes with the backend as soon as connectivity is available."),
             Category: ProjectCategory.Mobile,
-            Status: ProjectStatus.Delivered,
-            Year: 2022,
-            Accent: "#6CB6FF",
+            Status: ProjectStatus.InProgress,
+            Year: 2025,
+            Accent: "#79C0FF",
             Icon: "smartphone",
             IsFeatured: true,
             Highlights:
             [
-                "Works fully offline on the shop floor",
-                "Deployed to 120+ rugged devices",
-                "Scan-driven, mistake-proof workflows",
+                new(
+                    "Listas de comprobación digitales que sustituyen al papel",
+                    "Digital checklists replace paper-based processes"),
+                new(
+                    "Evidencias con foto y firma en cada orden",
+                    "Photo and signature evidence attached to every order"),
+                new(
+                    "Sincronización tolerante a cortes de conexión",
+                    "Offline-tolerant synchronization for field work"),
             ],
             Technologies:
             [
                 Tech(".NET MAUI", TechnologyCategory.Mobile, "smartphone", "#58A6FF"),
                 Tech("C#", TechnologyCategory.Backend, "code", "#79C0FF"),
-                Tech("SQLite", TechnologyCategory.Mobile, "database", "#A5D6FF"),
-                Tech("REST", TechnologyCategory.Backend, "globe", "#58A6FF"),
-            ]),
-        new Project(
-            Id: "cloud-integration-hub",
-            Title: "Cloud Integration Hub",
-            Summary: "Integration backbone connecting manufacturing systems.",
-            Description: "Serverless hub that translates and routes messages between ERP, MES and WMS using Azure Functions, Service Bus topics and Event Grid, with end-to-end tracing and automated deployments.",
-            Category: ProjectCategory.Cloud,
-            Status: ProjectStatus.InProduction,
-            Year: 2024,
-            Accent: "#388BFD",
-            Icon: "share-2",
-            IsFeatured: false,
-            Highlights:
-            [
-                "1.2M messages processed per day",
-                "Zero-touch deployments via pipelines",
-                "End-to-end distributed tracing",
-            ],
-            Technologies:
-            [
-                Tech("Azure Functions", TechnologyCategory.Cloud, "zap", "#58A6FF"),
-                Tech("Service Bus", TechnologyCategory.Cloud, "share-2", "#79C0FF"),
-                Tech("Event Grid", TechnologyCategory.Cloud, "activity", "#A5D6FF"),
-                Tech(".NET", TechnologyCategory.Backend, "cpu", "#58A6FF"),
-                Tech("Azure DevOps", TechnologyCategory.Cloud, "git-branch", "#79C0FF"),
-            ]),
-        new Project(
-            Id: "observability-toolkit",
-            Title: "Observability Toolkit",
-            Summary: "Reusable observability package for .NET services and workers.",
-            Description: "Internal NuGet that standardizes structured logging, distributed tracing, health probes and dashboards across platform teams, with sensible defaults and opt-in modules.",
-            Category: ProjectCategory.Cloud,
-            Status: ProjectStatus.Delivered,
-            Year: 2023,
-            Accent: "#79C0FF",
-            Icon: "activity",
-            IsFeatured: false,
-            Highlights:
-            [
-                "Adopted by 9 production services",
-                "OpenTelemetry-native instrumentation",
-                "Cut mean time to resolution by 35%",
-            ],
-            Technologies:
-            [
-                Tech(".NET", TechnologyCategory.Backend, "cpu", "#58A6FF"),
-                Tech("OpenTelemetry", TechnologyCategory.Cloud, "activity", "#79C0FF"),
-                Tech("Application Insights", TechnologyCategory.Cloud, "cloud", "#A5D6FF"),
+                Tech("REST", TechnologyCategory.Backend, "globe", "#A5D6FF"),
+                Tech("SQLite", TechnologyCategory.Mobile, "database", "#58A6FF"),
+                Tech("AWS", TechnologyCategory.Cloud, "cloud", "#79C0FF"),
             ]),
     ];
 

@@ -1,4 +1,5 @@
 @page "/"
+@page "/en"
 
 <PageTitle>@pageTitle</PageTitle>
 
@@ -6,7 +7,7 @@
     <script type="application/ld+json">@((MarkupString)structuredData)</script>
 </HeadContent>
 
-<HeroSection Options="portfolio" Stats="statistics" Technologies="technologies" />
+<HeroSection Profile="profile" Stats="statistics" Technologies="technologies" />
 
 <section class="pf-section" id="featured-work" aria-labelledby="featured-work-title">
     <div class="pf-container">
@@ -20,8 +21,8 @@
         </div>
 
         <div class="pf-section__actions">
-            <a class="pf-button pf-button--ghost" href="projects">
-                <span>View all projects</span>
+            <a class="pf-button pf-button--ghost" href="@LanguageContext.BuildHref("projects")">
+                <span>@Localizer["Home.Featured.ViewAll"]</span>
                 <Icon Name="arrow-right" Size="18" />
             </a>
         </div>
@@ -51,19 +52,16 @@
     <div class="pf-container">
         <div class="pf-cta">
             <div class="pf-cta__content">
-                <h2 class="pf-cta__title" id="cta-title">Let's build something solid</h2>
-                <p class="pf-cta__text">
-                    I'm available for senior .NET roles and architecture-focused work.
-                    Tell me about your product and the problems you want to leave behind.
-                </p>
+                <h2 class="pf-cta__title" id="cta-title">@Localizer["Home.Cta.Title"]</h2>
+                <p class="pf-cta__text">@Localizer["Home.Cta.Text"]</p>
             </div>
             <div class="pf-cta__actions">
-                <a class="pf-button pf-button--primary" href="contact">
-                    <span>Start a conversation</span>
+                <a class="pf-button pf-button--primary" href="@LanguageContext.BuildHref("contact")">
+                    <span>@Localizer["Home.Cta.Primary"]</span>
                     <Icon Name="arrow-right" Size="18" />
                 </a>
-                <a class="pf-button pf-button--ghost" href="projects">
-                    <span>See the work</span>
+                <a class="pf-button pf-button--ghost" href="@LanguageContext.BuildHref("projects")">
+                    <span>@Localizer["Home.Cta.Secondary"]</span>
                 </a>
             </div>
         </div>

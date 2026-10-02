@@ -66,7 +66,7 @@ mediador consume handlers, los handlers consumen repositorios y estrategias.
 | `Icon` | Todos los componentes y páginas | Muy alta |
 | `TechnologyBadge` | `ProjectCard`, `TechnologyMarquee` | Alta |
 | `SectionHeader` | Home, About, Skills, Projects, Architecture, Contact | Muy alta |
-| `ProjectCard` | Home (3), Projects (6) | Alta |
+| `ProjectCard` | Home (2), Projects (2) | Alta |
 | `SkillCard` | Skills (5 grupos) | Media |
 | `TimelineItem` | About (5 entradas) | Media |
 | `ContactCard` | Contact (4) | Media |
@@ -139,7 +139,7 @@ en esta revisión: se recomienda añadirlo como paso de CI (ver sección 12).
   y componente.
 - Sin comentarios redundantes en el código de producción.
 
-**Observación menor**: `ProjectRepository` concentra 6 proyectos de seed en un
+**Observación menor**: `ProjectRepository` concentra los proyectos de seed en un
 solo archivo; si el catálogo crece, conviene extraer los datos a un archivo de
 seed o a JSON embebido, manteniendo el repositorio como única puerta.
 
@@ -183,9 +183,12 @@ responsabilidad única.
 4. **Link checker** en CI para los enlaces externos de contacto.
 5. **CSP** (`Content-Security-Policy`) cuando exista hosting con cabeceras;
    GitHub Pages no permite cabeceras personalizadas.
-6. **i18n**: extraer textos a recursos antes de añadir el segundo idioma.
-7. **Datos desacoplados**: mover los seeds a JSON/embedded resources si crecen.
-8. **`GetByIdAsync`**: eliminar si no aparece consumidor en la v2.
+6. **i18n**: implementado en la iteración de localización (ES por defecto, EN en
+   `/en`) con `ILanguageContext` + `ITranslator`; ver `localization.md`.
+7. **Filtros como rutas**: convertir `?category=` en `/projects/{category}`
+   para que los filtros funcionen también en GitHub Pages.
+8. **Datos desacoplados**: mover los seeds a JSON/embedded resources si crecen.
+9. **`GetByIdAsync`**: eliminar si no aparece consumidor en la v2.
 
 ## 13. Conclusión
 

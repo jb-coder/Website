@@ -24,6 +24,7 @@ verificada por el build y despliegue 100% estático en GitHub Pages.
 | --- | --- |
 | Runtime | .NET 10, ASP.NET Core, Blazor Web App (static rendering) |
 | UI | Razor Components, CSS moderno (custom properties, `color-mix`, scroll animations) |
+| Idiomas | Español (raíz) e inglés (`/en`) con rutas estáticas, sin JavaScript |
 | Arquitectura | Clean Architecture ligera, CQRS con mediator propio |
 | DevOps | GitHub Actions, GitHub Pages, exportador estático |
 | Calidad | Nullable, `TreatWarningsAsErrors`, EditorConfig, Options validadas |
@@ -57,7 +58,8 @@ Detalle completo en
 │   ├── Pages/                           # Rutas del sitio
 │   ├── Features/                        # Queries + handlers (casos de uso)
 │   ├── Models/                          # Dominio + ViewModels
-│   ├── Services/                        # Abstracciones, repos, patrones, opciones
+│   ├── Services/                        # Abstracciones, repos, patrones, opciones, localización
+│   ├── Resources/                       # Catálogos resx ES (neutral) y EN
 │   ├── Shared/                          # NavigationCatalog
 │   ├── Documentation/                   # Patrones y componentes
 │   └── wwwroot/                         # Themes (CSS), Assets (SVG)
@@ -123,12 +125,36 @@ por ruta, `404.html`, `sitemap.xml`, `robots.txt` y `.nojekyll`.
 
 Todo el contenido del perfil vive en `src/Portfolio.Web/appsettings.json`
 (sección `Portfolio`): nombre, rol, tagline, email, LinkedIn, GitHub,
-experiencia, disponibilidad y `BasePath`. Los datos de proyectos, skills,
-timeline y patrones son catálogos estáticos en
-`src/Portfolio.Web/Services/Repositories`.
+experiencia, disponibilidad y `BasePath`. Los campos de texto son bilingües
+(`{ "Es": "...", "En": "..." }`). Los datos de proyectos, skills, timeline y
+patrones son catálogos estáticos en `src/Portfolio.Web/Services/Repositories`,
+también con textos `LocalizedText`.
 
 > Antes de publicar, sustituye `PublicBaseUrl`, `Email` y los perfiles sociales
 > de ejemplo por los tuyos.
+
+## Idiomas
+
+El sitio es bilingüe y completamente estático: **el idioma vive en la URL**, sin
+JavaScript, cookies ni `localStorage`.
+
+| Idioma | URLs | Página |
+| --- | --- | --- |
+| Español (por defecto) | `/`, `/about`, `/projects`, ... | `/` |
+| Inglés | `/en`, `/en/about`, `/en/projects`, ... | `/en` |
+
+- El conmutador del header es un enlace que conserva la query string
+  (`/projects?category=Mobile` → `/en/projects?category=Mobile`).
+- Cada página declara sus dos rutas (`@page "/projects"` y
+  `@page "/en/projects"`) y añade `canonical` + `hreflang` en el `<head>`.
+- Los textos de interfaz viven en `src/Portfolio.Web/Resources`
+  (`SharedResource.resx` = español, `SharedResource.en.resx` = inglés) y se
+  consumen con `Localizer["Clave"]`.
+- Los datos de dominio usan `LocalizedText(Es, En)` y se resuelven en handlers y
+  factorías según `ILanguageContext`.
+
+Detalle y reglas para añadir contenido:
+[`localization.md`](src/Portfolio.Web/Documentation/localization.md).
 
 ## Decisiones técnicas
 
@@ -140,6 +166,7 @@ timeline y patrones son catálogos estáticos en
 | CSS propio con `pf-` | Sin frameworks pesados; theming con variables. |
 | Exportador en `tools/` | Responsabilidad única, testeable y reutilizable. |
 | `UsePathBase` + `<base>` | Un solo código para raíz y sub-path de Pages. |
+| Traductor propio (`ITranslator`) | Idioma desde la URL, sin cultura ambiente ni satélites: mismo resultado en runtime y export. |
 
 ## Calidad
 
@@ -159,8 +186,9 @@ El diseño deja preparadas, sin implementarlas (YAGNI), estas ampliaciones:
 
 - **Blog**: nueva feature + repositorio, sin tocar las existentes.
 - **API/CMS**: implementar `IProjectRepository` contra el origen real.
-- **Multiidioma**: los textos de UI están en componentes; el siguiente paso es
-  `IStringLocalizer` y recursos por cultura.
+- **Idiomas**: implementado ES/EN por rutas estáticas
+  ([`localization.md`](src/Portfolio.Web/Documentation/localization.md)); añadir
+  un tercer idioma es crear el resx, las rutas y la entrada de navegación.
 - **Analytics**: `PageVisitedNotification` ya se publica en cada página.
 - **Interactividad puntual**: añadir `@rendermode InteractiveServer` a un
   componente y desplegar en un host .NET, manteniendo la arquitectura.

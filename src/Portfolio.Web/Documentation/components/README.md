@@ -15,6 +15,7 @@ sin JavaScript. Reciben view models ya resueltos por la capa de aplicación.
 | [StatsCard](StatsCard.md) | `Components/Shared` | Métrica destacada |
 | [PatternCard](PatternCard.md) | `Components/Shared` | Patrón documentado |
 | [ContactCard](ContactCard.md) | `Components/Shared` | Canal de contacto |
+| [LanguageSwitcher](LanguageSwitcher.md) | `Components/Shared` | Cambio ES/EN por URL |
 | [Icon](Icon.md) | `Components/Shared` | Icono SVG desde sprite |
 
 ## Convenciones

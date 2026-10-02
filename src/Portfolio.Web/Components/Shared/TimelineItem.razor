@@ -1,3 +1,10 @@
+@inject ILanguageContext LanguageContext
+@inject ITranslator Localizer
+
+@{
+    var language = LanguageContext.Language;
+}
+
 <li class="pf-timeline__item pf-timeline__item--@TypeModifier">
     <span class="pf-timeline__marker" aria-hidden="true">
         <Icon Name="@Entry.Icon" Size="16" />
@@ -5,17 +12,19 @@
 
     <article class="pf-card pf-timeline__content">
         <div class="pf-timeline__meta">
-            <span class="pf-timeline__period">@Entry.Period</span>
+            <span class="pf-timeline__period">
+                @Entry.StartLabel — @(Entry.EndLabel ?? Localizer["Timeline.Present"])
+            </span>
             <span class="pf-timeline__type">@TypeLabel</span>
         </div>
 
-        <h3 class="pf-timeline__role">@Entry.Role</h3>
+        <h3 class="pf-timeline__role">@Entry.Role.For(language)</h3>
         <p class="pf-timeline__company">
             @Entry.Company
             <span aria-hidden="true">·</span>
             <span class="pf-timeline__location">@Entry.Location</span>
         </p>
-        <p class="pf-timeline__summary">@Entry.Summary</p>
+        <p class="pf-timeline__summary">@Entry.Summary.For(language)</p>
 
         @if (Entry.Highlights.Count > 0)
         {
@@ -24,7 +33,7 @@
                 {
                     <li>
                         <Icon Name="check" Size="14" />
-                        <span>@highlight</span>
+                        <span>@highlight.For(language)</span>
                     </li>
                 }
             </ul>
@@ -32,7 +41,7 @@
 
         @if (Entry.Technologies.Count > 0)
         {
-            <ul class="pf-timeline__tags" aria-label="Technologies">
+            <ul class="pf-timeline__tags" aria-label="@Localizer["Common.Technologies"]">
                 @foreach (var technology in Entry.Technologies)
                 {
                     <li class="pf-tag">@technology</li>
@@ -50,8 +59,8 @@
 
     private string TypeLabel => Entry.Type switch
     {
-        ExperienceType.Work => "Experience",
-        ExperienceType.Education => "Education",
-        _ => "Certification",
+        ExperienceType.Work => Localizer["Timeline.Type.Work"],
+        ExperienceType.Education => Localizer["Timeline.Type.Education"],
+        _ => Localizer["Timeline.Type.Certification"],
     };
 }

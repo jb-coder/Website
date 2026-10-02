@@ -1,22 +1,27 @@
 @inherits LayoutComponentBase
-@inject IOptions<PortfolioOptions> PortfolioOptions
+@inject LocalizedProfile Profile
+@inject ILanguageContext LanguageContext
+@inject ITranslator Localizer
 
 <div class="pf-shell">
     <div class="pf-scroll-progress" aria-hidden="true"></div>
 
-    <a class="pf-skip-link" href="#main">Skip to content</a>
+    <a class="pf-skip-link" href="#main">@Localizer["Common.SkipToContent"]</a>
 
     <header class="pf-header">
         <div class="pf-container pf-header__inner">
-            <a class="pf-brand" href="">
+            <a class="pf-brand" href="@LanguageContext.BuildHref("")">
                 <img class="pf-brand__logo" src="Assets/logo.svg" alt="" width="38" height="38" />
                 <span class="pf-brand__text">
-                    <strong>@PortfolioOptions.Value.Name</strong>
-                    <span>@PortfolioOptions.Value.Role</span>
+                    <strong>@Profile.Name</strong>
+                    <span>@Profile.Role</span>
                 </span>
             </a>
 
-            <NavMenu />
+            <div class="pf-header__controls">
+                <NavMenu />
+                <LanguageSwitcher />
+            </div>
         </div>
     </header>
 

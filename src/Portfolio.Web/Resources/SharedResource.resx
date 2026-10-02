@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Nav.PrimaryAria" xml:space="preserve">
+    <value>Navegación principal</value>
+  </data>
+  <data name="Nav.FooterAria" xml:space="preserve">
+    <value>Navegación del pie de página</value>
+  </data>
+  <data name="Nav.Home" xml:space="preserve">
+    <value>Inicio</value>
+  </data>
+  <data name="Nav.About" xml:space="preserve">
+    <value>Sobre mí</value>
+  </data>
+  <data name="Nav.Skills" xml:space="preserve">
+    <value>Habilidades</value>
+  </data>
+  <data name="Nav.Projects" xml:space="preserve">
+    <value>Proyectos</value>
+  </data>
+  <data name="Nav.Architecture" xml:space="preserve">
+    <value>Arquitectura</value>
+  </data>
+  <data name="Nav.Contact" xml:space="preserve">
+    <value>Contacto</value>
+  </data>
+  <data name="Common.SkipToContent" xml:space="preserve">
+    <value>Saltar al contenido</value>
+  </data>
+  <data name="Common.OpensInNewTab" xml:space="preserve">
+    <value>(se abre en una pestaña nueva)</value>
+  </data>
+  <data name="Common.EmailAria" xml:space="preserve">
+    <value>Enviar un correo a {0}</value>
+  </data>
+  <data name="Common.GithubAria" xml:space="preserve">
+    <value>Perfil de GitHub (se abre en una pestaña nueva)</value>
+  </data>
+  <data name="Common.LinkedInAria" xml:space="preserve">
+    <value>Perfil de LinkedIn (se abre en una pestaña nueva)</value>
+  </data>
+  <data name="Common.AllRightsReserved" xml:space="preserve">
+    <value>Todos los derechos reservados.</value>
+  </data>
+  <data name="Common.Technologies" xml:space="preserve">
+    <value>Tecnologías</value>
+  </data>
+  <data name="Language.ViewInEnglish" xml:space="preserve">
+    <value>Ver esta página en inglés</value>
+  </data>
+  <data name="Language.ViewInSpanish" xml:space="preserve">
+    <value>Ver esta página en español</value>
+  </data>
+  <data name="Hero.ProfileAria" xml:space="preserve">
+    <value>Perfil del desarrollador</value>
+  </data>
+  <data name="Hero.FocusAria" xml:space="preserve">
+    <value>Áreas de especialización</value>
+  </data>
+  <data name="Hero.CtaExplore" xml:space="preserve">
+    <value>Explora mi trabajo</value>
+  </data>
+  <data name="Hero.CtaContact" xml:space="preserve">
+    <value>Hablemos</value>
+  </data>
+  <data name="Home.Featured.Eyebrow" xml:space="preserve">
+    <value>Trabajo seleccionado</value>
+  </data>
+  <data name="Home.Featured.Title" xml:space="preserve">
+    <value>Proyectos que llegan del concepto a producción</value>
+  </data>
+  <data name="Home.Featured.Subtitle" xml:space="preserve">
+    <value>Una muestra de las plataformas y aplicaciones que diseño y desarrollo.</value>
+  </data>
+  <data name="Home.Featured.ViewAll" xml:space="preserve">
+    <value>Ver todos los proyectos</value>
+  </data>
+  <data name="Home.Principles.Eyebrow" xml:space="preserve">
+    <value>Cómo trabajo</value>
+  </data>
+  <data name="Home.Principles.Title" xml:space="preserve">
+    <value>Principios de ingeniería innegociables</value>
+  </data>
+  <data name="Home.Principles.Subtitle" xml:space="preserve">
+    <value>Los hábitos detrás de cada repositorio, pipeline y pull request.</value>
+  </data>
+  <data name="Home.Principle.Architecture.Title" xml:space="preserve">
+    <value>La arquitectura, primero</value>
+  </data>
+  <data name="Home.Principle.Architecture.Text" xml:space="preserve">
+    <value>Pienso la arquitectura antes de escribir código: capas claras, contratos explícitos y un dominio fácil de testear.</value>
+  </data>
+  <data name="Home.Principle.Automation.Title" xml:space="preserve">
+    <value>Automatizar todo</value>
+  </data>
+  <data name="Home.Principle.Automation.Text" xml:space="preserve">
+    <value>Los pipelines compilan, prueban y despliegan cada cambio. Si un paso es manual, tarde o temprano se olvida.</value>
+  </data>
+  <data name="Home.Principle.Performance.Title" xml:space="preserve">
+    <value>El rendimiento también es una funcionalidad</value>
+  </data>
+  <data name="Home.Principle.Performance.Text" xml:space="preserve">
+    <value>APIs rápidas e interfaces ya renderizadas en el servidor. Este sitio no carga JavaScript a propósito.</value>
+  </data>
+  <data name="Home.Cta.Title" xml:space="preserve">
+    <value>Construyamos algo que dure</value>
+  </data>
+  <data name="Home.Cta.Text" xml:space="preserve">
+    <value>Estoy abierto a puestos senior de .NET y a proyectos centrados en arquitectura. Cuéntame qué producto tienes entre manos y qué problemas quieres dejar atrás.</value>
+  </data>
+  <data name="Home.Cta.Primary" xml:space="preserve">
+    <value>Iniciar una conversación</value>
+  </data>
+  <data name="Home.Cta.Secondary" xml:space="preserve">
+    <value>Ver el trabajo</value>
+  </data>
+  <data name="About.Eyebrow" xml:space="preserve">
+    <value>Sobre mí</value>
+  </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>El ingeniero detrás del código</value>
+  </data>
+  <data name="About.Lead" xml:space="preserve">
+    <value>Plataformas backend, APIs, front-ends Blazor y apps MAUI, siempre con la mantenibilidad como prioridad.</value>
+  </data>
+  <data name="About.ProfileAria" xml:space="preserve">
+    <value>Perfil profesional</value>
+  </data>
+  <data name="About.Bio.Heading" xml:space="preserve">
+    <value>Construyo software duradero y fácil de mantener</value>
+  </data>
+  <data name="About.Bio.P1" xml:space="preserve">
+    <value>Soy desarrollador .NET senior y llevo más de {0} años construyendo sistemas que las empresas usan a diario: plataformas backend, APIs internas y públicas, front-ends Blazor y aplicaciones móviles multiplataforma.</value>
+  </data>
+  <data name="About.Bio.P2" xml:space="preserve">
+    <value>Me muevo bien entre la arquitectura y el día a día de la entrega. Uso Clean Architecture, CQRS y Domain-Driven Design porque abaratan el cambio, nunca como pura ceremonia. Prefiero pocos límites, pero claros: contratos explícitos y tests que documenten la intención.</value>
+  </data>
+  <data name="About.Bio.P3" xml:space="preserve">
+    <value>En cloud trabajo sobre todo con Azure: App Service, Functions, Service Bus, Azure SQL y pipelines en Azure DevOps. Para mí, la observabilidad, la accesibilidad y el rendimiento son requisitos desde el primer día, no algo que se deja para el final.</value>
+  </data>
+  <data name="About.Fact.Years" xml:space="preserve">
+    <value>{0}+ años construyendo sistemas .NET</value>
+  </data>
+  <data name="About.Timeline.Eyebrow" xml:space="preserve">
+    <value>Trayectoria</value>
+  </data>
+  <data name="About.Timeline.Title" xml:space="preserve">
+    <value>Experiencia e hitos</value>
+  </data>
+  <data name="About.Timeline.Subtitle" xml:space="preserve">
+    <value>De la reparación electrónica al liderazgo de equipos: el camino que explica cómo trabajo hoy.</value>
+  </data>
+  <data name="Skills.Eyebrow" xml:space="preserve">
+    <value>Habilidades</value>
+  </data>
+  <data name="Skills.Title" xml:space="preserve">
+    <value>Un stack pensado para durar</value>
+  </data>
+  <data name="Skills.Lead" xml:space="preserve">
+    <value>Agrupadas por disciplina. Los niveles reflejan experiencia real en producción, no tutoriales vistos.</value>
+  </data>
+  <data name="Skills.Section.Eyebrow" xml:space="preserve">
+    <value>Capacidades</value>
+  </data>
+  <data name="Skills.Section.Title" xml:space="preserve">
+    <value>Cinco disciplinas y una caja de herramientas coherente</value>
+  </data>
+  <data name="Skills.Section.Subtitle" xml:space="preserve">
+    <value>Backend, frontend, mobile, cloud y arquitectura, cada una con proyectos reales detrás.</value>
+  </data>
+  <data name="Skills.Legend.ExpertHint" xml:space="preserve">
+    <value>diseña y lidera</value>
+  </data>
+  <data name="Skills.Legend.AdvancedHint" xml:space="preserve">
+    <value>entrega de forma autónoma</value>
+  </data>
+  <data name="Skills.Legend.IntermediateHint" xml:space="preserve">
+    <value>conocimiento práctico</value>
+  </data>
+  <data name="Skills.Note.Title" xml:space="preserve">
+    <value>Siempre aprendiendo para el próximo proyecto</value>
+  </data>
+  <data name="Skills.Note.Text" xml:space="preserve">
+    <value>El stack crece según lo que pide el problema: aprendo lo necesario, documento la decisión y lo añado aquí cuando alcanza calidad de producción.</value>
+  </data>
+  <data name="SkillCard.SkillsSingular" xml:space="preserve">
+    <value>habilidad</value>
+  </data>
+  <data name="SkillCard.SkillsPlural" xml:space="preserve">
+    <value>habilidades</value>
+  </data>
+  <data name="SkillLevel.Expert" xml:space="preserve">
+    <value>Experto</value>
+  </data>
+  <data name="SkillLevel.Advanced" xml:space="preserve">
+    <value>Avanzado</value>
+  </data>
+  <data name="SkillLevel.Intermediate" xml:space="preserve">
+    <value>Intermedio</value>
+  </data>
+  <data name="SkillGroup.Backend.Title" xml:space="preserve">
+    <value>Backend</value>
+  </data>
+  <data name="SkillGroup.Backend.Description" xml:space="preserve">
+    <value>Servicios, APIs y acceso a datos pensados para el rendimiento y el mantenimiento.</value>
+  </data>
+  <data name="SkillGroup.Frontend.Title" xml:space="preserve">
+    <value>Frontend</value>
+  </data>
+  <data name="SkillGroup.Frontend.Description" xml:space="preserve">
+    <value>Interfaces generadas en el servidor, diseño de componentes y experiencias accesibles.</value>
+  </data>
+  <data name="SkillGroup.Mobile.Title" xml:space="preserve">
+    <value>Mobile</value>
+  </data>
+  <data name="SkillGroup.Mobile.Description" xml:space="preserve">
+    <value>Aplicaciones multiplataforma que siguen funcionando cuando la red no lo hace.</value>
+  </data>
+  <data name="SkillGroup.Cloud.Title" xml:space="preserve">
+    <value>Cloud y DevOps</value>
+  </data>
+  <data name="SkillGroup.Cloud.Description" xml:space="preserve">
+    <value>Entrega automatizada y alojamiento resiliente en Azure y AWS.</value>
+  </data>
+  <data name="SkillGroup.Architecture.Title" xml:space="preserve">
+    <value>Arquitectura</value>
+  </data>
+  <data name="SkillGroup.Architecture.Description" xml:space="preserve">
+    <value>Los principios y patrones que mantienen los sistemas fáciles de cambiar.</value>
+  </data>
+  <data name="Stats.Years.Label" xml:space="preserve">
+    <value>Años de experiencia</value>
+  </data>
+  <data name="Stats.Years.Description" xml:space="preserve">
+    <value>Construyendo sistemas .NET en producción</value>
+  </data>
+  <data name="Stats.Projects.Label" xml:space="preserve">
+    <value>Proyectos entregados</value>
+  </data>
+  <data name="Stats.Projects.Description" xml:space="preserve">
+    <value>APIs, plataformas y apps móviles</value>
+  </data>
+  <data name="Stats.Technologies.Label" xml:space="preserve">
+    <value>Tecnologías en uso</value>
+  </data>
+  <data name="Stats.Technologies.Description" xml:space="preserve">
+    <value>Repartidas entre backend, frontend, mobile y cloud</value>
+  </data>
+  <data name="Stats.Patterns.Label" xml:space="preserve">
+    <value>Patrones documentados</value>
+  </data>
+  <data name="Stats.Patterns.Description" xml:space="preserve">
+    <value>Aplicados y explicados en este mismo sitio</value>
+  </data>
+  <data name="Projects.Eyebrow" xml:space="preserve">
+    <value>Proyectos</value>
+  </data>
+  <data name="Projects.Title" xml:space="preserve">
+    <value>Sistemas reales, no maquetas</value>
+  </data>
+  <data name="Projects.Lead" xml:space="preserve">
+    <value>Plataformas y aplicaciones en construcción y en producción. Filtra por disciplina.</value>
+  </data>
+  <data name="Projects.Section.Eyebrow" xml:space="preserve">
+    <value>Portfolio</value>
+  </data>
+  <data name="Projects.Section.Title" xml:space="preserve">
+    <value>Proyectos seleccionados</value>
+  </data>
+  <data name="Projects.Section.Subtitle" xml:space="preserve">
+    <value>Cada tarjeta resume el problema, la solución y el resultado.</value>
+  </data>
+  <data name="Projects.Filter.All" xml:space="preserve">
+    <value>Todos</value>
+  </data>
+  <data name="Projects.Filter.Api" xml:space="preserve">
+    <value>APIs y servicios</value>
+  </data>
+  <data name="Projects.Filter.WebApp" xml:space="preserve">
+    <value>Plataformas web</value>
+  </data>
+  <data name="Projects.Filter.Mobile" xml:space="preserve">
+    <value>Mobile</value>
+  </data>
+  <data name="Projects.Filter.Cloud" xml:space="preserve">
+    <value>Cloud y DevOps</value>
+  </data>
+  <data name="Projects.Showing" xml:space="preserve">
+    <value>Mostrando</value>
+  </data>
+  <data name="Projects.CountSingular" xml:space="preserve">
+    <value>proyecto</value>
+  </data>
+  <data name="Projects.CountPlural" xml:space="preserve">
+    <value>proyectos</value>
+  </data>
+  <data name="Projects.InCategory" xml:space="preserve">
+    <value>en {0}</value>
+  </data>
+  <data name="Projects.Empty" xml:space="preserve">
+    <value>Todavía no hay proyectos para este filtro.</value>
+  </data>
+  <data name="Projects.ShowAll" xml:space="preserve">
+    <value>Ver todos los proyectos</value>
+  </data>
+  <data name="ProjectCategory.Api" xml:space="preserve">
+    <value>APIs y servicios</value>
+  </data>
+  <data name="ProjectCategory.WebApp" xml:space="preserve">
+    <value>Plataforma web</value>
+  </data>
+  <data name="ProjectCategory.Mobile" xml:space="preserve">
+    <value>Mobile</value>
+  </data>
+  <data name="ProjectCategory.Cloud" xml:space="preserve">
+    <value>Cloud y DevOps</value>
+  </data>
+  <data name="ProjectStatus.Delivered" xml:space="preserve">
+    <value>Entregado</value>
+  </data>
+  <data name="ProjectStatus.InProduction" xml:space="preserve">
+    <value>En producción</value>
+  </data>
+  <data name="ProjectStatus.InProgress" xml:space="preserve">
+    <value>En construcción</value>
+  </data>
+  <data name="ProjectCard.Featured" xml:space="preserve">
+    <value>Destacado</value>
+  </data>
+  <data name="ProjectCard.Code" xml:space="preserve">
+    <value>Código</value>
+  </data>
+  <data name="ProjectCard.Live" xml:space="preserve">
+    <value>Demo</value>
+  </data>
+  <data name="TechnologyCategory.Backend" xml:space="preserve">
+    <value>Backend</value>
+  </data>
+  <data name="TechnologyCategory.Frontend" xml:space="preserve">
+    <value>Frontend</value>
+  </data>
+  <data name="TechnologyCategory.Mobile" xml:space="preserve">
+    <value>Mobile</value>
+  </data>
+  <data name="TechnologyCategory.Cloud" xml:space="preserve">
+    <value>Cloud</value>
+  </data>
+  <data name="TechnologyCategory.Architecture" xml:space="preserve">
+    <value>Arquitectura</value>
+  </data>
+  <data name="TechnologyMarquee.Aria" xml:space="preserve">
+    <value>Tecnologías principales</value>
+  </data>
+  <data name="Architecture.Eyebrow" xml:space="preserve">
+    <value>Arquitectura</value>
+  </data>
+  <data name="Architecture.Title" xml:space="preserve">
+    <value>El propio sitio es parte del portfolio</value>
+  </data>
+  <data name="Architecture.Lead" xml:space="preserve">
+    <value>Cada patrón que aplico aquí está documentado, se verifica en cada compilación y es visible en la navegación que estás usando.</value>
+  </data>
+  <data name="Architecture.Layers.Eyebrow" xml:space="preserve">
+    <value>Capas</value>
+  </data>
+  <data name="Architecture.Layers.Title" xml:space="preserve">
+    <value>De un clic a los datos, y de vuelta</value>
+  </data>
+  <data name="Architecture.Layers.Subtitle" xml:space="preserve">
+    <value>Una petición fluye por cuatro capas, todas sustituibles.</value>
+  </data>
+  <data name="Architecture.Diagram.Eyebrow" xml:space="preserve">
+    <value>Diagrama</value>
+  </data>
+  <data name="Architecture.Diagram.Title" xml:space="preserve">
+    <value>Las dependencias apuntan hacia dentro</value>
+  </data>
+  <data name="Architecture.Diagram.Subtitle" xml:space="preserve">
+    <value>El mediator mantiene las páginas alejadas de los detalles de infraestructura.</value>
+  </data>
+  <data name="Architecture.Diagram.Note" xml:space="preserve">
+    <value>Renderizado con Mermaid. El diagrama de capas superior contiene la misma información cuando no hay JavaScript.</value>
+  </data>
+  <data name="Architecture.Patterns.Eyebrow" xml:space="preserve">
+    <value>Patrones</value>
+  </data>
+  <data name="Architecture.Patterns.Title" xml:space="preserve">
+    <value>Patrones de diseño aplicados en código de producción</value>
+  </data>
+  <data name="Architecture.Patterns.Subtitle" xml:space="preserve">
+    <value>No es una lista: cada patrón resuelve un problema concreto de este repositorio.</value>
+  </data>
+  <data name="Architecture.Solid.Eyebrow" xml:space="preserve">
+    <value>SOLID</value>
+  </data>
+  <data name="Architecture.Solid.Title" xml:space="preserve">
+    <value>Cinco principios verificados en el código</value>
+  </data>
+  <data name="Architecture.Solid.Subtitle" xml:space="preserve">
+    <value>Evidencia concreta de este código para cada letra.</value>
+  </data>
+  <data name="Architecture.Quality.Eyebrow" xml:space="preserve">
+    <value>Calidad</value>
+  </data>
+  <data name="Architecture.Quality.Title" xml:space="preserve">
+    <value>Controles de calidad que impone la compilación</value>
+  </data>
+  <data name="Architecture.Quality.Subtitle" xml:space="preserve">
+    <value>Si una regla importa, que falle la compilación en lugar de quedarse en una wiki.</value>
+  </data>
+  <data name="Architecture.Layer.Presentation.Title" xml:space="preserve">
+    <value>Presentación</value>
+  </data>
+  <data name="Architecture.Layer.Presentation.Text" xml:space="preserve">
+    <value>Componentes y páginas Razor que solo generan HTML. No toman decisiones de negocio.</value>
+  </data>
+  <data name="Architecture.Layer.Application.Title" xml:space="preserve">
+    <value>Aplicación</value>
+  </data>
+  <data name="Architecture.Layer.Application.Text" xml:space="preserve">
+    <value>Las páginas envían consultas a través del mediator; los handlers orquestan el caso de uso.</value>
+  </data>
+  <data name="Architecture.Layer.Domain.Title" xml:space="preserve">
+    <value>Servicios de dominio</value>
+  </data>
+  <data name="Architecture.Layer.Domain.Text" xml:space="preserve">
+    <value>Estrategias, factorías y builders convierten datos de dominio en modelos de presentación.</value>
+  </data>
+  <data name="Architecture.Layer.Infrastructure.Title" xml:space="preserve">
+    <value>Infraestructura</value>
+  </data>
+  <data name="Architecture.Layer.Infrastructure.Text" xml:space="preserve">
+    <value>Los repositorios proporcionan los datos detrás de interfaces; hoy, desde catálogos estáticos.</value>
+  </data>
+  <data name="Architecture.Solid.S.Name" xml:space="preserve">
+    <value>Responsabilidad única</value>
+  </data>
+  <data name="Architecture.Solid.S.Text" xml:space="preserve">
+    <value>Una razón para cambiar por clase: las estrategias pintan, las factorías transforman y los repositorios proporcionan datos.</value>
+  </data>
+  <data name="Architecture.Solid.O.Name" xml:space="preserve">
+    <value>Abierto/cerrado</value>
+  </data>
+  <data name="Architecture.Solid.O.Text" xml:space="preserve">
+    <value>Añadir una categoría de tecnología solo requiere una nueva estrategia; no se modifica ninguna clase existente.</value>
+  </data>
+  <data name="Architecture.Solid.L.Name" xml:space="preserve">
+    <value>Sustitución de Liskov</value>
+  </data>
+  <data name="Architecture.Solid.L.Text" xml:space="preserve">
+    <value>Cada implementación de repositorio y estrategia respeta el contrato de su interfaz.</value>
+  </data>
+  <data name="Architecture.Solid.I.Name" xml:space="preserve">
+    <value>Segregación de interfaces</value>
+  </data>
+  <data name="Architecture.Solid.I.Text" xml:space="preserve">
+    <value>Interfaces pequeñas y específicas como IProjectRepository o ISkillRepository.</value>
+  </data>
+  <data name="Architecture.Solid.D.Name" xml:space="preserve">
+    <value>Inversión de dependencias</value>
+  </data>
+  <data name="Architecture.Solid.D.Text" xml:space="preserve">
+    <value>Las páginas dependen de IMediator y los servicios de abstracciones, nunca de concreciones.</value>
+  </data>
+  <data name="Architecture.Quality.Nullable" xml:space="preserve">
+    <value>Tipos de referencia anulables activados</value>
+  </data>
+  <data name="Architecture.Quality.Warnings" xml:space="preserve">
+    <value>TreatWarningsAsErrors = true</value>
+  </data>
+  <data name="Architecture.Quality.EditorConfig" xml:space="preserve">
+    <value>Estilo EditorConfig aplicado en la compilación</value>
+  </data>
+  <data name="Architecture.Quality.Options" xml:space="preserve">
+    <value>Opciones validadas al arrancar (fallo temprano)</value>
+  </data>
+  <data name="Architecture.Quality.StaticExport" xml:space="preserve">
+    <value>Exportación estática verificada ruta a ruta</value>
+  </data>
+  <data name="Architecture.Quality.NoJs" xml:space="preserve">
+    <value>No se necesita JavaScript para navegar</value>
+  </data>
+  <data name="PatternCard.Intent" xml:space="preserve">
+    <value>Intención</value>
+  </data>
+  <data name="PatternCard.InProject" xml:space="preserve">
+    <value>En este proyecto</value>
+  </data>
+  <data name="PatternCard.Benefit" xml:space="preserve">
+    <value>Por qué compensa</value>
+  </data>
+  <data name="PatternCard.ReadDocs" xml:space="preserve">
+    <value>Leer la documentación</value>
+  </data>
+  <data name="Timeline.Present" xml:space="preserve">
+    <value>Actualidad</value>
+  </data>
+  <data name="Timeline.Type.Work" xml:space="preserve">
+    <value>Experiencia</value>
+  </data>
+  <data name="Timeline.Type.Education" xml:space="preserve">
+    <value>Formación</value>
+  </data>
+  <data name="Timeline.Type.Certification" xml:space="preserve">
+    <value>Certificación</value>
+  </data>
+  <data name="Contact.Eyebrow" xml:space="preserve">
+    <value>Contacto</value>
+  </data>
+  <data name="Contact.Title" xml:space="preserve">
+    <value>Hablemos de tu próximo sistema</value>
+  </data>
+  <data name="Contact.Section.Eyebrow" xml:space="preserve">
+    <value>Canales</value>
+  </data>
+  <data name="Contact.Section.Title" xml:space="preserve">
+    <value>Elige el canal que prefieras</value>
+  </data>
+  <data name="Contact.Section.Subtitle" xml:space="preserve">
+    <value>Todos los enlaces salen de la configuración, así que nunca se quedan obsoletos en el marcado.</value>
+  </data>
+  <data name="Contact.LinkedIn.Label" xml:space="preserve">
+    <value>LinkedIn</value>
+  </data>
+  <data name="Contact.GitHub.Label" xml:space="preserve">
+    <value>GitHub</value>
+  </data>
+  <data name="Contact.Location.Label" xml:space="preserve">
+    <value>Ubicación</value>
+  </data>
+  <data name="Contact.LinkedIn.Value" xml:space="preserve">
+    <value>Perfil profesional</value>
+  </data>
+  <data name="Contact.GitHub.Value" xml:space="preserve">
+    <value>Código y experimentos</value>
+  </data>
+  <data name="Contact.Note.Title" xml:space="preserve">
+    <value>Qué pasa después</value>
+  </data>
+  <data name="Contact.Note.Text" xml:space="preserve">
+    <value>El correo es el canal más rápido: suelo responder en un día laborable con disponibilidad y algunas preguntas sobre el problema. ¿Prefieres una llamada? Envíame una franja horaria y te confirmo.</value>
+  </data>
+  <data name="NotFound.Eyebrow" xml:space="preserve">
+    <value>Error 404</value>
+  </data>
+  <data name="NotFound.Title" xml:space="preserve">
+    <value>Esta página se marchó a producción sin avisar</value>
+  </data>
+  <data name="NotFound.Lead" xml:space="preserve">
+    <value>La dirección no existe o el contenido se ha movido. Usa el menú para encontrar lo que buscas.</value>
+  </data>
+  <data name="NotFound.Home" xml:space="preserve">
+    <value>Volver al inicio</value>
+  </data>
+  <data name="NotFound.Projects" xml:space="preserve">
+    <value>Ver proyectos</value>
+  </data>
+  <data name="Error.Eyebrow" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Error.Title" xml:space="preserve">
+    <value>Algo ha ido mal al mostrar esta página</value>
+  </data>
+  <data name="Error.Lead" xml:space="preserve">
+    <value>El error se ha registrado. Inténtalo de nuevo o vuelve al inicio.</value>
+  </data>
+  <data name="Error.Home" xml:space="preserve">
+    <value>Volver al inicio</value>
+  </data>
+  <data name="Footer.BuiltWith" xml:space="preserve">
+    <value>Hecho con .NET 10, renderizado estático de Blazor y cero JavaScript. HTML generado de antemano y alojado en GitHub Pages.</value>
+  </data>
+</root>

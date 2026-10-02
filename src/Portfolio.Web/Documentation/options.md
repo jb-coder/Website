@@ -24,8 +24,9 @@ validado al arranque.
 
 ## Implementación en este proyecto
 
-`PortfolioOptions` declara anotaciones de datos y una propiedad calculada que
-normaliza el sub-path de GitHub Pages:
+`PortfolioOptions` declara anotaciones de datos, campos bilingües
+(`LocalizedText`) validados en `IValidatableObject` y una propiedad calculada
+que normaliza el sub-path de GitHub Pages:
 
 ```csharp
 public sealed class PortfolioOptions

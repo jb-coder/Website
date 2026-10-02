@@ -1,3 +1,10 @@
+@inject ILanguageContext LanguageContext
+@inject ITranslator Localizer
+
+@{
+    var language = LanguageContext.Language;
+}
+
 <article class="pf-card pf-pattern" id="@Pattern.Id">
     <header class="pf-pattern__header">
         <span class="pf-pattern__icon" aria-hidden="true">
@@ -7,18 +14,18 @@
     </header>
 
     <dl class="pf-pattern__details">
-        <dt>Intent</dt>
-        <dd>@Pattern.Intent</dd>
-        <dt>In this project</dt>
-        <dd>@Pattern.Implementation</dd>
-        <dt>Why it pays off</dt>
-        <dd>@Pattern.Benefit</dd>
+        <dt>@Localizer["PatternCard.Intent"]</dt>
+        <dd>@Pattern.Intent.For(language)</dd>
+        <dt>@Localizer["PatternCard.InProject"]</dt>
+        <dd>@Pattern.Implementation.For(language)</dd>
+        <dt>@Localizer["PatternCard.Benefit"]</dt>
+        <dd>@Pattern.Benefit.For(language)</dd>
     </dl>
 
     <a class="pf-link" href="@DocumentationUrl" target="_blank" rel="noopener noreferrer">
-        Read the documentation
+        @Localizer["PatternCard.ReadDocs"]
         <Icon Name="arrow-up-right" Size="14" />
-        <span class="pf-visually-hidden">(opens in a new tab)</span>
+        <span class="pf-visually-hidden">@Localizer["Common.OpensInNewTab"]</span>
     </a>
 </article>
 

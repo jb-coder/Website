@@ -1,18 +1,20 @@
 @page "/error"
+@page "/en/error"
 @layout MainLayout
 
-<PageTitle>Something went wrong</PageTitle>
+@inject ITranslator Localizer
+@inject ILanguageContext LanguageContext
+
+<PageTitle>@Localizer["Error.Eyebrow"]</PageTitle>
 
 <section class="pf-page-hero pf-page-hero--center">
     <div class="pf-container">
-        <span class="pf-eyebrow">Error</span>
-        <h1 class="pf-page-hero__title">Something failed while rendering this page</h1>
-        <p class="pf-page-hero__lead">
-            The error has been logged. Please try again or go back to the home page.
-        </p>
+        <span class="pf-eyebrow">@Localizer["Error.Eyebrow"]</span>
+        <h1 class="pf-page-hero__title">@Localizer["Error.Title"]</h1>
+        <p class="pf-page-hero__lead">@Localizer["Error.Lead"]</p>
         <div class="pf-hero__actions">
-            <a class="pf-button pf-button--primary" href="">
-                <span>Back to home</span>
+            <a class="pf-button pf-button--primary" href="@LanguageContext.BuildHref("")">
+                <span>@Localizer["Error.Home"]</span>
                 <Icon Name="arrow-right" Size="18" />
             </a>
         </div>

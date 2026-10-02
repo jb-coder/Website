@@ -20,8 +20,10 @@ tecnologías.
 ## Dependencias
 
 - `Icon`.
-- `Experience.Period` (propiedad calculada, culture-invariant para que el HTML
-  exportado sea determinista).
+- `Experience.StartLabel` / `EndLabel` (culture-invariant para que el HTML
+  exportado sea determinista); la palabra "Actualidad/Present" se resuelve con
+  `Localizer["Timeline.Present"]`.
+- `ILanguageContext` para elegir el idioma de rol, resumen y logros.
 
 ## Casos de uso
 

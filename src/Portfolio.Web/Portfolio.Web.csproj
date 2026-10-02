@@ -5,6 +5,27 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <BlazorDisableThrowNavigationException>true</BlazorDisableThrowNavigationException>
+    <!--
+      Use the folder-based manifest names (Portfolio.Web.Resources.*) so the
+      localization factory finds both the neutral and the satellite resources
+      through AddLocalization(ResourcesPath = "Resources").
+    -->
+    <EmbeddedResourceUseDependentUponConvention>false</EmbeddedResourceUseDependentUponConvention>
   </PropertyGroup>
+
+  <ItemGroup>
+    <!--
+      Both languages are embedded in the main assembly with explicit manifest
+      names. The custom ITranslator picks the right ResourceManager from the
+      URL language, so no ambient culture or satellite probing is involved.
+    -->
+    <EmbeddedResource Update="Resources\SharedResource.resx">
+      <LogicalName>Portfolio.Web.Resources.SharedResource.resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\SharedResource.en.resx">
+      <WithCulture>false</WithCulture>
+      <LogicalName>Portfolio.Web.Resources.SharedResource.en.resources</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
 
 </Project>

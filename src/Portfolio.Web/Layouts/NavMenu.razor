@@ -1,13 +1,16 @@
-<nav class="pf-nav" aria-label="Primary">
+@inject ILanguageContext LanguageContext
+@inject ITranslator Localizer
+
+<nav class="pf-nav" aria-label="@Localizer["Nav.PrimaryAria"]">
     <ul class="pf-nav__list">
         @foreach (var item in NavigationCatalog.Items)
         {
             <li>
                 <NavLink class="pf-nav__link"
-                         href="@item.Path"
+                         href="@LanguageContext.BuildHref(item.Path)"
                          Match="@(string.IsNullOrEmpty(item.Path) ? NavLinkMatch.All : NavLinkMatch.Prefix)">
                     <Icon Name="@item.Icon" Size="16" />
-                    <span>@item.Label</span>
+                    <span>@item.Label.For(LanguageContext.Language)</span>
                 </NavLink>
             </li>
         }

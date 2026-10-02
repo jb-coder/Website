@@ -4,7 +4,7 @@ namespace Portfolio.Web.Models;
 /// A concrete capability inside a <see cref="TechnologyCategory"/>.
 /// </summary>
 public sealed record Skill(
-    string Name,
+    LocalizedText Name,
     TechnologyCategory Category,
     SkillLevel Level,
     string Icon);

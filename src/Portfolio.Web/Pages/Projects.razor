@@ -1,14 +1,13 @@
 @page "/projects"
+@page "/en/projects"
 
 <PageTitle>@pageTitle</PageTitle>
 
 <section class="pf-page-hero">
     <div class="pf-container">
-        <span class="pf-eyebrow">Projects</span>
-        <h1 class="pf-page-hero__title">Systems in production, not mockups</h1>
-        <p class="pf-page-hero__lead">
-            Platforms, APIs and apps built for real operations teams. Filter by discipline.
-        </p>
+        <span class="pf-eyebrow">@Localizer["Projects.Eyebrow"]</span>
+        <h1 class="pf-page-hero__title">@Localizer["Projects.Title"]</h1>
+        <p class="pf-page-hero__lead">@Localizer["Projects.Lead"]</p>
     </div>
 </section>
 
@@ -16,7 +15,7 @@
     <div class="pf-container">
         <SectionHeader Section="projectsSection" />
 
-        <nav class="pf-filters" aria-label="Filter projects by category">
+        <nav class="pf-filters" aria-label="@Localizer["Projects.Eyebrow"]">
             <ul class="pf-filters__list">
                 @foreach (var filter in filters)
                 {
@@ -33,18 +32,19 @@
         </nav>
 
         <p class="pf-projects__count" role="status">
-            Showing <strong>@projects.Count</strong> @(projects.Count == 1 ? "project" : "projects")
+            @Localizer["Projects.Showing"] <strong>@projects.Count</strong>
+            @(projects.Count == 1 ? Localizer["Projects.CountSingular"] : Localizer["Projects.CountPlural"])
             @if (!string.IsNullOrEmpty(Category))
             {
-                <span>in @CategoryLabel</span>
+                <span>@Localizer["Projects.InCategory", CategoryLabel]</span>
             }
         </p>
 
         @if (projects.Count == 0)
         {
             <div class="pf-empty">
-                <p>No projects match this filter yet.</p>
-                <a class="pf-link" href="projects">Show all projects</a>
+                <p>@Localizer["Projects.Empty"]</p>
+                <a class="pf-link" href="@LanguageContext.BuildHref("projects")">@Localizer["Projects.ShowAll"]</a>
             </div>
         }
         else

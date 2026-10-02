@@ -1,4 +1,5 @@
 @page "/architecture"
+@page "/en/architecture"
 
 <PageTitle>@pageTitle</PageTitle>
 
@@ -11,12 +12,9 @@
 
 <section class="pf-page-hero">
     <div class="pf-container">
-        <span class="pf-eyebrow">Architecture</span>
-        <h1 class="pf-page-hero__title">This site is the portfolio piece</h1>
-        <p class="pf-page-hero__lead">
-            Every pattern applied here is documented, tested by the build and visible in the
-            navigation you are using right now.
-        </p>
+        <span class="pf-eyebrow">@Localizer["Architecture.Eyebrow"]</span>
+        <h1 class="pf-page-hero__title">@Localizer["Architecture.Title"]</h1>
+        <p class="pf-page-hero__lead">@Localizer["Architecture.Lead"]</p>
     </div>
 </section>
 
@@ -24,7 +22,7 @@
     <div class="pf-container">
         <SectionHeader Section="layersSection" />
 
-        <ol class="pf-layers" aria-label="Request flow through the layers">
+        <ol class="pf-layers" aria-label="@Localizer["Architecture.Layers.Eyebrow"]">
             @foreach (var layer in layers)
             {
                 <li class="pf-layers__item">
@@ -65,10 +63,7 @@ flowchart LR
             </pre>
         </div>
 
-        <p class="pf-diagram__note">
-            Rendered with Mermaid. The layered diagram above contains the same
-            information when JavaScript is unavailable.
-        </p>
+        <p class="pf-diagram__note">@Localizer["Architecture.Diagram.Note"]</p>
     </div>
 </section>
 
@@ -108,7 +103,7 @@ flowchart LR
     <div class="pf-container">
         <SectionHeader Section="qualitySection" />
 
-        <ul class="pf-quality" aria-label="Quality gates in this repository">
+        <ul class="pf-quality" aria-label="@Localizer["Architecture.Quality.Eyebrow"]">
             @foreach (var gate in qualityGates)
             {
                 <li class="pf-quality__item">
