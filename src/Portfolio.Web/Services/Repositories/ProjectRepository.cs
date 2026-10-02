@@ -112,7 +112,6 @@ public sealed class ProjectRepository : IProjectRepository
                 Tech("C#", TechnologyCategory.Backend, "code", "#79C0FF"),
                 Tech("SQLite", TechnologyCategory.Mobile, "database", "#A5D6FF"),
                 Tech("REST", TechnologyCategory.Backend, "globe", "#58A6FF"),
-                Tech("Azure App Service", TechnologyCategory.Cloud, "cloud", "#79C0FF"),
             ]),
         new Project(
             Id: "cloud-integration-hub",
@@ -161,7 +160,6 @@ public sealed class ProjectRepository : IProjectRepository
                 Tech(".NET", TechnologyCategory.Backend, "cpu", "#58A6FF"),
                 Tech("OpenTelemetry", TechnologyCategory.Cloud, "activity", "#79C0FF"),
                 Tech("Application Insights", TechnologyCategory.Cloud, "cloud", "#A5D6FF"),
-                Tech("GitHub Actions", TechnologyCategory.Cloud, "github", "#58A6FF"),
             ]),
     ];
 
