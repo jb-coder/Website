@@ -2,4 +2,7 @@
   <Folder Name="/src/">
     <Project Path="src/Portfolio.Web/Portfolio.Web.csproj" />
   </Folder>
+  <Folder Name="/tools/">
+    <Project Path="tools/Portfolio.StaticExporter/Portfolio.StaticExporter.csproj" />
+  </Folder>
 </Solution>
