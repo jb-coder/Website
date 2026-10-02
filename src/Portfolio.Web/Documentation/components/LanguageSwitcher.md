@@ -31,7 +31,9 @@ Ninguno. Obtiene el estado de `ILanguageContext` y las etiquetas accesibles de
 
 | Página actual | Enlace del conmutador |
 | --- | --- |
-| `/projects` | `en/projects` |
-| `/en/projects` | `projects` |
-| `/projects?category=Mobile` | `en/projects?category=Mobile` |
-| `/en/projects?category=Mobile` | `projects?category=Mobile` |
+| `/es/projects` | `en/projects` |
+| `/en/projects` | `es/projects` |
+| `/es/projects?category=Mobile` | `en/projects?category=Mobile` |
+| `/en/projects?category=Mobile` | `es/projects?category=Mobile` |
+| `/es` | `en` |
+| `/en` | `es` |

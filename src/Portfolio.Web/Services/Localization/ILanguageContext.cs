@@ -15,8 +15,8 @@ public interface ILanguageContext
     Language OtherLanguage { get; }
 
     /// <summary>
-    /// Current page path without the language prefix and without the query
-    /// string, e.g. <c>projects</c>. Empty for the home page.
+    /// Current page path without the <c>es</c>/<c>en</c> prefix and without the
+    /// query string, e.g. <c>projects</c>. Empty for the home page.
     /// </summary>
     string NeutralPath { get; }
 

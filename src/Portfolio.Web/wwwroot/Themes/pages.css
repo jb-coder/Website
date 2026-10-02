@@ -2,6 +2,17 @@
    Page-specific composition.
    ========================================================================== */
 
+/* Root redirect ------------------------------------------------------------ */
+
+.pf-redirect {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+    text-align: center;
+    color: var(--pf-text-muted);
+}
+
 /* Shared page hero --------------------------------------------------------- */
 
 .pf-page-hero {

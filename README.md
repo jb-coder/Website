@@ -140,12 +140,15 @@ JavaScript, cookies ni `localStorage`.
 
 | Idioma | URLs | Página |
 | --- | --- | --- |
-| Español (por defecto) | `/`, `/about`, `/projects`, ... | `/` |
-| Inglés | `/en`, `/en/about`, `/en/projects`, ... | `/en` |
+| Español (por defecto) | `/es`, `/es/about`, `/es/projects`, ... | `/es/` |
+| Inglés | `/en`, `/en/about`, `/en/projects`, ... | `/en/` |
+
+La raíz (`/`) es una página de redirección a `/es/`, para que la cultura esté
+siempre presente en la ruta.
 
 - El conmutador del header es un enlace que conserva la query string
   (`/projects?category=Mobile` → `/en/projects?category=Mobile`).
-- Cada página declara sus dos rutas (`@page "/projects"` y
+- Cada página declara sus dos rutas (`@page "/es/projects"` y
   `@page "/en/projects"`) y añade `canonical` + `hreflang` en el `<head>`.
 - Los textos de interfaz viven en `src/Portfolio.Web/Resources`
   (`SharedResource.resx` = español, `SharedResource.en.resx` = inglés) y se

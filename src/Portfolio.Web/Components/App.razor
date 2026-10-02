@@ -6,13 +6,12 @@
     var root = $"{Profile.PublicBaseUrl.TrimEnd('/')}{Profile.NormalizedBasePath}";
     var neutralPath = LanguageContext.NeutralPath;
 
-    var currentRelative = language == Language.En
-        ? (neutralPath.Length == 0 ? "en" : $"en/{neutralPath}")
-        : neutralPath;
+    var languageSegment = language.Code();
+    var currentRelative = neutralPath.Length == 0 ? languageSegment : $"{languageSegment}/{neutralPath}";
 
     var canonical = (root + currentRelative).TrimEnd('/');
-    var spanishUrl = neutralPath.Length == 0 ? root.TrimEnd('/') : root + neutralPath;
-    var englishUrl = neutralPath.Length == 0 ? root + "en" : root + "en/" + neutralPath;
+    var spanishUrl = (neutralPath.Length == 0 ? root + "es" : root + "es/" + neutralPath).TrimEnd('/');
+    var englishUrl = (neutralPath.Length == 0 ? root + "en" : root + "en/" + neutralPath).TrimEnd('/');
     var socialImage = $"{root}Assets/og-image.svg";
 }
 

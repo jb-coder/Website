@@ -183,8 +183,9 @@ responsabilidad única.
 4. **Link checker** en CI para los enlaces externos de contacto.
 5. **CSP** (`Content-Security-Policy`) cuando exista hosting con cabeceras;
    GitHub Pages no permite cabeceras personalizadas.
-6. **i18n**: implementado en la iteración de localización (ES por defecto, EN en
-   `/en`) con `ILanguageContext` + `ITranslator`; ver `localization.md`.
+6. **i18n**: implementado en la iteración de localización (ES en `/es`, EN en
+   `/en`, raíz redirige a `/es`) con `ILanguageContext` + `ITranslator`; ver
+   `localization.md`.
 7. **Filtros como rutas**: convertir `?category=` en `/projects/{category}`
    para que los filtros funcionen también en GitHub Pages.
 8. **Datos desacoplados**: mover los seeds a JSON/embedded resources si crecen.

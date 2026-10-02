@@ -4,16 +4,17 @@ using Portfolio.Web.Models;
 namespace Portfolio.Web.Services.Localization;
 
 /// <summary>
-/// Resolves the language from the <c>en</c> path prefix. Paths are relative to
-/// the <c>&lt;base href&gt;</c>, so the same logic works at the site root and
-/// under a GitHub Pages repository sub-path.
+/// Resolves the language from the <c>es</c>/<c>en</c> path prefix. Paths are
+/// relative to the <c>&lt;base href&gt;</c>, so the same logic works at the
+/// site root and under a GitHub Pages repository sub-path.
 /// </summary>
 public sealed class LanguageContext(NavigationManager navigation) : ILanguageContext
 {
+    private const string SpanishSegment = "es";
     private const string EnglishSegment = "en";
 
     public Language Language =>
-        HasEnglishPrefix(RelativePath) ? Language.En : Language.Es;
+        HasPrefix(RelativePath, EnglishSegment) ? Language.En : Language.Es;
 
     public Language OtherLanguage =>
         Language == Language.En ? Language.Es : Language.En;
@@ -36,28 +37,19 @@ public sealed class LanguageContext(NavigationManager navigation) : ILanguageCon
     public string BuildHref(string path)
     {
         var normalized = path.TrimStart('/');
-
-        if (Language == Language.Es)
-        {
-            return normalized;
-        }
+        var segment = Language.Code();
 
         return string.IsNullOrEmpty(normalized)
-            ? EnglishSegment
-            : $"{EnglishSegment}/{normalized}";
+            ? segment
+            : $"{segment}/{normalized}";
     }
 
     public string SwitchHref()
     {
         var neutral = NeutralPath;
+        var segment = OtherLanguage.Code();
 
-        if (OtherLanguage == Language.Es)
-        {
-            // "." resolves to the site root through the <base href>.
-            return (string.IsNullOrEmpty(neutral) ? "." : neutral) + QueryString;
-        }
-
-        return (string.IsNullOrEmpty(neutral) ? EnglishSegment : $"{EnglishSegment}/{neutral}") + QueryString;
+        return (string.IsNullOrEmpty(neutral) ? segment : $"{segment}/{neutral}") + QueryString;
     }
 
     private string RelativePath => navigation.ToBaseRelativePath(navigation.Uri);
@@ -72,13 +64,23 @@ public sealed class LanguageContext(NavigationManager navigation) : ILanguageCon
         }
     }
 
-    private static bool HasEnglishPrefix(string relative) =>
-        relative.Equals(EnglishSegment, StringComparison.OrdinalIgnoreCase) ||
-        relative.StartsWith(EnglishSegment + "/", StringComparison.OrdinalIgnoreCase) ||
-        relative.StartsWith(EnglishSegment + "?", StringComparison.OrdinalIgnoreCase);
+    private static bool HasPrefix(string relative, string code) =>
+        relative.Equals(code, StringComparison.OrdinalIgnoreCase) ||
+        relative.StartsWith(code + "/", StringComparison.OrdinalIgnoreCase) ||
+        relative.StartsWith(code + "?", StringComparison.OrdinalIgnoreCase);
 
-    private static string StripLanguage(string relative) =>
-        HasEnglishPrefix(relative)
-            ? relative[EnglishSegment.Length..].TrimStart('/')
-            : relative;
+    private static string StripLanguage(string relative)
+    {
+        if (HasPrefix(relative, EnglishSegment))
+        {
+            return relative[EnglishSegment.Length..].TrimStart('/');
+        }
+
+        if (HasPrefix(relative, SpanishSegment))
+        {
+            return relative[SpanishSegment.Length..].TrimStart('/');
+        }
+
+        return relative;
+    }
 }

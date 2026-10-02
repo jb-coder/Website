@@ -1,0 +1,17 @@
+@page "/"
+@layout EmptyLayout
+@inject LocalizedProfile Profile
+
+<PageTitle>@Profile.Name — @Profile.Role</PageTitle>
+
+<HeadContent>
+    <meta http-equiv="refresh" content="0; url=es/" />
+</HeadContent>
+
+<div class="pf-redirect">
+    <p>
+        Te estamos redirigiendo a la <a href="es/">versión en español</a>.
+        <br />
+        Redirecting you to the <a href="en/">English version</a>.
+    </p>
+</div>
