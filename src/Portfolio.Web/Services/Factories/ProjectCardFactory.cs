@@ -1,36 +1,42 @@
 using Portfolio.Web.Models;
 using Portfolio.Web.Models.ViewModels;
 using Portfolio.Web.Services.Abstractions;
+using Portfolio.Web.Services.Localization;
 
 namespace Portfolio.Web.Services.Factories;
 
 /// <summary>
-/// Builds <see cref="ProjectCardViewModel"/> instances. Delegates badge creation
-/// to the injected <see cref="ITechnologyBadgeStrategy"/> family, so adding a
+/// Builds <see cref="ProjectCardViewModel"/> instances. Resolves bilingual
+/// domain text for the current request and delegates badge creation to the
+/// injected <see cref="ITechnologyBadgeStrategy"/> family, so adding a
 /// technology category never modifies this class.
 /// </summary>
-public sealed class ProjectCardFactory(IEnumerable<ITechnologyBadgeStrategy> badgeStrategies) : IProjectCardFactory
+public sealed class ProjectCardFactory(
+    IEnumerable<ITechnologyBadgeStrategy> badgeStrategies,
+    ILanguageContext language,
+    ITranslator localizer) : IProjectCardFactory
 {
     public ProjectCardViewModel Create(Project project)
     {
         ArgumentNullException.ThrowIfNull(project);
 
+        var current = language.Language;
         var badges = project.Technologies.Select(CreateBadge).ToArray();
         var (statusLabel, statusCssClass) = MapStatus(project.Status);
 
         return new ProjectCardViewModel(
             project.Id,
-            project.Title,
-            project.Summary,
-            project.Description,
-            MapCategory(project.Category),
+            project.Title.For(current),
+            project.Summary.For(current),
+            project.Description.For(current),
+            localizer[$"ProjectCategory.{project.Category}"],
             statusLabel,
             statusCssClass,
             project.Year,
             project.Accent,
             project.Icon,
             project.IsFeatured,
-            project.Highlights,
+            project.Highlights.Select(highlight => highlight.For(current)).ToArray(),
             badges,
             project.RepositoryUrl,
             project.LiveUrl);
@@ -51,19 +57,10 @@ public sealed class ProjectCardFactory(IEnumerable<ITechnologyBadgeStrategy> bad
         return strategy.Create(technology);
     }
 
-    private static string MapCategory(ProjectCategory category) => category switch
+    private (string Label, string CssClass) MapStatus(ProjectStatus status) => status switch
     {
-        ProjectCategory.Api => "APIs & Services",
-        ProjectCategory.WebApp => "Web Platform",
-        ProjectCategory.Mobile => "Mobile",
-        ProjectCategory.Cloud => "Cloud & DevOps",
-        _ => category.ToString(),
-    };
-
-    private static (string Label, string CssClass) MapStatus(ProjectStatus status) => status switch
-    {
-        ProjectStatus.InProduction => ("In production", "pf-status--live"),
-        ProjectStatus.InProgress => ("In progress", "pf-status--progress"),
-        _ => ("Delivered", "pf-status--delivered"),
+        ProjectStatus.InProduction => (localizer["ProjectStatus.InProduction"], "pf-status--live"),
+        ProjectStatus.InProgress => (localizer["ProjectStatus.InProgress"], "pf-status--progress"),
+        _ => (localizer["ProjectStatus.Delivered"], "pf-status--delivered"),
     };
 }

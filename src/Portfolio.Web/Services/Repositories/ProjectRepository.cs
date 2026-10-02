@@ -14,9 +14,13 @@ public sealed class ProjectRepository : IProjectRepository
     [
         new Project(
             Id: "erp-platform",
-            Title: "ERP Platform",
-            Summary: "Modular ERP under construction to unify operations, logistics and finance.",
-            Description: "Greenfield ERP that centralizes day-to-day operations across departments. Built as a modular platform so each business area can evolve independently, with a strong focus on data integrity, role-based access and process automation.",
+            Title: new("Plataforma ERP", "ERP Platform"),
+            Summary: new(
+                "ERP modular en construcción para unificar operaciones, logística y finanzas.",
+                "Modular ERP under construction to unify operations, logistics and finance."),
+            Description: new(
+                "ERP greenfield que centraliza la operación diaria de varias áreas. Construido como plataforma modular para que cada área de negocio evolucione por separado, con foco en integridad de datos, acceso por roles y automatización de procesos.",
+                "Greenfield ERP that centralizes day-to-day operations across departments. Built as a modular platform so each business area can evolve independently, with a strong focus on data integrity, role-based access and process automation."),
             Category: ProjectCategory.WebApp,
             Status: ProjectStatus.InProgress,
             Year: 2025,
@@ -25,9 +29,15 @@ public sealed class ProjectRepository : IProjectRepository
             IsFeatured: true,
             Highlights:
             [
-                "Under active construction, module by module",
-                "Modular architecture ready to grow per business area",
-                "Automation of core operational processes",
+                new(
+                    "En construcción activa, módulo a módulo",
+                    "Under active construction, module by module"),
+                new(
+                    "Arquitectura modular lista para crecer por área de negocio",
+                    "Modular architecture ready to grow per business area"),
+                new(
+                    "Automatización de los procesos operativos clave",
+                    "Automation of core operational processes"),
             ],
             Technologies:
             [
@@ -41,9 +51,13 @@ public sealed class ProjectRepository : IProjectRepository
             ]),
         new Project(
             Id: "field-operations-app",
-            Title: "Field Operations App",
-            Summary: "MAUI application for field technicians to manage work orders and inspections.",
-            Description: "Cross-platform app that puts daily work orders, digital checklists and evidence capture in the hands of field teams. Built with .NET MAUI and an offline-tolerant data layer that synchronizes with the backend as soon as connectivity is available.",
+            Title: new("App de Operaciones de Campo", "Field Operations App"),
+            Summary: new(
+                "Aplicación MAUI para que los técnicos de campo gestionen órdenes e inspecciones.",
+                "MAUI application for field technicians to manage work orders and inspections."),
+            Description: new(
+                "App multiplataforma que pone en manos de los equipos de campo sus órdenes diarias, checklists digitales y captura de evidencias. Construida con .NET MAUI y una capa de datos tolerante a fallos de conexión que sincroniza con el backend en cuanto hay red.",
+                "Cross-platform app that puts daily work orders, digital checklists and evidence capture in the hands of field teams. Built with .NET MAUI and an offline-tolerant data layer that synchronizes with the backend as soon as connectivity is available."),
             Category: ProjectCategory.Mobile,
             Status: ProjectStatus.InProgress,
             Year: 2025,
@@ -52,9 +66,15 @@ public sealed class ProjectRepository : IProjectRepository
             IsFeatured: true,
             Highlights:
             [
-                "Digital checklists replace paper-based processes",
-                "Photo and signature evidence attached to every order",
-                "Offline-tolerant synchronization for field work",
+                new(
+                    "Checklists digitales que sustituyen al papel",
+                    "Digital checklists replace paper-based processes"),
+                new(
+                    "Evidencias con foto y firma en cada orden",
+                    "Photo and signature evidence attached to every order"),
+                new(
+                    "Sincronización tolerante a cortes de conexión",
+                    "Offline-tolerant synchronization for field work"),
             ],
             Technologies:
             [

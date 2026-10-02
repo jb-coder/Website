@@ -1,13 +1,15 @@
 using System.ComponentModel.DataAnnotations;
+using Portfolio.Web.Models;
 
 namespace Portfolio.Web.Services.Options;
 
 /// <summary>
 /// Strongly typed configuration for the whole site. Every personal data point
 /// shown on the pages is parameterizable from <c>appsettings.json</c> and
-/// validated on startup (fail fast).
+/// validated on startup (fail fast). Text fields are bilingual so the site can
+/// render both Spanish (default) and English.
 /// </summary>
-public sealed class PortfolioOptions
+public sealed class PortfolioOptions : IValidatableObject
 {
     public const string SectionName = "Portfolio";
 
@@ -18,16 +20,16 @@ public sealed class PortfolioOptions
     public string Initials { get; set; } = string.Empty;
 
     [Required(AllowEmptyStrings = false)]
-    public string Role { get; set; } = string.Empty;
+    public LocalizedText Role { get; set; } = new(string.Empty, string.Empty);
 
     [Required(AllowEmptyStrings = false)]
-    public string Tagline { get; set; } = string.Empty;
+    public LocalizedText Tagline { get; set; } = new(string.Empty, string.Empty);
 
     [Required(AllowEmptyStrings = false)]
-    public string Summary { get; set; } = string.Empty;
+    public LocalizedText Summary { get; set; } = new(string.Empty, string.Empty);
 
     [Required(AllowEmptyStrings = false)]
-    public string Location { get; set; } = string.Empty;
+    public LocalizedText Location { get; set; } = new(string.Empty, string.Empty);
 
     [Required(AllowEmptyStrings = false)]
     [EmailAddress]
@@ -52,15 +54,15 @@ public sealed class PortfolioOptions
     public int CompletedProjects { get; set; }
 
     [Required(AllowEmptyStrings = false)]
-    public string Availability { get; set; } = string.Empty;
+    public LocalizedText Availability { get; set; } = new(string.Empty, string.Empty);
+
+    public IReadOnlyList<LocalizedText> FocusAreas { get; set; } = [];
 
     /// <summary>
     /// Deployment sub-path used by GitHub Pages project sites, e.g. <c>/my-repo/</c>.
     /// Always normalized with a leading and trailing slash.
     /// </summary>
     public string BasePath { get; set; } = "/";
-
-    public IReadOnlyList<string> FocusAreas { get; set; } = [];
 
     /// <summary>
     /// Repository folder that contains the pattern documentation,
@@ -98,5 +100,49 @@ public sealed class PortfolioOptions
         var repository = GitHubUrl.TrimEnd('/');
         var path = documentPath.TrimStart('/');
         return $"{repository}/blob/main/{DocumentationPath.Trim('/')}/{path}";
+    }
+
+    /// <summary>
+    /// Data annotations do not recurse into complex properties, so the
+    /// localized values are validated here to keep the fail-fast guarantee.
+    /// </summary>
+    public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+    {
+        foreach (var (name, value) in BilingualFields())
+        {
+            if (string.IsNullOrWhiteSpace(value.Es) || string.IsNullOrWhiteSpace(value.En))
+            {
+                yield return new ValidationResult(
+                    $"{name} must be defined in both 'Es' and 'En'.",
+                    [name]);
+            }
+        }
+
+        if (FocusAreas.Count == 0)
+        {
+            yield return new ValidationResult(
+                "At least one focus area must be defined.",
+                [nameof(FocusAreas)]);
+        }
+
+        for (var index = 0; index < FocusAreas.Count; index++)
+        {
+            var area = FocusAreas[index];
+            if (string.IsNullOrWhiteSpace(area.Es) || string.IsNullOrWhiteSpace(area.En))
+            {
+                yield return new ValidationResult(
+                    $"{nameof(FocusAreas)}[{index}] must be defined in both 'Es' and 'En'.",
+                    [nameof(FocusAreas)]);
+            }
+        }
+    }
+
+    private IEnumerable<(string Name, LocalizedText Value)> BilingualFields()
+    {
+        yield return (nameof(Role), Role);
+        yield return (nameof(Tagline), Tagline);
+        yield return (nameof(Summary), Summary);
+        yield return (nameof(Location), Location);
+        yield return (nameof(Availability), Availability);
     }
 }

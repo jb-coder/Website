@@ -3,34 +3,28 @@ using System.Globalization;
 namespace Portfolio.Web.Models;
 
 /// <summary>
-/// Timeline entry: a role, a degree or a certification.
+/// Timeline entry: a role, a degree or a certification. Text is bilingual and
+/// the date labels are culture-invariant so the static export is deterministic;
+/// the "present" wording is resolved by the component from the resources.
 /// </summary>
 public sealed record Experience(
     string Id,
-    string Role,
+    LocalizedText Role,
     string Company,
     string Location,
     DateOnly StartDate,
     DateOnly? EndDate,
-    string Summary,
+    LocalizedText Summary,
     ExperienceType Type,
     string Icon,
-    IReadOnlyList<string> Highlights,
+    IReadOnlyList<LocalizedText> Highlights,
     IReadOnlyList<string> Technologies)
 {
+    /// <summary>Culture-invariant start label, e.g. <c>Sep 2025</c>.</summary>
+    public string StartLabel => StartDate.ToString("MMM yyyy", CultureInfo.InvariantCulture);
+
     /// <summary>
-    /// Culture-invariant period label, e.g. <c>Mar 2021 — Present</c>.
-    /// Kept invariant so static exports are deterministic.
+    /// Culture-invariant end label, or <c>null</c> when the role is current.
     /// </summary>
-    public string Period
-    {
-        get
-        {
-            var start = StartDate.ToString("MMM yyyy", CultureInfo.InvariantCulture);
-            var end = EndDate is null
-                ? "Present"
-                : EndDate.Value.ToString("MMM yyyy", CultureInfo.InvariantCulture);
-            return $"{start} — {end}";
-        }
-    }
+    public string? EndLabel => EndDate?.ToString("MMM yyyy", CultureInfo.InvariantCulture);
 }
