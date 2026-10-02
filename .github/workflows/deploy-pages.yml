@@ -1,0 +1,102 @@
+name: Deploy portfolio to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+env:
+  DOTNET_VERSION: 10.0.x
+  DOTNET_NOLOGO: true
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+
+jobs:
+  build:
+    name: Build static site
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build (warnings are errors)
+        run: dotnet build -c Release --no-restore
+
+      - name: Publish web app
+        run: dotnet publish src/Portfolio.Web -c Release --no-build -o publish
+
+      - name: Determine base path
+        id: base
+        shell: bash
+        run: |
+          repo="${GITHUB_REPOSITORY#*/}"
+          if [[ "$repo" == *.github.io ]]; then
+            echo "base_path=/" >> "$GITHUB_OUTPUT"
+          else
+            echo "base_path=/${repo}/" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Start published site
+        shell: bash
+        env:
+          ASPNETCORE_URLS: http://localhost:5199
+          ASPNETCORE_ENVIRONMENT: Production
+          Portfolio__BasePath: ${{ steps.base.outputs.base_path }}
+        run: |
+          nohup dotnet publish/Portfolio.Web.dll > server.log 2>&1 &
+          base="$Portfolio__BasePath"
+          for _ in $(seq 1 30); do
+            if curl -fsS "http://localhost:5199${base}" > /dev/null; then
+              echo "Server ready at ${base}"
+              exit 0
+            fi
+            sleep 1
+          done
+          echo "Server did not become ready" >&2
+          cat server.log >&2
+          exit 1
+
+      - name: Export static site
+        run: |
+          dotnet run --project tools/Portfolio.StaticExporter -c Release -- \
+            --source http://localhost:5199 \
+            --output dist \
+            --static-dir publish/wwwroot \
+            --base-path "${{ steps.base.outputs.base_path }}" \
+            --public-url "https://${{ github.repository_owner }}.github.io"
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
