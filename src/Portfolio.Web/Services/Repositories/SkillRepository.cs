@@ -39,15 +39,10 @@ public sealed class SkillRepository : ISkillRepository
         new("Store Publishing", TechnologyCategory.Mobile, SkillLevel.Intermediate, "upload-cloud"),
 
         // Cloud
-        new("Azure App Service", TechnologyCategory.Cloud, SkillLevel.Expert, "cloud"),
         new("Azure Functions", TechnologyCategory.Cloud, SkillLevel.Advanced, "zap"),
-        new("Azure Service Bus", TechnologyCategory.Cloud, SkillLevel.Advanced, "share-2"),
         new("Azure SQL", TechnologyCategory.Cloud, SkillLevel.Advanced, "database"),
-        new("Azure DevOps", TechnologyCategory.Cloud, SkillLevel.Advanced, "git-branch"),
-        new("GitHub Actions", TechnologyCategory.Cloud, SkillLevel.Advanced, "github"),
-        new("Docker", TechnologyCategory.Cloud, SkillLevel.Expert, "box"),
+        new("Docker", TechnologyCategory.Cloud, SkillLevel.Intermediate, "box"),
         new("Kubernetes (AKS)", TechnologyCategory.Cloud, SkillLevel.Intermediate, "grid"),
-        new("Application Insights", TechnologyCategory.Cloud, SkillLevel.Advanced, "activity"),
 
         // Architecture
         new("Clean Architecture", TechnologyCategory.Architecture, SkillLevel.Expert, "layers"),

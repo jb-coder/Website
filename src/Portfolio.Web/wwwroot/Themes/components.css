@@ -119,6 +119,7 @@
 
 .pf-grid--skills {
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr));
+    align-items: start;
 }
 
 .pf-grid--patterns {
@@ -602,7 +603,8 @@
 /* Skills ------------------------------------------------------------------- */
 
 .pf-skill {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 1.1rem;
     padding: 1.4rem;
 }
@@ -636,7 +638,30 @@
 
 .pf-skill__list {
     display: grid;
+    align-content: start;
     gap: 0.85rem;
+    flex: 1;
+}
+
+.pf-skill__footer {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid var(--pf-border-soft);
+    color: var(--pf-text-muted);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.pf-skill__footer-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--skill-accent), transparent);
+    opacity: 0.55;
 }
 
 .pf-skill__row {
