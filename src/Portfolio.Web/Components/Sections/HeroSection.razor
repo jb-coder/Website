@@ -1,0 +1,94 @@
+<section class="pf-hero" id="hero" aria-labelledby="hero-title">
+    <div class="pf-hero__glow" aria-hidden="true"></div>
+
+    <div class="pf-container pf-hero__inner">
+        <div class="pf-hero__content">
+            <span class="pf-hero__availability">
+                <span class="pf-hero__pulse" aria-hidden="true"></span>
+                @Options.Availability
+            </span>
+
+            <h1 class="pf-hero__title" id="hero-title">
+                @Options.Name
+                <span class="pf-hero__role">@Options.Role</span>
+            </h1>
+
+            <p class="pf-hero__tagline">@Options.Tagline</p>
+            <p class="pf-hero__summary">@Options.Summary</p>
+
+            <div class="pf-hero__actions">
+                <a class="pf-button pf-button--primary" href="projects">
+                    <span>Explore my work</span>
+                    <Icon Name="arrow-right" Size="18" />
+                </a>
+                <a class="pf-button pf-button--ghost" href="contact">
+                    <Icon Name="mail" Size="18" />
+                    <span>Get in touch</span>
+                </a>
+            </div>
+
+            <ul class="pf-hero__focus" aria-label="Focus areas">
+                @foreach (var area in Options.FocusAreas)
+                {
+                    <li>
+                        <Icon Name="check" Size="14" />
+                        @area
+                    </li>
+                }
+            </ul>
+        </div>
+
+        <aside class="pf-hero__sidebar" aria-label="Developer profile">
+            <div class="pf-card pf-code">
+                <div class="pf-code__bar" aria-hidden="true">
+                    <span class="pf-code__dot"></span>
+                    <span class="pf-code__dot"></span>
+                    <span class="pf-code__dot"></span>
+                    <span class="pf-code__file">Developer.cs</span>
+                </div>
+                <pre class="pf-code__body"><code>public sealed class Developer
+{
+    public string Name => "@Options.Name";
+    public string Role => "@Options.Role";
+    public string Location => "@Options.Location";
+    public string[] Focus => ["Backend", "APIs", "Blazor", "Azure"];
+}</code></pre>
+            </div>
+
+            <div class="pf-hero__socials">
+                <a class="pf-social" href="@Options.GitHubUrl" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile (opens in a new tab)">
+                    <Icon Name="github" Size="20" />
+                </a>
+                <a class="pf-social" href="@Options.LinkedInUrl" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in a new tab)">
+                    <Icon Name="linkedin" Size="20" />
+                </a>
+                <a class="pf-social" href="@($"mailto:{Options.Email}")" aria-label="@($"Send an email to {Options.Name}")">
+                    <Icon Name="mail" Size="20" />
+                </a>
+            </div>
+        </aside>
+    </div>
+
+    <div class="pf-container pf-hero__stats">
+        @foreach (var stat in Stats)
+        {
+            <StatsCard Stats="stat" />
+        }
+    </div>
+
+    @if (Technologies.Count > 0)
+    {
+        <TechnologyMarquee Badges="Technologies" />
+    }
+</section>
+
+@code {
+    [Parameter, EditorRequired]
+    public PortfolioOptions Options { get; set; } = default!;
+
+    [Parameter, EditorRequired]
+    public IReadOnlyList<StatsCardViewModel> Stats { get; set; } = [];
+
+    [Parameter, EditorRequired]
+    public IReadOnlyList<TechnologyBadgeViewModel> Technologies { get; set; } = [];
+}

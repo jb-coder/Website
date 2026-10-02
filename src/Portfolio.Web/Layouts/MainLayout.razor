@@ -1,0 +1,28 @@
+@inherits LayoutComponentBase
+@inject IOptions<PortfolioOptions> PortfolioOptions
+
+<div class="pf-shell">
+    <div class="pf-scroll-progress" aria-hidden="true"></div>
+
+    <a class="pf-skip-link" href="#main">Skip to content</a>
+
+    <header class="pf-header">
+        <div class="pf-container pf-header__inner">
+            <a class="pf-brand" href="">
+                <img class="pf-brand__logo" src="Assets/logo.svg" alt="" width="38" height="38" />
+                <span class="pf-brand__text">
+                    <strong>@PortfolioOptions.Value.Name</strong>
+                    <span>@PortfolioOptions.Value.Role</span>
+                </span>
+            </a>
+
+            <NavMenu />
+        </div>
+    </header>
+
+    <main id="main" class="pf-main" tabindex="-1">
+        @Body
+    </main>
+
+    <Footer />
+</div>

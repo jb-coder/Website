@@ -1,0 +1,60 @@
+@page "/projects"
+
+<PageTitle>@pageTitle</PageTitle>
+
+<section class="pf-page-hero">
+    <div class="pf-container">
+        <span class="pf-eyebrow">Projects</span>
+        <h1 class="pf-page-hero__title">Systems in production, not mockups</h1>
+        <p class="pf-page-hero__lead">
+            Platforms, APIs and apps built for real operations teams. Filter by discipline.
+        </p>
+    </div>
+</section>
+
+<section class="pf-section" aria-labelledby="projects-catalogue-title">
+    <div class="pf-container">
+        <SectionHeader Section="projectsSection" />
+
+        <nav class="pf-filters" aria-label="Filter projects by category">
+            <ul class="pf-filters__list">
+                @foreach (var filter in filters)
+                {
+                    <li>
+                        <a class="pf-filters__item @(IsActive(filter.Value) ? "pf-filters__item--active" : string.Empty)"
+                           href="@BuildFilterHref(filter.Value)"
+                           aria-current="@(IsActive(filter.Value) ? "page" : null)">
+                            <Icon Name="@filter.Icon" Size="15" />
+                            <span>@filter.Label</span>
+                        </a>
+                    </li>
+                }
+            </ul>
+        </nav>
+
+        <p class="pf-projects__count" role="status">
+            Showing <strong>@projects.Count</strong> @(projects.Count == 1 ? "project" : "projects")
+            @if (!string.IsNullOrEmpty(Category))
+            {
+                <span>in @CategoryLabel</span>
+            }
+        </p>
+
+        @if (projects.Count == 0)
+        {
+            <div class="pf-empty">
+                <p>No projects match this filter yet.</p>
+                <a class="pf-link" href="projects">Show all projects</a>
+            </div>
+        }
+        else
+        {
+            <div class="pf-grid pf-grid--projects">
+                @foreach (var project in projects)
+                {
+                    <ProjectCard Project="project" />
+                }
+            </div>
+        }
+    </div>
+</section>

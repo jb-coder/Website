@@ -1,0 +1,42 @@
+<a class="pf-card pf-contact"
+   href="@Href"
+   style="--contact-accent: @Accent"
+   target="@Target"
+   rel="@Rel">
+    <span class="pf-contact__icon">
+        <Icon Name="@Icon" Size="20" />
+    </span>
+    <span class="pf-contact__text">
+        <span class="pf-contact__label">@Label</span>
+        <span class="pf-contact__value">@Value</span>
+    </span>
+    <Icon Name="arrow-up-right" Size="16" CssClass="pf-contact__arrow" />
+    @if (External)
+    {
+        <span class="pf-visually-hidden">(opens in a new tab)</span>
+    }
+</a>
+
+@code {
+    [Parameter, EditorRequired]
+    public string Label { get; set; } = string.Empty;
+
+    [Parameter, EditorRequired]
+    public string Value { get; set; } = string.Empty;
+
+    [Parameter, EditorRequired]
+    public string Href { get; set; } = string.Empty;
+
+    [Parameter, EditorRequired]
+    public string Icon { get; set; } = string.Empty;
+
+    [Parameter]
+    public string Accent { get; set; } = "#58A6FF";
+
+    [Parameter]
+    public bool External { get; set; } = true;
+
+    private string Target => External ? "_blank" : "_self";
+
+    private string Rel => External ? "noopener noreferrer" : string.Empty;
+}

@@ -1,0 +1,31 @@
+<article class="pf-card pf-pattern" id="@Pattern.Id">
+    <header class="pf-pattern__header">
+        <span class="pf-pattern__icon" aria-hidden="true">
+            <Icon Name="@Pattern.Icon" Size="20" />
+        </span>
+        <h3 class="pf-pattern__title">@Pattern.Name</h3>
+    </header>
+
+    <dl class="pf-pattern__details">
+        <dt>Intent</dt>
+        <dd>@Pattern.Intent</dd>
+        <dt>In this project</dt>
+        <dd>@Pattern.Implementation</dd>
+        <dt>Why it pays off</dt>
+        <dd>@Pattern.Benefit</dd>
+    </dl>
+
+    <a class="pf-link" href="@DocumentationUrl" target="_blank" rel="noopener noreferrer">
+        Read the documentation
+        <Icon Name="arrow-up-right" Size="14" />
+        <span class="pf-visually-hidden">(opens in a new tab)</span>
+    </a>
+</article>
+
+@code {
+    [Parameter, EditorRequired]
+    public ArchitecturePattern Pattern { get; set; } = default!;
+
+    [Parameter, EditorRequired]
+    public string DocumentationUrl { get; set; } = string.Empty;
+}

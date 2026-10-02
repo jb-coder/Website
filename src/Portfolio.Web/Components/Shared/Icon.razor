@@ -1,0 +1,27 @@
+<svg class="pf-icon @CssClass"
+     width="@Size"
+     height="@Size"
+     viewBox="0 0 24 24"
+     fill="none"
+     stroke="currentColor"
+     stroke-width="@StrokeWidth"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     aria-hidden="true"
+     focusable="false">
+    <use href="Assets/icons.svg#@Name" />
+</svg>
+
+@code {
+    [Parameter, EditorRequired]
+    public string Name { get; set; } = string.Empty;
+
+    [Parameter]
+    public int Size { get; set; } = 20;
+
+    [Parameter]
+    public double StrokeWidth { get; set; } = 2;
+
+    [Parameter]
+    public string? CssClass { get; set; }
+}

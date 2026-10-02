@@ -1,0 +1,23 @@
+<header class="pf-section__header @AlignClass">
+    @if (!string.IsNullOrWhiteSpace(Section.Eyebrow))
+    {
+        <span class="pf-eyebrow">@Section.Eyebrow</span>
+    }
+
+    <h2 class="pf-section__title" id="@($"{Section.Id}-title")">@Section.Title</h2>
+
+    @if (!string.IsNullOrWhiteSpace(Section.Subtitle))
+    {
+        <p class="pf-section__subtitle">@Section.Subtitle</p>
+    }
+</header>
+
+@code {
+    [Parameter, EditorRequired]
+    public PortfolioSection Section { get; set; } = default!;
+
+    [Parameter]
+    public string Align { get; set; } = "start";
+
+    private string AlignClass => Align == "center" ? "pf-section__header--center" : string.Empty;
+}

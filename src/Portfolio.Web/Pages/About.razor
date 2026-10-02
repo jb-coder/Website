@@ -1,0 +1,94 @@
+@page "/about"
+
+<PageTitle>@pageTitle</PageTitle>
+
+<section class="pf-page-hero">
+    <div class="pf-container">
+        <span class="pf-eyebrow">About</span>
+        <h1 class="pf-page-hero__title">The engineer behind the code</h1>
+        <p class="pf-page-hero__lead">
+            Backend platforms, public APIs, Blazor front-ends and MAUI apps —
+            always with maintainability as the acceptance criterion.
+        </p>
+    </div>
+</section>
+
+<section class="pf-section" aria-labelledby="profile-title">
+    <div class="pf-container pf-about">
+        <aside class="pf-card pf-about__profile">
+            <img class="pf-about__avatar" src="Assets/logo.svg" alt="" width="96" height="96" />
+            <h2 class="pf-about__name" id="profile-title">@portfolio.Name</h2>
+            <p class="pf-about__role">@portfolio.Role</p>
+
+            <ul class="pf-about__facts">
+                <li>
+                    <Icon Name="map-pin" Size="16" />
+                    <span>@portfolio.Location</span>
+                </li>
+                <li>
+                    <Icon Name="briefcase" Size="16" />
+                    <span>@portfolio.YearsOfExperience+ years building .NET systems</span>
+                </li>
+                <li>
+                    <Icon Name="shield" Size="16" />
+                    <span>Azure Developer Associate certified</span>
+                </li>
+                <li>
+                    <Icon Name="mail" Size="16" />
+                    <a class="pf-link" href="@($"mailto:{portfolio.Email}")">@portfolio.Email</a>
+                </li>
+            </ul>
+
+            <div class="pf-about__socials">
+                <a class="pf-social" href="@portfolio.GitHubUrl" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile (opens in a new tab)">
+                    <Icon Name="github" Size="18" />
+                </a>
+                <a class="pf-social" href="@portfolio.LinkedInUrl" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in a new tab)">
+                    <Icon Name="linkedin" Size="18" />
+                </a>
+            </div>
+        </aside>
+
+        <div class="pf-about__bio">
+            <h2 class="pf-about__heading">I build software that survives its authors</h2>
+
+            <p>
+                I'm a senior .NET developer with more than @portfolio.YearsOfExperience years
+                shipping systems that companies run their day on: backend platforms, internal
+                and public APIs, Blazor front-ends and cross-platform mobile apps.
+            </p>
+            <p>
+                My sweet spot is the space between architecture and delivery. Clean
+                Architecture, CQRS and Domain-Driven Design are tools I use because they make
+                change cheap — never as ceremony. I favour a small number of clear boundaries,
+                explicit contracts and tests that document intent.
+            </p>
+            <p>
+                On the cloud side I work mainly with Azure: App Service, Functions, Service
+                Bus, Azure SQL and pipelines in Azure DevOps or GitHub Actions. I treat
+                observability, accessibility and performance as features from day one, not as
+                a hardening phase.
+            </p>
+
+            <ul class="pf-about__principles">
+                @foreach (var area in portfolio.FocusAreas)
+                {
+                    <li class="pf-tag">@area</li>
+                }
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="pf-section pf-section--alt" id="timeline" aria-labelledby="timeline-list-title">
+    <div class="pf-container">
+        <SectionHeader Section="timelineSection" />
+
+        <ol class="pf-timeline">
+            @foreach (var entry in timeline)
+            {
+                <TimelineItem Entry="entry" />
+            }
+        </ol>
+    </div>
+</section>
