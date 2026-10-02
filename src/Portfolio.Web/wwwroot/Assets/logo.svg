@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="JB monogram">
+  <defs>
+    <linearGradient id="logo-gradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#79C0FF" />
+      <stop offset="1" stop-color="#1F6FEB" />
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="#161B22" stroke="#30363D" stroke-width="2" />
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#logo-gradient)" opacity="0.15" />
+  <text x="32" y="42" text-anchor="middle" font-family="Segoe UI, system-ui, sans-serif" font-size="26" font-weight="700" fill="#79C0FF" letter-spacing="1">JB</text>
+</svg>

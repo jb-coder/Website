@@ -1,0 +1,324 @@
+/* ==========================================================================
+   Theme: Dark Premium
+   Design tokens, reset and base typography. No external dependencies.
+   ========================================================================== */
+
+:root {
+    /* Palette */
+    --pf-bg: #0D1117;
+    --pf-surface: #161B22;
+    --pf-surface-2: #21262D;
+    --pf-border: #30363D;
+    --pf-border-soft: rgba(48, 54, 61, 0.65);
+    --pf-text: #FFFFFF;
+    --pf-text-body: #E6EDF3;
+    --pf-text-muted: #8B949E;
+    --pf-primary: #58A6FF;
+    --pf-primary-soft: #79C0FF;
+    --pf-primary-bright: #A5D6FF;
+    --pf-primary-deep: #1F6FEB;
+    --pf-success: #56D364;
+    --pf-warning: #D29922;
+
+    /* Gradients */
+    --pf-gradient-primary: linear-gradient(120deg, #79C0FF 0%, #58A6FF 52%, #1F6FEB 100%);
+    --pf-gradient-text: linear-gradient(100deg, #A5D6FF 0%, #58A6FF 55%, #79C0FF 100%);
+    --pf-gradient-card: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0) 42%);
+    --pf-glass: rgba(22, 27, 34, 0.72);
+
+    /* Shape and depth */
+    --pf-radius-sm: 10px;
+    --pf-radius-md: 14px;
+    --pf-radius-lg: 20px;
+    --pf-radius-pill: 999px;
+    --pf-shadow-sm: 0 1px 2px rgba(1, 4, 9, 0.5);
+    --pf-shadow-md: 0 14px 34px -16px rgba(1, 4, 9, 0.75);
+    --pf-shadow-lg: 0 28px 64px -28px rgba(1, 4, 9, 0.9);
+    --pf-glow: 0 12px 40px -14px rgba(88, 166, 255, 0.45);
+
+    /* Layout */
+    --pf-container: 1140px;
+    --pf-gutter: clamp(1.25rem, 4vw, 2rem);
+    --pf-section-y: clamp(4rem, 9vw, 7rem);
+    --pf-header-height: 72px;
+
+    /* Type */
+    --pf-font-sans: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+    --pf-font-mono: ui-monospace, "Cascadia Code", "SF Mono", Consolas, monospace;
+
+    /* Motion */
+    --pf-transition: 220ms cubic-bezier(0.2, 0.7, 0.3, 1);
+    --pf-transition-slow: 420ms cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--pf-header-height) + 1rem);
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--pf-bg);
+    color: var(--pf-text-body);
+    font-family: var(--pf-font-sans);
+    font-size: 1rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+}
+
+/* Ambient background: subtle grid plus a top glow. */
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+}
+
+body::before {
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+    background-size: 64px 64px;
+}
+
+body::after {
+    z-index: -1;
+    background:
+        radial-gradient(58% 46% at 50% -8%, rgba(88, 166, 255, 0.16), transparent 72%),
+        radial-gradient(40% 30% at 100% 10%, rgba(31, 111, 235, 0.1), transparent 70%);
+}
+
+img,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    margin: 0;
+    color: var(--pf-text);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 6vw, 4.25rem);
+}
+
+h2 {
+    font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+}
+
+h3 {
+    font-size: 1.2rem;
+}
+
+p {
+    margin: 0;
+}
+
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    color: var(--pf-primary-soft);
+    text-decoration: none;
+    transition: color var(--pf-transition);
+}
+
+a:hover {
+    color: var(--pf-primary-bright);
+}
+
+button {
+    font: inherit;
+}
+
+code,
+pre {
+    font-family: var(--pf-font-mono);
+}
+
+::selection {
+    background: rgba(88, 166, 255, 0.35);
+    color: #fff;
+}
+
+:focus-visible {
+    outline: 2px solid var(--pf-primary-soft);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--pf-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--pf-surface-2);
+    border: 3px solid var(--pf-bg);
+    border-radius: var(--pf-radius-pill);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--pf-border);
+}
+
+/* Utilities ---------------------------------------------------------------- */
+
+.pf-container {
+    width: 100%;
+    max-width: var(--pf-container);
+    margin-inline: auto;
+    padding-inline: var(--pf-gutter);
+}
+
+.pf-visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.pf-icon {
+    flex: none;
+}
+
+.pf-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--pf-primary-soft);
+}
+
+.pf-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.6rem;
+    border: 1px solid var(--pf-border);
+    border-radius: var(--pf-radius-pill);
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--pf-text-muted);
+    font-size: 0.78rem;
+    font-weight: 500;
+}
+
+.pf-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--pf-primary-soft);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.pf-link:hover {
+    color: var(--pf-primary-bright);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* Motion ------------------------------------------------------------------- */
+
+@keyframes pf-reveal {
+    from {
+        opacity: 0;
+        translate: 0 18px;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+@keyframes pf-marquee {
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes pf-pulse {
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.6);
+        opacity: 0.35;
+    }
+}
+
+@keyframes pf-progress {
+    from {
+        transform: scaleX(0);
+    }
+
+    to {
+        transform: scaleX(1);
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+        .pf-section__header,
+        .pf-card,
+        .pf-stats,
+        .pf-timeline__item,
+        .pf-layers__item,
+        .pf-quality__item {
+            animation: pf-reveal both;
+            animation-timeline: view();
+            animation-range: entry 0% entry 55%;
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

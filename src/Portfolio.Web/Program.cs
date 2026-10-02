@@ -1,25 +1,34 @@
+using Microsoft.Extensions.Options;
 using Portfolio.Web.Components;
+using Portfolio.Web.Services;
+using Portfolio.Web.Services.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddRazorComponents();
+builder.Services.AddPortfolio(builder.Configuration);
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+var portfolio = app.Services.GetRequiredService<IOptions<PortfolioOptions>>().Value;
+var basePath = portfolio.NormalizedBasePath;
+if (basePath != "/")
+{
+    app.UsePathBase(basePath);
+}
+
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Error", createScopeForErrors: true);
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseExceptionHandler("/error", createScopeForErrors: true);
     app.UseHsts();
 }
+
 app.UseStatusCodePagesWithReExecute("/not-found", createScopeForStatusCodePages: true);
 app.UseHttpsRedirection();
-
+app.UseStaticFiles();
 app.UseAntiforgery();
 
-app.MapStaticAssets();
+app.MapPortfolioEndpoints();
 app.MapRazorComponents<App>();
 
 app.Run();
