@@ -1,5 +1,6 @@
 using Portfolio.Web.Models;
 using Portfolio.Web.Services.Abstractions;
+using Portfolio.Web.Shared;
 
 namespace Portfolio.Web.Services.Repositories;
 
@@ -24,7 +25,7 @@ public sealed class ProjectRepository : IProjectRepository
             Category: ProjectCategory.WebApp,
             Status: ProjectStatus.InProgress,
             Year: 2025,
-            Accent: "#58A6FF",
+            Accent: PortfolioAccents.Backend,
             Icon: "layers",
             IsFeatured: true,
             Highlights:
@@ -41,13 +42,13 @@ public sealed class ProjectRepository : IProjectRepository
             ],
             Technologies:
             [
-                Tech(".NET", TechnologyCategory.Backend, "cpu", "#58A6FF"),
-                Tech("ASP.NET Core", TechnologyCategory.Backend, "server", "#79C0FF"),
-                Tech("EF Core", TechnologyCategory.Backend, "database", "#A5D6FF"),
-                Tech("SQL Server", TechnologyCategory.Backend, "hard-drive", "#58A6FF"),
-                Tech("Angular", TechnologyCategory.Frontend, "code", "#79C0FF"),
-                Tech("Clean Architecture", TechnologyCategory.Architecture, "layers", "#A5D6FF"),
-                Tech("AWS", TechnologyCategory.Cloud, "cloud", "#58A6FF"),
+                Tech(".NET", TechnologyCategory.Backend, "cpu", PortfolioAccents.Backend),
+                Tech("ASP.NET Core", TechnologyCategory.Backend, "server", PortfolioAccents.Backend),
+                Tech("EF Core", TechnologyCategory.Backend, "database", PortfolioAccents.Backend),
+                Tech("SQL Server", TechnologyCategory.Backend, "hard-drive", PortfolioAccents.Backend),
+                Tech("Angular", TechnologyCategory.Frontend, "code", PortfolioAccents.Frontend),
+                Tech("Clean Architecture", TechnologyCategory.Architecture, "layers", PortfolioAccents.Architecture),
+                Tech("AWS", TechnologyCategory.Cloud, "cloud", PortfolioAccents.Cloud),
             ]),
         new Project(
             Id: "field-operations-app",
@@ -61,7 +62,7 @@ public sealed class ProjectRepository : IProjectRepository
             Category: ProjectCategory.Mobile,
             Status: ProjectStatus.InProgress,
             Year: 2025,
-            Accent: "#79C0FF",
+            Accent: PortfolioAccents.Mobile,
             Icon: "smartphone",
             IsFeatured: true,
             Highlights:
@@ -78,11 +79,11 @@ public sealed class ProjectRepository : IProjectRepository
             ],
             Technologies:
             [
-                Tech(".NET MAUI", TechnologyCategory.Mobile, "smartphone", "#58A6FF"),
-                Tech("C#", TechnologyCategory.Backend, "code", "#79C0FF"),
-                Tech("REST", TechnologyCategory.Backend, "globe", "#A5D6FF"),
-                Tech("SQLite", TechnologyCategory.Mobile, "database", "#58A6FF"),
-                Tech("AWS", TechnologyCategory.Cloud, "cloud", "#79C0FF"),
+                Tech(".NET MAUI", TechnologyCategory.Mobile, "smartphone", PortfolioAccents.Mobile),
+                Tech("C#", TechnologyCategory.Backend, "code", PortfolioAccents.Backend),
+                Tech("REST", TechnologyCategory.Backend, "globe", PortfolioAccents.Backend),
+                Tech("SQLite", TechnologyCategory.Mobile, "database", PortfolioAccents.Mobile),
+                Tech("AWS", TechnologyCategory.Cloud, "cloud", PortfolioAccents.Cloud),
             ]),
     ];
 

@@ -3,7 +3,7 @@
 ## Responsabilidad
 
 Presentar al profesional en los primeros segundos: disponibilidad, nombre, rol,
-propuesta de valor, CTAs, áreas de foco, tarjeta de código, métricas y cinta de
+propuesta de valor, CTAs, áreas de foco, dossier de perfil, métricas y cinta de
 tecnologías.
 
 ## Inputs
@@ -18,8 +18,9 @@ tecnologías.
 
 - `<section id="hero">` accesible con `aria-labelledby`.
 - CTAs hacia `projects` y `contact`.
-- Tarjeta de código con datos reales de configuración.
-- Enlaces sociales (GitHub, LinkedIn, email).
+- Dossier editorial con iniciales, ubicación, experiencia, áreas de foco y
+  enlaces sociales.
+- Franja de métricas y cinta de tecnologías.
 
 ## Dependencias
 

@@ -18,6 +18,14 @@ verificada por el build y despliegue 100% estático en GitHub Pages.
 - **Restricción autoimpuesta**: cero JavaScript en el sitio final. Blazor Web
   App con *static SSR* y un exportador propio produce HTML plano.
 
+## Identidad visual
+
+Tema oscuro editorial ("Editorial Technical"): fondo cálido casi negro,
+titulares serif, metadatos mono, acento lima de señal y coral, geometría afilada
+y retícula asimétrica. La paleta vive en
+[`theme.css`](src/Portfolio.Web/wwwroot/Themes/theme.css); los servicios
+consumen tokens semánticos de `PortfolioAccents`, no valores hexadecimales.
+
 ## Stack
 
 | Área | Tecnología |

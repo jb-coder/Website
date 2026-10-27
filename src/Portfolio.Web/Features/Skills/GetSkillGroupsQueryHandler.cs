@@ -3,6 +3,7 @@ using Portfolio.Web.Models.ViewModels;
 using Portfolio.Web.Services.Abstractions;
 using Portfolio.Web.Services.Localization;
 using Portfolio.Web.Services.Mediator;
+using Portfolio.Web.Shared;
 
 namespace Portfolio.Web.Features.Skills;
 
@@ -67,10 +68,10 @@ public sealed class GetSkillGroupsQueryHandler(
     private static (string Icon, string Accent) DescribeCategory(TechnologyCategory category) =>
         category switch
         {
-            TechnologyCategory.Backend => ("server", "#58A6FF"),
-            TechnologyCategory.Frontend => ("layout", "#79C0FF"),
-            TechnologyCategory.Mobile => ("smartphone", "#A5D6FF"),
-            TechnologyCategory.Cloud => ("cloud", "#6CB6FF"),
-            _ => ("layers", "#388BFD"),
+            TechnologyCategory.Backend => ("server", PortfolioAccents.Backend),
+            TechnologyCategory.Frontend => ("layout", PortfolioAccents.Frontend),
+            TechnologyCategory.Mobile => ("smartphone", PortfolioAccents.Mobile),
+            TechnologyCategory.Cloud => ("cloud", PortfolioAccents.Cloud),
+            _ => ("layers", PortfolioAccents.Architecture),
         };
 }
