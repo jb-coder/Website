@@ -29,6 +29,8 @@ correspondiente.
 
 ## Notas de diseño
 
-La taxonomía se expresa también en la forma: pills para backend/mobile, esquinas
-suaves para frontend/cloud y mayúsculas espaciadas para arquitectura. Así el
-badge comunica la categoría incluso en escala de grises.
+La taxonomía se expresa también en la forma: esquinas rectas para backend,
+píldora para frontend, borde discontinuo para mobile/cloud y mayúsculas
+espaciadas para arquitectura. Así el badge comunica la categoría incluso en
+escala de grises. El color de acento llega como token CSS (`--badge-accent`)
+desde `PortfolioAccents`, nunca como hexadecimal disperso.

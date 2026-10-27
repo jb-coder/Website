@@ -6,10 +6,13 @@
 
     <div class="pf-container pf-hero__inner">
         <div class="pf-hero__content">
-            <span class="pf-hero__availability">
-                <span class="pf-hero__pulse" aria-hidden="true"></span>
-                @Profile.Availability
-            </span>
+            <div class="pf-hero__kicker">
+                <span class="pf-hero__availability">
+                    <span class="pf-hero__pulse" aria-hidden="true"></span>
+                    @Profile.Availability
+                </span>
+                <span class="pf-hero__serial" aria-hidden="true">Portfolio / @DateTime.UtcNow.Year</span>
+            </div>
 
             <h1 class="pf-hero__title" id="hero-title">
                 @Profile.Name
@@ -22,10 +25,10 @@
             <div class="pf-hero__actions">
                 <a class="pf-button pf-button--primary" href="@LanguageContext.BuildHref("projects")">
                     <span>@Localizer["Hero.CtaExplore"]</span>
-                    <Icon Name="arrow-right" Size="18" />
+                    <Icon Name="arrow-right" Size="16" />
                 </a>
                 <a class="pf-button pf-button--ghost" href="@LanguageContext.BuildHref("contact")">
-                    <Icon Name="mail" Size="18" />
+                    <Icon Name="mail" Size="16" />
                     <span>@Localizer["Hero.CtaContact"]</span>
                 </a>
             </div>
@@ -34,7 +37,7 @@
                 @foreach (var area in Profile.FocusAreas)
                 {
                     <li>
-                        <Icon Name="check" Size="14" />
+                        <Icon Name="check" Size="13" />
                         @area
                     </li>
                 }
@@ -42,32 +45,40 @@
         </div>
 
         <aside class="pf-hero__sidebar" aria-label="@Localizer["Hero.ProfileAria"]">
-            <div class="pf-card pf-code">
-                <div class="pf-code__bar" aria-hidden="true">
-                    <span class="pf-code__dot"></span>
-                    <span class="pf-code__dot"></span>
-                    <span class="pf-code__dot"></span>
-                    <span class="pf-code__file">Developer.cs</span>
+            <div class="pf-dossier">
+                <div class="pf-dossier__head">
+                    <span class="pf-dossier__tag">@Localizer["Hero.ProfileAria"]</span>
+                    <span class="pf-dossier__year" aria-hidden="true">@DateTime.UtcNow.Year</span>
                 </div>
-                <pre class="pf-code__body"><code>public sealed class Developer
-{
-    public string Name => "@Profile.Name";
-    public string Role => "@Profile.Role";
-    public string Location => "@Profile.Location";
-    public string[] Focus => ["Backend", "APIs", "Blazor", "MAUI"];
-}</code></pre>
-            </div>
 
-            <div class="pf-hero__socials">
-                <a class="pf-social" href="@Profile.GitHubUrl" target="_blank" rel="noopener noreferrer" aria-label="@Localizer["Common.GithubAria"]">
-                    <Icon Name="github" Size="20" />
-                </a>
-                <a class="pf-social" href="@Profile.LinkedInUrl" target="_blank" rel="noopener noreferrer" aria-label="@Localizer["Common.LinkedInAria"]">
-                    <Icon Name="linkedin" Size="20" />
-                </a>
-                <a class="pf-social" href="@($"mailto:{Profile.Email}")" aria-label="@Localizer["Common.EmailAria", Profile.Name]">
-                    <Icon Name="mail" Size="20" />
-                </a>
+                <span class="pf-dossier__monogram" aria-hidden="true">@Profile.Initials</span>
+
+                <dl class="pf-dossier__facts">
+                    <div class="pf-dossier__fact">
+                        <dt>@Localizer["Contact.Location.Label"]</dt>
+                        <dd>@Profile.Location</dd>
+                    </div>
+                    <div class="pf-dossier__fact">
+                        <dt>@Localizer["Stats.Years.Label"]</dt>
+                        <dd>@Profile.YearsOfExperience</dd>
+                    </div>
+                    <div class="pf-dossier__fact">
+                        <dt>@Localizer["Hero.FocusAria"]</dt>
+                        <dd>@string.Join(" · ", Profile.FocusAreas)</dd>
+                    </div>
+                </dl>
+
+                <div class="pf-hero__socials">
+                    <a class="pf-social" href="@Profile.GitHubUrl" target="_blank" rel="noopener noreferrer" aria-label="@Localizer["Common.GithubAria"]">
+                        <Icon Name="github" Size="18" />
+                    </a>
+                    <a class="pf-social" href="@Profile.LinkedInUrl" target="_blank" rel="noopener noreferrer" aria-label="@Localizer["Common.LinkedInAria"]">
+                        <Icon Name="linkedin" Size="18" />
+                    </a>
+                    <a class="pf-social" href="@($"mailto:{Profile.Email}")" aria-label="@Localizer["Common.EmailAria", Profile.Name]">
+                        <Icon Name="mail" Size="18" />
+                    </a>
+                </div>
             </div>
         </aside>
     </div>

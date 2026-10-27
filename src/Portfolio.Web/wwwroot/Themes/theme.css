@@ -1,54 +1,75 @@
 /* ==========================================================================
-   Theme: Dark Premium
+   Theme: Editorial Technical
    Design tokens, reset and base typography. No external dependencies.
    ========================================================================== */
 
 :root {
-    /* Palette */
-    --pf-bg: #0D1117;
-    --pf-surface: #161B22;
-    --pf-surface-2: #21262D;
-    --pf-border: #30363D;
-    --pf-border-soft: rgba(48, 54, 61, 0.65);
-    --pf-text: #FFFFFF;
-    --pf-text-body: #E6EDF3;
-    --pf-text-muted: #8B949E;
-    --pf-primary: #58A6FF;
-    --pf-primary-soft: #79C0FF;
-    --pf-primary-bright: #A5D6FF;
-    --pf-primary-deep: #1F6FEB;
-    --pf-success: #56D364;
-    --pf-warning: #D29922;
+    color-scheme: dark;
 
-    /* Gradients */
-    --pf-gradient-primary: linear-gradient(120deg, #79C0FF 0%, #58A6FF 52%, #1F6FEB 100%);
-    --pf-gradient-text: linear-gradient(100deg, #A5D6FF 0%, #58A6FF 55%, #79C0FF 100%);
-    --pf-gradient-card: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0) 42%);
-    --pf-glass: rgba(22, 27, 34, 0.72);
+    /* Palette: warm ink, bone text and signal accents. */
+    --pf-bg: #0C0A08;
+    --pf-surface: #15120F;
+    --pf-surface-2: #1D1915;
+    --pf-surface-3: #25201A;
+    --pf-border: #2B2620;
+    --pf-border-soft: rgba(245, 240, 230, 0.08);
+    --pf-border-strong: rgba(245, 240, 230, 0.18);
+    --pf-text: #F5F0E6;
+    --pf-text-body: #DAD3C7;
+    --pf-text-muted: #A69D8F;
 
-    /* Shape and depth */
-    --pf-radius-sm: 10px;
-    --pf-radius-md: 14px;
-    --pf-radius-lg: 20px;
+    /* Signal accents. */
+    --pf-accent-primary: #C9F24D;
+    --pf-accent-primary-soft: #DDFF8F;
+    --pf-accent-primary-bright: #EBFFC0;
+    --pf-accent-primary-deep: #8FAE2F;
+    --pf-accent-secondary: #FF7A5C;
+    --pf-accent-secondary-soft: #FFA08A;
+
+    /* Semantic category accents. */
+    --pf-accent-backend: #C9F24D;
+    --pf-accent-frontend: #FF7A5C;
+    --pf-accent-mobile: #8FB5FF;
+    --pf-accent-cloud: #6FE3C4;
+    --pf-accent-architecture: #E8C46B;
+
+    --pf-success: #8FE388;
+    --pf-warning: #E8C46B;
+
+    /* Backwards-compatible aliases used by components. */
+    --pf-primary: var(--pf-accent-primary);
+    --pf-primary-soft: var(--pf-accent-primary-soft);
+    --pf-primary-bright: var(--pf-accent-primary-bright);
+    --pf-primary-deep: var(--pf-accent-primary-deep);
+
+    /* Gradients and surfaces. */
+    --pf-gradient-primary: linear-gradient(90deg, var(--pf-accent-primary), var(--pf-accent-secondary));
+    --pf-glass: rgba(12, 10, 8, 0.92);
+
+    /* Shape and depth: editorial, sharp and restrained. */
+    --pf-radius-sm: 2px;
+    --pf-radius-md: 3px;
+    --pf-radius-lg: 4px;
     --pf-radius-pill: 999px;
-    --pf-shadow-sm: 0 1px 2px rgba(1, 4, 9, 0.5);
-    --pf-shadow-md: 0 14px 34px -16px rgba(1, 4, 9, 0.75);
-    --pf-shadow-lg: 0 28px 64px -28px rgba(1, 4, 9, 0.9);
-    --pf-glow: 0 12px 40px -14px rgba(88, 166, 255, 0.45);
+    --pf-shadow-sm: 0 1px 0 rgba(245, 240, 230, 0.04);
+    --pf-shadow-md: 0 18px 40px -32px rgba(0, 0, 0, 0.85);
+    --pf-shadow-lg: 0 30px 60px -40px rgba(0, 0, 0, 0.9);
+    --pf-glow: 0 0 0 1px rgba(201, 242, 77, 0.24);
 
-    /* Layout */
-    --pf-container: 1140px;
-    --pf-gutter: clamp(1.25rem, 4vw, 2rem);
-    --pf-section-y: clamp(4rem, 9vw, 7rem);
-    --pf-header-height: 72px;
+    /* Layout. */
+    --pf-container: 1240px;
+    --pf-gutter: clamp(1.25rem, 4vw, 2.5rem);
+    --pf-section-y: clamp(4.5rem, 9vw, 8rem);
+    --pf-header-height: 76px;
 
-    /* Type */
+    /* Type. */
+    --pf-font-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, ui-serif, serif;
     --pf-font-sans: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
     --pf-font-mono: ui-monospace, "Cascadia Code", "SF Mono", Consolas, monospace;
 
-    /* Motion */
-    --pf-transition: 220ms cubic-bezier(0.2, 0.7, 0.3, 1);
-    --pf-transition-slow: 420ms cubic-bezier(0.2, 0.7, 0.3, 1);
+    /* Motion. */
+    --pf-transition: 180ms cubic-bezier(0.22, 1, 0.36, 1);
+    --pf-transition-slow: 360ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 *,
@@ -59,7 +80,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: calc(var(--pf-header-height) + 1rem);
+    scroll-padding-top: calc(var(--pf-header-height) + 1.5rem);
     -webkit-text-size-adjust: 100%;
 }
 
@@ -74,9 +95,10 @@ body {
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
+    counter-reset: section;
 }
 
-/* Ambient background: subtle grid plus a top glow. */
+/* Ambient background: warm signal washes and a faint technical rhythm. */
 body::before,
 body::after {
     content: "";
@@ -87,17 +109,20 @@ body::after {
 }
 
 body::before {
-    background-image:
-        linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
-    background-size: 64px 64px;
+    background:
+        radial-gradient(55% 42% at 88% -10%, rgba(201, 242, 77, 0.07), transparent 70%),
+        radial-gradient(42% 36% at 0% 18%, rgba(255, 122, 92, 0.045), transparent 72%);
 }
 
 body::after {
     z-index: -1;
-    background:
-        radial-gradient(58% 46% at 50% -8%, rgba(88, 166, 255, 0.16), transparent 72%),
-        radial-gradient(40% 30% at 100% 10%, rgba(31, 111, 235, 0.1), transparent 70%);
+    background-image: repeating-linear-gradient(
+        180deg,
+        rgba(245, 240, 230, 0.018) 0,
+        rgba(245, 240, 230, 0.018) 1px,
+        transparent 1px,
+        transparent 96px
+    );
 }
 
 img,
@@ -112,25 +137,29 @@ h3,
 h4 {
     margin: 0;
     color: var(--pf-text);
-    font-weight: 700;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
+    font-family: var(--pf-font-display);
+    font-weight: 600;
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
 }
 
 h1 {
-    font-size: clamp(2.5rem, 6vw, 4.25rem);
+    font-size: clamp(3rem, 8vw, 6rem);
 }
 
 h2 {
-    font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+    font-size: clamp(2rem, 4.2vw, 3.3rem);
 }
 
 h3 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    line-height: 1.15;
 }
 
 p {
     margin: 0;
+    text-wrap: pretty;
 }
 
 ul,
@@ -141,13 +170,15 @@ ol {
 }
 
 a {
-    color: var(--pf-primary-soft);
+    color: var(--pf-accent-primary-soft);
     text-decoration: none;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
     transition: color var(--pf-transition);
 }
 
 a:hover {
-    color: var(--pf-primary-bright);
+    color: var(--pf-accent-primary-bright);
 }
 
 button {
@@ -160,14 +191,14 @@ pre {
 }
 
 ::selection {
-    background: rgba(88, 166, 255, 0.35);
-    color: #fff;
+    background: var(--pf-accent-primary);
+    color: var(--pf-bg);
 }
 
 :focus-visible {
-    outline: 2px solid var(--pf-primary-soft);
+    outline: 2px solid var(--pf-accent-primary);
     outline-offset: 3px;
-    border-radius: 4px;
+    border-radius: 2px;
 }
 
 ::-webkit-scrollbar {
@@ -179,13 +210,13 @@ pre {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--pf-surface-2);
+    background: var(--pf-surface-3);
     border: 3px solid var(--pf-bg);
     border-radius: var(--pf-radius-pill);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--pf-border);
+    background: var(--pf-border-strong);
 }
 
 /* Utilities ---------------------------------------------------------------- */
@@ -216,39 +247,45 @@ pre {
 .pf-eyebrow {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
+    gap: 0.55rem;
+    color: var(--pf-accent-primary);
+    font-family: var(--pf-font-mono);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    line-height: 1.4;
     text-transform: uppercase;
-    color: var(--pf-primary-soft);
 }
 
 .pf-tag {
     display: inline-flex;
     align-items: center;
-    padding: 0.25rem 0.6rem;
+    padding: 0.28rem 0.55rem;
     border: 1px solid var(--pf-border);
-    border-radius: var(--pf-radius-pill);
-    background: rgba(255, 255, 255, 0.03);
+    border-radius: var(--pf-radius-sm);
+    background: transparent;
     color: var(--pf-text-muted);
-    font-size: 0.78rem;
+    font-family: var(--pf-font-mono);
+    font-size: 0.66rem;
     font-weight: 500;
+    letter-spacing: 0.04em;
 }
 
 .pf-link {
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    color: var(--pf-primary-soft);
+    color: var(--pf-accent-primary-soft);
+    font-family: var(--pf-font-mono);
+    font-size: 0.72rem;
     font-weight: 600;
-    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
 }
 
 .pf-link:hover {
-    color: var(--pf-primary-bright);
+    color: var(--pf-accent-primary-bright);
     text-decoration: underline;
-    text-underline-offset: 3px;
 }
 
 /* Motion ------------------------------------------------------------------- */
@@ -256,7 +293,7 @@ pre {
 @keyframes pf-reveal {
     from {
         opacity: 0;
-        translate: 0 18px;
+        translate: 0 14px;
     }
 
     to {
@@ -279,8 +316,8 @@ pre {
     }
 
     50% {
-        transform: scale(1.6);
-        opacity: 0.35;
+        transform: scale(1.7);
+        opacity: 0.3;
     }
 }
 
@@ -301,7 +338,8 @@ pre {
         .pf-stats,
         .pf-timeline__item,
         .pf-layers__item,
-        .pf-quality__item {
+        .pf-quality__item,
+        .pf-dossier {
             animation: pf-reveal both;
             animation-timeline: view();
             animation-range: entry 0% entry 55%;
@@ -320,5 +358,14 @@ pre {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
+    }
+}
+
+@media (prefers-contrast: more) {
+    :root {
+        --pf-border: #4A4238;
+        --pf-border-soft: rgba(245, 240, 230, 0.24);
+        --pf-border-strong: rgba(245, 240, 230, 0.38);
+        --pf-text-muted: #C4BBAE;
     }
 }
