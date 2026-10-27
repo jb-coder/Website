@@ -1,5 +1,6 @@
 using Portfolio.Web.Models;
 using Portfolio.Web.Services.Abstractions;
+using Portfolio.Web.Shared;
 
 namespace Portfolio.Web.Services.Repositories;
 
@@ -10,22 +11,22 @@ public sealed class TechnologyRepository : ITechnologyRepository
 {
     private static readonly IReadOnlyList<Technology> CoreTechnologies =
     [
-        new(".NET", TechnologyCategory.Backend, "cpu", "#58A6FF"),
-        new("C#", TechnologyCategory.Backend, "code", "#79C0FF"),
-        new("ASP.NET Core", TechnologyCategory.Backend, "server", "#A5D6FF"),
-        new("Minimal APIs", TechnologyCategory.Backend, "zap", "#58A6FF"),
-        new("Entity Framework Core", TechnologyCategory.Backend, "database", "#79C0FF"),
-        new("SQL Server", TechnologyCategory.Backend, "hard-drive", "#A5D6FF"),
-        new("Blazor", TechnologyCategory.Frontend, "layout", "#58A6FF"),
-        new("Modern CSS", TechnologyCategory.Frontend, "droplet", "#79C0FF"),
-        new(".NET MAUI", TechnologyCategory.Mobile, "smartphone", "#A5D6FF"),
-        new("Azure", TechnologyCategory.Cloud, "cloud", "#58A6FF"),
-        new("Azure Functions", TechnologyCategory.Cloud, "zap", "#79C0FF"),
-        new("Docker", TechnologyCategory.Cloud, "box", "#A5D6FF"),
-        new("Azure DevOps", TechnologyCategory.Cloud, "git-branch", "#58A6FF"),
-        new("Clean Architecture", TechnologyCategory.Architecture, "layers", "#79C0FF"),
-        new("CQRS", TechnologyCategory.Architecture, "repeat", "#A5D6FF"),
-        new("DDD", TechnologyCategory.Architecture, "hexagon", "#58A6FF"),
+        new(".NET", TechnologyCategory.Backend, "cpu", PortfolioAccents.Backend),
+        new("C#", TechnologyCategory.Backend, "code", PortfolioAccents.Backend),
+        new("ASP.NET Core", TechnologyCategory.Backend, "server", PortfolioAccents.Backend),
+        new("Minimal APIs", TechnologyCategory.Backend, "zap", PortfolioAccents.Backend),
+        new("Entity Framework Core", TechnologyCategory.Backend, "database", PortfolioAccents.Backend),
+        new("SQL Server", TechnologyCategory.Backend, "hard-drive", PortfolioAccents.Backend),
+        new("Blazor", TechnologyCategory.Frontend, "layout", PortfolioAccents.Frontend),
+        new("Modern CSS", TechnologyCategory.Frontend, "droplet", PortfolioAccents.Frontend),
+        new(".NET MAUI", TechnologyCategory.Mobile, "smartphone", PortfolioAccents.Mobile),
+        new("Azure", TechnologyCategory.Cloud, "cloud", PortfolioAccents.Cloud),
+        new("Azure Functions", TechnologyCategory.Cloud, "zap", PortfolioAccents.Cloud),
+        new("Docker", TechnologyCategory.Cloud, "box", PortfolioAccents.Cloud),
+        new("Azure DevOps", TechnologyCategory.Cloud, "git-branch", PortfolioAccents.Cloud),
+        new("Clean Architecture", TechnologyCategory.Architecture, "layers", PortfolioAccents.Architecture),
+        new("CQRS", TechnologyCategory.Architecture, "repeat", PortfolioAccents.Architecture),
+        new("DDD", TechnologyCategory.Architecture, "hexagon", PortfolioAccents.Architecture),
     ];
 
     public Task<IReadOnlyList<Technology>> GetCoreAsync(CancellationToken cancellationToken = default)

@@ -4,6 +4,7 @@ using Portfolio.Web.Models.ViewModels;
 using Portfolio.Web.Services.Abstractions;
 using Portfolio.Web.Services.Mediator;
 using Portfolio.Web.Services.Options;
+using Portfolio.Web.Shared;
 
 namespace Portfolio.Web.Features.Home;
 
@@ -36,25 +37,25 @@ public sealed class GetPortfolioStatisticsQueryHandler(
                 localizer["Stats.Years.Label"],
                 localizer["Stats.Years.Description"],
                 "briefcase",
-                "#58A6FF"),
+                PortfolioAccents.Primary),
             new StatsCardViewModel(
                 $"{portfolio.CompletedProjects}+",
                 localizer["Stats.Projects.Label"],
                 localizer["Stats.Projects.Description"],
                 "box",
-                "#79C0FF"),
+                PortfolioAccents.Secondary),
             new StatsCardViewModel(
                 $"{skills.Count}",
                 localizer["Stats.Technologies.Label"],
                 localizer["Stats.Technologies.Description"],
                 "cpu",
-                "#A5D6FF"),
+                PortfolioAccents.Mobile),
             new StatsCardViewModel(
                 $"{patterns.Count}",
                 localizer["Stats.Patterns.Label"],
                 localizer["Stats.Patterns.Description"],
                 "layers",
-                "#6CB6FF"),
+                PortfolioAccents.Architecture),
         ];
     }
 }

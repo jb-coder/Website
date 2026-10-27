@@ -1,12 +1,11 @@
 @inject ITranslator Localizer
 
 <article class="pf-card pf-project" id="@Project.Id" style="--project-accent: @Project.Accent">
-    <div class="pf-project__visual" aria-hidden="true">
-        <Icon Name="@Project.Icon" Size="34" />
-    </div>
-
     <div class="pf-project__body">
         <div class="pf-project__meta">
+            <span class="pf-project__icon" aria-hidden="true">
+                <Icon Name="@Project.Icon" Size="16" />
+            </span>
             <span class="pf-project__category">@Project.CategoryLabel</span>
             <span class="pf-project__year">@Project.Year</span>
             @if (Project.IsFeatured)

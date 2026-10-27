@@ -2,9 +2,10 @@
 
 ## Responsabilidad
 
-Renderizar un proyecto ya proyectado a `ProjectCardViewModel`: cabecera visual,
-metadatos, descripción, hitos, badges de tecnología, estado y enlaces. Es
-puramente declarativo; no conoce el modelo `Project` ni las estrategias.
+Renderizar un proyecto ya proyectado a `ProjectCardViewModel`: fila de
+metadatos con icono de categoría, título editorial, descripción, hitos, badges
+de tecnología, estado y enlaces. Es puramente declarativo; no conoce el modelo
+`Project` ni las estrategias.
 
 ## Inputs
 
@@ -19,6 +20,7 @@ El view model incluye: `Id`, `Title`, `Summary`, `Description`,
 ## Outputs
 
 - HTML semántico `<article>` con `<footer>` interno.
+- Icono de categoría en la fila de metadatos, sin cabecera visual de altura fija.
 - Enlaces externos solo si `RepositoryUrl`/`LiveUrl` tienen valor.
 - Sin eventos ni callbacks: el componente no es interactivo.
 

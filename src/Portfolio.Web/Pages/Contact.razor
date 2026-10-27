@@ -20,22 +20,22 @@
                          Value="@Profile.Email"
                          Href="@($"mailto:{Profile.Email}?subject=Opportunity%20for%20{Profile.Name}")"
                          Icon="mail"
-                         Accent="#58A6FF" />
+                         Accent="@PortfolioAccents.Primary" />
             <ContactCard Label="@Localizer["Contact.LinkedIn.Label"]"
                          Value="@Localizer["Contact.LinkedIn.Value"]"
                          Href="@Profile.LinkedInUrl"
                          Icon="linkedin"
-                         Accent="#79C0FF" />
+                         Accent="@PortfolioAccents.Mobile" />
             <ContactCard Label="@Localizer["Contact.GitHub.Label"]"
                          Value="@Localizer["Contact.GitHub.Value"]"
                          Href="@Profile.GitHubUrl"
                          Icon="github"
-                         Accent="#A5D6FF" />
+                         Accent="@PortfolioAccents.Cloud" />
             <ContactCard Label="@Localizer["Contact.Location.Label"]"
                          Value="@Profile.Location"
                          Href="@BuildMapUrl()"
                          Icon="map-pin"
-                         Accent="#6CB6FF" />
+                         Accent="@PortfolioAccents.Architecture" />
         </div>
 
         <div class="pf-card pf-contact-note">
